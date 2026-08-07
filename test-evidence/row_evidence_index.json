@@ -1,0 +1,1725 @@
+{
+  "acceptance_ran": 189,
+  "blocked": 0,
+  "counter_sum_equals_rows": true,
+  "documented": 92,
+  "generated_at": "2026-08-05T20:10:19.051283+00:00",
+  "index_covers_every_row": true,
+  "partial_regeneration_note": "Regenerated for changed rows only, in three rounds. First for E-03, E-04, U-11, U-12, S-06, S-08, S-09. Then for the 85 parity rows, whose logs are documentary records rather than executed acceptance runs because none of those rows is implemented yet. Then again for the parity rows whose status or requirement text was corrected under adversarial review, because the log header mirrors those fields. A wholesale re-run shells out to docker build for two rows, which the project's Docker isolation rule forbids. Every other row's log is the one its own acceptance run produced.",
+  "per_row": [
+    {
+      "exit_code": 0,
+      "id": "A-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-11",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "A-12",
+      "kind": "pytest",
+      "log": "test-evidence/rows/A-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "B-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/B-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-11",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "C-12",
+      "kind": "pytest",
+      "log": "test-evidence/rows/C-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/D-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/D-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/D-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/D-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/D-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-06",
+      "kind": "documented",
+      "log": "test-evidence/rows/D-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "D-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/D-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "E-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/E-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/F-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-10",
+      "kind": "shell",
+      "log": "test-evidence/rows/F-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-14",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-15",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-15.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-16",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-16.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-17",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-17.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-18",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-18.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-19",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-19.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "F-20",
+      "kind": "documented",
+      "log": "test-evidence/rows/F-20.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-07",
+      "kind": "documented",
+      "log": "test-evidence/rows/G-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "G-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/G-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-11",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-12",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-13",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "H-14",
+      "kind": "pytest",
+      "log": "test-evidence/rows/H-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/I-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "I-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/I-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-01",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-02",
+      "kind": "shell",
+      "log": "test-evidence/rows/J-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-03",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-04",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-05",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-06",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-07",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-08",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-10",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-14",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-15",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-15.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-16",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-16.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "J-17",
+      "kind": "documented",
+      "log": "test-evidence/rows/J-17.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-01",
+      "kind": "documented",
+      "log": "test-evidence/rows/K-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-02",
+      "kind": "documented",
+      "log": "test-evidence/rows/K-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-03",
+      "kind": "shell",
+      "log": "test-evidence/rows/K-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-04",
+      "kind": "shell",
+      "log": "test-evidence/rows/K-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-05",
+      "kind": "shell",
+      "log": "test-evidence/rows/K-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-06",
+      "kind": "shell",
+      "log": "test-evidence/rows/K-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-07",
+      "kind": "shell",
+      "log": "test-evidence/rows/K-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-08",
+      "kind": "shell",
+      "log": "test-evidence/rows/K-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/K-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-10",
+      "kind": "documented",
+      "log": "test-evidence/rows/K-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-11",
+      "kind": "pytest",
+      "log": "test-evidence/rows/K-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/K-12.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "K-13",
+      "kind": "pytest",
+      "log": "test-evidence/rows/K-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "K-14",
+      "kind": "documented",
+      "log": "test-evidence/rows/K-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/L-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-02",
+      "kind": "shell",
+      "log": "test-evidence/rows/L-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-03",
+      "kind": "documented",
+      "log": "test-evidence/rows/L-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-04",
+      "kind": "shell",
+      "log": "test-evidence/rows/L-04.log"
+    },
+    {
+      "exit_code": 1,
+      "id": "L-05",
+      "kind": "shell",
+      "log": "test-evidence/rows/L-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-06",
+      "kind": "documented",
+      "log": "test-evidence/rows/L-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/L-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-08",
+      "kind": "shell",
+      "log": "test-evidence/rows/L-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/L-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/L-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "L-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/L-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "M-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/M-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-08.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "N-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-09.log"
+    },
+    {
+      "exit_code": 1,
+      "id": "N-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-11",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-12",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-13",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-14",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-15",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-15.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-16",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-16.log"
+    },
+    {
+      "exit_code": 1,
+      "id": "N-17",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-17.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-18",
+      "kind": "documented",
+      "log": "test-evidence/rows/N-18.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-19",
+      "kind": "documented",
+      "log": "test-evidence/rows/N-19.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-20",
+      "kind": "documented",
+      "log": "test-evidence/rows/N-20.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-21",
+      "kind": "documented",
+      "log": "test-evidence/rows/N-21.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-22",
+      "kind": "documented",
+      "log": "test-evidence/rows/N-22.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-23",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-23.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "N-24",
+      "kind": "pytest",
+      "log": "test-evidence/rows/N-24.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-06.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "O-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/O-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-08",
+      "kind": "documented",
+      "log": "test-evidence/rows/O-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "O-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/O-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "P-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/P-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "P-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/P-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "P-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/P-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "P-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/P-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/Q-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/Q-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/Q-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-04",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-05",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-06",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-07",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-08",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-10",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-14",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "Q-15",
+      "kind": "documented",
+      "log": "test-evidence/rows/Q-15.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/R-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/R-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/R-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/R-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/R-05.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "R-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/R-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-07",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-08",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-10",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-14",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-15",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-15.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-16",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-16.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-17",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-17.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-18",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-18.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-19",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-19.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-20",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-20.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-21",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-21.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-22",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-22.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-23",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-23.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-24",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-24.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "R-25",
+      "kind": "documented",
+      "log": "test-evidence/rows/R-25.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "S-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-01.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "S-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-03.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "S-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-04.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "S-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-06.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "S-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-07.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/S-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-10",
+      "kind": "documented",
+      "log": "test-evidence/rows/S-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/S-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/S-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "S-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/S-13.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-01.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-02.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-03.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-04.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-05.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-06.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-07.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "T-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/T-08.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "T-09",
+      "kind": "documented",
+      "log": "test-evidence/rows/T-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "T-10",
+      "kind": "documented",
+      "log": "test-evidence/rows/T-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "T-11",
+      "kind": "documented",
+      "log": "test-evidence/rows/T-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "T-12",
+      "kind": "documented",
+      "log": "test-evidence/rows/T-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "T-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/T-13.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-01.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-02.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-03.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-04",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-04.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-05",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-05.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-06",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-06.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-07.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-08",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-08.log"
+    },
+    {
+      "exit_code": 0,
+      "from_committed_log": true,
+      "id": "U-09",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-09.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-10",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-10.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-11",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-11.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-12",
+      "kind": "pytest",
+      "log": "test-evidence/rows/U-12.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-13",
+      "kind": "documented",
+      "log": "test-evidence/rows/U-13.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-14",
+      "kind": "documented",
+      "log": "test-evidence/rows/U-14.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-15",
+      "kind": "documented",
+      "log": "test-evidence/rows/U-15.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "U-16",
+      "kind": "documented",
+      "log": "test-evidence/rows/U-16.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-01",
+      "kind": "pytest",
+      "log": "test-evidence/rows/V-01.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-02",
+      "kind": "pytest",
+      "log": "test-evidence/rows/V-02.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-03",
+      "kind": "pytest",
+      "log": "test-evidence/rows/V-03.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-04",
+      "kind": "documented",
+      "log": "test-evidence/rows/V-04.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-05",
+      "kind": "documented",
+      "log": "test-evidence/rows/V-05.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-06",
+      "kind": "documented",
+      "log": "test-evidence/rows/V-06.log"
+    },
+    {
+      "exit_code": 0,
+      "id": "V-07",
+      "kind": "pytest",
+      "log": "test-evidence/rows/V-07.log"
+    }
+  ],
+  "rows": 281,
+  "rows_without_evidence_log": []
+}

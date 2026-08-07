@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: B-06
+# area: Ingestion
+# requirement: Local directory import with allowlists
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_directory_import.py -q
+# generated_at: 2026-08-04T03:42:21.479114+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 0.06s

@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-02
+# area: Evidence and reproducibility
+# requirement: Expanded representative corpora and a tracked published results document with sizes and seeds
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/benchmark/test_harness.py::test_expanded_corpora_are_representative -q
+# generated_at: 2026-08-04T05:39:52.968625+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 0.02s

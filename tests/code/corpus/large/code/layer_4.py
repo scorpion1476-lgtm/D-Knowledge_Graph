@@ -1,0 +1,26 @@
+"""Layer 4, between the leaf modules and core."""
+
+from core import core_entry, core_util_0
+
+def layer_4_step_0(value):
+    return core_util_0(value) + 0
+
+def layer_4_step_1(value):
+    return core_util_0(value) + 1
+
+def layer_4_step_2(value):
+    return core_util_0(value) + 2
+
+def layer_4_gateway(value):
+    total = core_entry(value)
+    total += layer_4_step_0(value)
+    total += layer_4_step_1(value)
+    total += layer_4_step_2(value)
+    return total
+
+class Layer4Service:
+    def handle(self, value):
+        return layer_4_gateway(value)
+
+    def describe(self):
+        return "layer 4"

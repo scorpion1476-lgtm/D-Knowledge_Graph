@@ -1,0 +1,14 @@
+{
+  "ariadne_files_in_wheel": [
+    "dkg/ariadne/__init__.py",
+    "dkg/ariadne/detector.py"
+  ],
+  "ariadne_included": true,
+  "python": "3.10.15",
+  "reproducible": true,
+  "sha256_build1": "87986d084932bd12fd59063e3ab764eeb98bfd168fecc6770f1f130ee8f8c80d",
+  "sha256_build2": "87986d084932bd12fd59063e3ab764eeb98bfd168fecc6770f1f130ee8f8c80d",
+  "source_date_epoch": "1700000000",
+  "status": "ran",
+  "wheel": "d_knowledge_graph-0.1.0-py3-none-any.whl"
+}

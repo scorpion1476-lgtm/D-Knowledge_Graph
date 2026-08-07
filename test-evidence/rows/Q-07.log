@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-07
+# area: Advanced code analysis
+# requirement: Compute an advisory risk score in the range 0 to 1 for a change set from documented factors (execution-flow participation, community crossing, test-coverage status, security-sensitive naming, and caller count), report every factor's contribution, and map the score to named levels with published thresholds
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_risk_score.py -q
+# generated_at: 2026-08-06T16:24:47.900592+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_risk_score.py
+# exit_code: 0
+...............                                                          [100%]
+15 passed in 0.63s

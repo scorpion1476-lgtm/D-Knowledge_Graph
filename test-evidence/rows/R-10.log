@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-10
+# area: Delivery and distribution
+# requirement: Detect how the tool was installed and generate a launch command that works on the user's machine, preferring an isolated runner when one is present and falling back to the console script, never writing a machine-specific absolute path into a shared configuration file
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_runner_detection.py -q
+# generated_at: 2026-08-06T21:31:07.504051+00:00
+# action_kind: executed
+# exit_code: 0
+
+...................                                                      [100%]
+19 passed in 0.33s

@@ -1,0 +1,127 @@
+name: Bug report
+description: Something behaves differently from what the documentation says it does.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing, check `docs/TROUBLESHOOTING.md`. It covers install and
+        path problems, server start-up failures, database lock and staleness,
+        missing optional components, and the platform-specific issues, each with
+        the symptom, the cause, and the fix.
+
+        Do not report a security problem here. See `SECURITY.md` for the private
+        channel.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you file
+      options:
+        - label: I read `docs/TROUBLESHOOTING.md` and my problem is not covered there.
+          required: true
+        - label: This is not a security vulnerability. (If it is, close this and follow `SECURITY.md`.)
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The output of `dkg --version`.
+      placeholder: dkg 0.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: >-
+        macOS is the primary development platform. Linux is exercised through a
+        container image. Windows and its Linux subsystem are not exercised, so a
+        report from either is especially useful.
+      options:
+        - macOS
+        - Linux (bare metal)
+        - Linux (container)
+        - Windows
+        - Windows Subsystem for Linux
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: platform_detail
+    attributes:
+      label: Platform detail and Python version
+      description: The `interpreter` block of `python scripts/probe_environment.py`, or just the version strings.
+      placeholder: macOS 15.7 x86_64, CPython 3.11.9
+    validations:
+      required: true
+
+  - type: textarea
+    id: extras
+    attributes:
+      label: Extras present
+      description: >-
+        Which optional extras are installed. Paste the `extras.installed` and
+        `extras.not_installed` lists from `python scripts/probe_environment.py`,
+        or the output of `dkg capabilities`. The core has no mandatory runtime
+        dependency, so which extras are present usually decides the answer.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: >-
+        The exact commands, from a clean start, that produce the problem.
+        The smallest sequence that still shows it.
+      placeholder: |
+        dkg init
+        dkg ingest ./notes --recursive
+        dkg search "term"
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What you expected to happen, and what made you expect it (a document, a help string, a previous version).
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behaviour
+      description: What happened instead. Paste the exact output and the exact error, not a summary of it.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Diagnostics
+      description: >-
+        The output of `dkg doctor` and of `python scripts/probe_environment.py`.
+        Add `--offline` to the second if the machine has no network; the only
+        outbound request it can make is the disclosed package-index reachability
+        check.
+      render: json
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra_context
+    attributes:
+      label: Anything else
+      description: Workarounds you found, when it started, whether it is intermittent.
+    validations:
+      required: false

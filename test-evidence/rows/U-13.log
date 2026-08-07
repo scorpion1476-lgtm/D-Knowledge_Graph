@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-13
+# area: Token cost and context levers
+# requirement: Attach a compact estimated context-savings record (baseline, graph cost, saved amount and percentage, and a per-category breakdown that sums exactly to the graph cost) to the impact, review, change, and architecture results on both the CLI and the MCP surface, labelled estimated, with an opt-in cross-check against the real tokenizer and the calibration error published
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/benchmark/test_context_savings.py -q
+# generated_at: 2026-08-06T16:24:59.304660+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/benchmark/test_context_savings.py
+# exit_code: 0
+..................                                                       [100%]
+18 passed in 0.41s

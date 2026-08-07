@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: M-05
+# area: Media plane
+# requirement: HEIC and HEIF decode via an external tool under the copyleft carve-out
+# status: IMPLEMENTED BUT NOT FULLY VERIFIED
+# acceptance_test: pytest tests/media/test_images.py -q
+# generated_at: 2026-08-04T03:46:18.623832+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.26s

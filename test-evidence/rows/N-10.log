@@ -1,0 +1,18 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-10
+# area: Source-code plane
+# requirement: Parse a source-language surface of at least 35 languages plus notebook and single-file-component containers, spanning web, backend, systems, mobile, scripting, shell, and domain-specific families, including SQL and Perl XS, using only permissively licensed grammars; a language whose only available grammar is copyleft is reported not supported with the reason, never silently skipped
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_language_breadth.py -q
+# generated_at: 2026-08-07T07:47:24.477241+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+tests/code/test_language_breadth.py::test_published_accuracy_covers_every_claimed_language_and_states_fidelity
+  /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/src/dkg/code/capability.py:200: DeprecationWarning: int argument support is deprecated
+    return tree_sitter.Language(fn())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 0.32s

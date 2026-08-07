@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 64" width="480" height="64" role="img" aria-label="D-Knowledge_Graph wordmark">
+  <title>D-Knowledge_Graph</title>
+  <desc>Text-first wordmark for the D-Knowledge_Graph project. Original asset, not derived from any other product.</desc>
+  <style>
+    text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-weight: 600; letter-spacing: 0.02em; }
+    .ink { fill: currentColor; }
+    .subtle { fill: currentColor; opacity: 0.7; font-weight: 400; }
+  </style>
+  <g transform="translate(12,42)">
+    <text class="ink" font-size="28">D-Knowledge_Graph</text>
+  </g>
+  <g transform="translate(14,60)">
+    <text class="subtle" font-size="10">local-first, source-available, LLM-agnostic</text>
+  </g>
+</svg>

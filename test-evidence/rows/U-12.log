@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-12
+# area: Token cost and context levers
+# requirement: One-command token-cost harness aggregating all four tasks, reporting a saving as a win only when correctness held and labelling the naive route an upper bound
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/benchmark/test_token_cost.py -q -m 'not slow'
+# generated_at: 2026-08-05T08:59:05.312852+00:00
+# action_kind: pytest
+.............                                                            [100%]
+13 passed in 28.10s

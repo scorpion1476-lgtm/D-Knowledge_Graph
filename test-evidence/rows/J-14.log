@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-14
+# area: UX and docs
+# requirement: Publish a security policy at the repository root stating which versions are supported, the private reporting channel, what a report should contain, and the acknowledgement and fix timelines, linked from the existing security and threat models
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_security_policy.py -q
+# generated_at: 2026-08-06T21:31:23.039593+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+21 passed in 0.04s

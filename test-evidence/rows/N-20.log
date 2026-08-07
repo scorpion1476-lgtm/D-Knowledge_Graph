@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-20
+# area: Source-code plane
+# requirement: Offer an explicit opt-in that includes git submodule contents in code-graph file collection, off by default so the shape of an ingest never changes silently
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_submodules.py -q
+# generated_at: 2026-08-06T16:24:43.499997+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_submodules.py
+# exit_code: 0
+......                                                                   [100%]
+6 passed in 5.66s

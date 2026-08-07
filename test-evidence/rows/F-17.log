@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-17
+# area: MCP
+# requirement: Retrieve a named section of the shipped documentation through a read-only MCP tool confined to the packaged documentation set, so a client can read usage guidance without a filesystem read primitive behind the trust boundary
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k docs_tool
+# generated_at: 2026-08-06T09:23:04.796324+00:00
+# action_kind: executed
+# exit_code: 0
+
+......                                                                   [100%]
+6 passed, 23 deselected in 0.14s

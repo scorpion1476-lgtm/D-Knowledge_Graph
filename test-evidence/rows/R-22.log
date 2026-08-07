@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-22
+# area: Delivery and distribution
+# requirement: Make the offline viewer usable without a mouse and readable by assistive technology: every interactive element reachable and operable from the keyboard with a visible focus indicator, an accessible name on every control and node, a text alternative for the drawn graph, and text and non-text contrast meeting the published accessibility level, verified by an automated check
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_viz_accessibility.py -q
+# generated_at: 2026-08-06T21:31:15.506075+00:00
+# action_kind: executed
+# exit_code: 0
+
+...............                                                          [100%]
+15 passed in 0.66s

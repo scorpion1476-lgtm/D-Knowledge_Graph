@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-13
+# area: UX and docs
+# requirement: Publish a code of conduct at the repository root naming the standard it adopts, its scope, and how to report a concern
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_governance.py -q
+# generated_at: 2026-08-06T21:31:22.652958+00:00
+# action_kind: executed
+# exit_code: 0
+
+..............                                                           [100%]
+14 passed in 0.04s

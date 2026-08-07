@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: E-03
+# area: Evidence and safety
+# requirement: Claim level evidence linking
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_answer_packet.py -q
+# generated_at: 2026-08-05T08:06:16.222598+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.12s

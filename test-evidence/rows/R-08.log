@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-08
+# area: Delivery and distribution
+# requirement: Write each supported tool's native automation artifacts (its hook definitions and its skill or command package) in that tool's own documented format and location, atomically, leaving unrelated entries untouched
+# status: PARTIAL
+# acceptance_test: pytest tests/integration/test_platform_hooks_and_skills.py -q
+# generated_at: 2026-08-07T07:47:47.388899+00:00
+# action_kind: executed
+# exit_code: 0
+
+.................                                                        [100%]
+17 passed in 0.25s

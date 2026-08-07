@@ -1,0 +1,9 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-03
+# area: Cross platform
+# requirement: Windows support or documented limits
+# status: IMPLEMENTED BUT NOT FULLY VERIFIED
+# acceptance_test: manual review
+# generated_at: 2026-08-04T03:45:28.221908+00:00
+# action_kind: documented
+This row's acceptance is a manual review or an in-tree documentation check. This evidence file records that a review took place at the timestamp above. It is not an executed acceptance run. Do not promote this row to PRODUCTION READY on the basis of this file alone.

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-19
+# area: MCP
+# requirement: Validate the Origin and Host headers of every request to the served HTTP surface against an explicit allow-list and reject a mismatch before any handler runs, so a page in a browser cannot drive the local server merely by being on the same machine
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/security/test_http_origin_guard.py -q
+# generated_at: 2026-08-06T08:47:15.520545+00:00
+# action_kind: executed
+# exit_code: 0
+
+.............................                                            [100%]
+29 passed in 0.71s

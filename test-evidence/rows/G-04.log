@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: G-04
+# area: Skills and hooks
+# requirement: Slash commands: ingest, search, graph, evidence, export, status, doctor, backup, restore, audit
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/e2e/test_cli.py -q
+# generated_at: 2026-08-04T03:43:25.776521+00:00
+# action_kind: pytest
+.......                                                                  [100%]
+7 passed in 2.66s

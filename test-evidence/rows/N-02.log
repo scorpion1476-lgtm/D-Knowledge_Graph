@@ -1,0 +1,16 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-02
+# area: Source-code plane
+# requirement: Per-language parsing accuracy published (entity-extraction precision and recall)
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_accuracy.py tests/code/test_language_breadth.py -q
+# generated_at: 2026-08-05T19:22:54.023360+00:00
+# action_kind: pytest
+...                                                                      [100%]
+=============================== warnings summary ===============================
+tests/code/test_accuracy.py::test_per_language_parsing_accuracy
+  /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/src/dkg/code/capability.py:123: DeprecationWarning: int argument support is deprecated
+    return tree_sitter.Language(fn())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 0.52s

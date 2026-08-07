@@ -1,0 +1,16 @@
+{
+  "asr": {
+    "measured": false,
+    "reason": "no pre-staged ASR model; set DKG_ASR_MODEL to a local model path",
+    "samples": 4
+  },
+  "generated_at": "2026-08-02",
+  "ocr": {
+    "mean_cer": 0.0,
+    "mean_wer": 0.0,
+    "measured": true,
+    "samples": 10,
+    "tool": "tesseract",
+    "tool_version": "tesseract 5.5.1"
+  }
+}

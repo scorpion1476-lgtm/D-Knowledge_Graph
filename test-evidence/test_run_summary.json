@@ -1,0 +1,12 @@
+{
+  "errors": 0,
+  "failed": 0,
+  "interpreter": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/.venv/bin/python",
+  "log_name": "pytest.20260807T214852Z.log",
+  "log_sha256": "afecacfcc1e0a96666df6e7615c17d0b50306f0192f5bf2875590029be0b1469",
+  "measured": true,
+  "note": "Distilled from the run log named above by scripts/run_tests.sh. The log itself is gitignored and local; this summary is the committed record. Counts describe one environment: a run with different optional extras staged skips a different set. The run stops at the first failure (--maxfail=1), so when run_complete is false the passed count is a lower bound on a truncated run, not a total.",
+  "passed": 2788,
+  "run_complete": true,
+  "skipped": 6
+}

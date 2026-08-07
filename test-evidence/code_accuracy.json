@@ -1,0 +1,1194 @@
+{
+  "blast_radius": {
+    "found_impact": [
+      "chain.py::mid",
+      "chain.py::top",
+      "collide.py::uses_local_base"
+    ],
+    "label": "structural and over-approximate; refinements deferred to Wave 4",
+    "precision": 0.6667,
+    "recall": 1.0,
+    "true_impact": [
+      "chain.py::mid",
+      "chain.py::top"
+    ]
+  },
+  "generated_at": "2026-08-06",
+  "incremental": {
+    "files_total": 3,
+    "full_ingest_seconds": 0.0511,
+    "incremental_files_reparsed": 1,
+    "incremental_seconds": 0.0587,
+    "unchanged_files": 2
+  },
+  "parsing": {
+    "ansible": {
+      "correct": 9,
+      "expected": 9,
+      "extracted": 9,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "tree-sitter-yaml",
+      "licence": "MIT",
+      "per_file": {
+        "ansible/site.yml": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        },
+        "ansible/tasks.yml": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "astro": {
+      "correct": 5,
+      "expected": 5,
+      "extracted": 5,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "frontmatter extraction plus the TypeScript grammar",
+      "licence": "MIT",
+      "per_file": {
+        "astro/Card.astro": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        },
+        "astro/Page.astro": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "bash": {
+      "correct": 6,
+      "expected": 6,
+      "extracted": 6,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-bash",
+      "licence": "MIT",
+      "per_file": {
+        "bash/build.sh": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "bash/lib.ksh": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "c": {
+      "correct": 10,
+      "expected": 10,
+      "extracted": 10,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-c",
+      "licence": "MIT",
+      "per_file": {
+        "c/registry.c": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "c/shapes.c": {
+          "correct": 7,
+          "expected": 7,
+          "extracted": 7
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "cpp": {
+      "correct": 12,
+      "expected": 12,
+      "extracted": 12,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-cpp",
+      "licence": "MIT",
+      "per_file": {
+        "cpp/registry.cpp": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "cpp/shapes.cpp": {
+          "correct": 8,
+          "expected": 8,
+          "extracted": 8
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "csharp": {
+      "correct": 17,
+      "expected": 17,
+      "extracted": 17,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-c-sharp",
+      "licence": "MIT",
+      "per_file": {
+        "csharp/Registry.cs": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "csharp/Shapes.cs": {
+          "correct": 13,
+          "expected": 13,
+          "extracted": 13
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "dart": {
+      "correct": 13,
+      "expected": 13,
+      "extracted": 13,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-dart",
+      "licence": "MIT",
+      "per_file": {
+        "dart/registry.dart": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "dart/shapes.dart": {
+          "correct": 9,
+          "expected": 9,
+          "extracted": 9
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "databricks": {
+      "correct": 6,
+      "expected": 6,
+      "extracted": 6,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "notebook cell extraction plus the cell language grammar",
+      "licence": "MIT",
+      "per_file": {
+        "databricks/etl.py": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "databricks/report.py": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "elixir": {
+      "correct": 7,
+      "expected": 7,
+      "extracted": 7,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-elixir",
+      "licence": "Apache-2.0",
+      "per_file": {
+        "elixir/registry.ex": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "elixir/shapes.ex": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "gdscript": {
+      "correct": 10,
+      "expected": 10,
+      "extracted": 10,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "bundled grammar from https://github.com/PrestonKnopp/tree-sitter-gdscript, served by the 'code-bundle' extra",
+      "licence": "MIT",
+      "per_file": {
+        "gdscript/enemy.gd": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "gdscript/player.gd": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "go": {
+      "correct": 9,
+      "expected": 9,
+      "extracted": 9,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-go",
+      "licence": "MIT",
+      "per_file": {
+        "go/shapes.go": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        },
+        "go/shapes_test.go": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "hcl": {
+      "correct": 11,
+      "expected": 11,
+      "extracted": 11,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "tree-sitter-hcl",
+      "licence": "Apache-2.0",
+      "per_file": {
+        "hcl/main.tf": {
+          "correct": 8,
+          "expected": 8,
+          "extracted": 8
+        },
+        "hcl/nomad.hcl": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "java": {
+      "correct": 16,
+      "expected": 16,
+      "extracted": 16,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-java",
+      "licence": "MIT",
+      "per_file": {
+        "java/Registry.java": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "java/Shapes.java": {
+          "correct": 12,
+          "expected": 12,
+          "extracted": 12
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "javascript": {
+      "correct": 13,
+      "expected": 13,
+      "extracted": 13,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-javascript",
+      "licence": "MIT",
+      "per_file": {
+        "javascript/registry.js": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        },
+        "javascript/shapes.js": {
+          "correct": 8,
+          "expected": 8,
+          "extracted": 8
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "julia": {
+      "correct": 10,
+      "expected": 10,
+      "extracted": 10,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-julia",
+      "licence": "MIT",
+      "per_file": {
+        "julia/registry.jl": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "julia/shapes.jl": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "jupyter": {
+      "correct": 6,
+      "expected": 6,
+      "extracted": 6,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "notebook cell extraction plus the cell language grammar",
+      "licence": "MIT",
+      "per_file": {
+        "jupyter/analysis.ipynb": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "jupyter/loader.ipynb": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "kotlin": {
+      "correct": 12,
+      "expected": 12,
+      "extracted": 12,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-kotlin",
+      "licence": "MIT",
+      "per_file": {
+        "kotlin/Drawable.kt": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "kotlin/Shapes.kt": {
+          "correct": 8,
+          "expected": 8,
+          "extracted": 8
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "lua": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-lua",
+      "licence": "MIT",
+      "per_file": {
+        "lua/registry.lua": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "lua/shapes.lua": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "luau": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-luau",
+      "licence": "MIT",
+      "per_file": {
+        "luau/registry.luau": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "luau/shapes.luau": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "nix": {
+      "correct": 5,
+      "expected": 5,
+      "extracted": 5,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-nix",
+      "licence": "MIT",
+      "per_file": {
+        "nix/default.nix": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "nix/shell.nix": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "objc": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-objc",
+      "licence": "MIT",
+      "per_file": {
+        "objc/Registry.m": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "objc/Shape.m": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "perl": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "bundled grammar from https://github.com/tree-sitter-perl/tree-sitter-perl, served by the 'code-bundle' extra",
+      "licence": "MIT",
+      "per_file": {
+        "perl/Shapes.pm": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "perl/registry.pl": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "php": {
+      "correct": 16,
+      "expected": 16,
+      "extracted": 16,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-php",
+      "licence": "MIT",
+      "per_file": {
+        "php/Registry.php": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "php/Shapes.php": {
+          "correct": 12,
+          "expected": 12,
+          "extracted": 12
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "powershell": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-powershell",
+      "licence": "MIT",
+      "per_file": {
+        "powershell/Registry.psm1": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        },
+        "powershell/Shapes.ps1": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "python": {
+      "correct": 13,
+      "expected": 13,
+      "extracted": 13,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-python",
+      "licence": "MIT",
+      "per_file": {
+        "python/shapes.py": {
+          "correct": 9,
+          "expected": 9,
+          "extracted": 9
+        },
+        "python/test_shapes.py": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "r": {
+      "correct": 6,
+      "expected": 6,
+      "extracted": 6,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "bundled grammar from https://github.com/r-lib/tree-sitter-r, served by the 'code-bundle' extra",
+      "licence": "MIT",
+      "per_file": {
+        "r/model.R": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "r/plots.R": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "rescript": {
+      "correct": 9,
+      "expected": 9,
+      "extracted": 9,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "bundled grammar from https://github.com/rescript-lang/tree-sitter-rescript, served by the 'code-bundle' extra",
+      "licence": "MIT",
+      "per_file": {
+        "rescript/App.res": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        },
+        "rescript/Utils.res": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "ruby": {
+      "correct": 14,
+      "expected": 14,
+      "extracted": 14,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-ruby",
+      "licence": "MIT",
+      "per_file": {
+        "ruby/registry.rb": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        },
+        "ruby/shapes.rb": {
+          "correct": 9,
+          "expected": 9,
+          "extracted": 9
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "rust": {
+      "correct": 11,
+      "expected": 11,
+      "extracted": 11,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-rust",
+      "licence": "MIT",
+      "per_file": {
+        "rust/registry.rs": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "rust/shapes.rs": {
+          "correct": 8,
+          "expected": 8,
+          "extracted": 8
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "scala": {
+      "correct": 15,
+      "expected": 15,
+      "extracted": 15,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-scala",
+      "licence": "MIT",
+      "per_file": {
+        "scala/Registry.scala": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        },
+        "scala/Shapes.scala": {
+          "correct": 10,
+          "expected": 10,
+          "extracted": 10
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "solidity": {
+      "correct": 15,
+      "expected": 15,
+      "extracted": 15,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-solidity",
+      "licence": "MIT",
+      "per_file": {
+        "solidity/Token.sol": {
+          "correct": 12,
+          "expected": 12,
+          "extracted": 12
+        },
+        "solidity/Vault.sol": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "sql": {
+      "correct": 6,
+      "expected": 6,
+      "extracted": 6,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-sql",
+      "licence": "MIT",
+      "per_file": {
+        "sql/functions.sql": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        },
+        "sql/schema.sql": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "svelte": {
+      "correct": 5,
+      "expected": 5,
+      "extracted": 5,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "script-block extraction plus the TypeScript grammar",
+      "licence": "MIT",
+      "per_file": {
+        "svelte/Counter.svelte": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "svelte/Panel.svelte": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "swift": {
+      "correct": 15,
+      "expected": 15,
+      "extracted": 15,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-swift",
+      "licence": "MIT",
+      "per_file": {
+        "swift/Registry.swift": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "swift/Shapes.swift": {
+          "correct": 11,
+          "expected": 11,
+          "extracted": 11
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "tsx": {
+      "correct": 9,
+      "expected": 9,
+      "extracted": 9,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-typescript (TSX grammar)",
+      "licence": "MIT",
+      "per_file": {
+        "tsx/Panel.tsx": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "tsx/Widget.tsx": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "typescript": {
+      "correct": 17,
+      "expected": 17,
+      "extracted": 17,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-typescript",
+      "licence": "MIT",
+      "per_file": {
+        "typescript/registry.ts": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        },
+        "typescript/shapes.ts": {
+          "correct": 12,
+          "expected": 12,
+          "extracted": 12
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "vbnet": {
+      "correct": 10,
+      "expected": 10,
+      "extracted": 10,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "bundled grammar from https://github.com/CodeAnt-AI/tree-sitter-vb-dotnet, served by the 'code-bundle' extra",
+      "licence": "MIT",
+      "per_file": {
+        "vbnet/Account.vb": {
+          "correct": 7,
+          "expected": 7,
+          "extracted": 7
+        },
+        "vbnet/Registry.vb": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "verilog": {
+      "correct": 6,
+      "expected": 6,
+      "extracted": 6,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-verilog",
+      "licence": "MIT",
+      "per_file": {
+        "verilog/adder.v": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        },
+        "verilog/counter.v": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "vue": {
+      "correct": 5,
+      "expected": 5,
+      "extracted": 5,
+      "fidelity": "composite",
+      "files": 2,
+      "grammar": "script-block extraction plus the TypeScript grammar",
+      "licence": "MIT",
+      "per_file": {
+        "vue/Counter.vue": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        },
+        "vue/Panel.vue": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "xs": {
+      "correct": 13,
+      "expected": 13,
+      "extracted": 13,
+      "fidelity": "fallback",
+      "files": 2,
+      "grammar": "none: no permissive Tree-sitter grammar for .xs exists in any source available to this project, including the multi-grammar bundle. Read by the documented pattern extractor in src/dkg/code/xs.py",
+      "licence": "not applicable",
+      "per_file": {
+        "xs/Registry.xs": {
+          "correct": 5,
+          "expected": 5,
+          "extracted": 5
+        },
+        "xs/Shapes.xs": {
+          "correct": 8,
+          "expected": 8,
+          "extracted": 8
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "zig": {
+      "correct": 10,
+      "expected": 10,
+      "extracted": 10,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-zig",
+      "licence": "MIT",
+      "per_file": {
+        "zig/registry.zig": {
+          "correct": 4,
+          "expected": 4,
+          "extracted": 4
+        },
+        "zig/shapes.zig": {
+          "correct": 6,
+          "expected": 6,
+          "extracted": 6
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "zsh": {
+      "correct": 5,
+      "expected": 5,
+      "extracted": 5,
+      "fidelity": "grammar",
+      "files": 2,
+      "grammar": "tree-sitter-zsh",
+      "licence": "MIT",
+      "per_file": {
+        "zsh/prompt.zsh": {
+          "correct": 2,
+          "expected": 2,
+          "extracted": 2
+        },
+        "zsh/tools.zsh": {
+          "correct": 3,
+          "expected": 3,
+          "extracted": 3
+        }
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    }
+  },
+  "parsing_held_out": {
+    "languages": {
+      "c": {
+        "correct": 6,
+        "expected": 6,
+        "extracted": 6,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "go": {
+        "correct": 7,
+        "expected": 7,
+        "extracted": 7,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "java": {
+        "correct": 9,
+        "expected": 9,
+        "extracted": 9,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "javascript": {
+        "correct": 10,
+        "expected": 10,
+        "extracted": 10,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "kotlin": {
+        "correct": 8,
+        "expected": 8,
+        "extracted": 8,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "lua": {
+        "correct": 4,
+        "expected": 4,
+        "extracted": 4,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "php": {
+        "correct": 9,
+        "expected": 10,
+        "extracted": 10,
+        "missed": [
+          "method:render"
+        ],
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 0.9,
+        "recall": 0.9,
+        "spurious": [
+          "function:render"
+        ],
+        "status": "measured"
+      },
+      "python": {
+        "correct": 12,
+        "expected": 12,
+        "extracted": 12,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "ruby": {
+        "correct": 8,
+        "expected": 8,
+        "extracted": 8,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "rust": {
+        "correct": 9,
+        "expected": 10,
+        "extracted": 9,
+        "missed": [
+          "class:inner"
+        ],
+        "name_precision": 1.0,
+        "name_recall": 0.9,
+        "precision": 1.0,
+        "recall": 0.9,
+        "status": "measured"
+      },
+      "swift": {
+        "correct": 10,
+        "expected": 10,
+        "extracted": 10,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "typescript": {
+        "correct": 10,
+        "expected": 10,
+        "extracted": 10,
+        "name_precision": 1.0,
+        "name_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "status": "measured"
+      },
+      "xs": {
+        "correct": 7,
+        "expected": 9,
+        "extracted": 8,
+        "missed": [
+          "method:condition",
+          "method:state"
+        ],
+        "name_precision": 0.875,
+        "name_recall": 0.7778,
+        "precision": 0.875,
+        "recall": 0.7778,
+        "spurious": [
+          "method:disabled"
+        ],
+        "status": "measured"
+      }
+    },
+    "summary": {
+      "labelled_symbols": 113,
+      "languages_measured": 13,
+      "macro_name_precision": 0.9904,
+      "macro_name_recall": 0.9752,
+      "macro_precision": 0.9827,
+      "macro_recall": 0.9675,
+      "micro_precision": 0.982,
+      "micro_recall": 0.9646
+    }
+  }
+}

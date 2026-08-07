@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: O-07
+# area: Retrieval and graph enrichment
+# requirement: Both community detectors run in the default path: a Mnemosyne base pass and an Ariadne refinement pass, returning whichever scores higher modularity, with selection by measured modularity and honest capability detection when Ariadne is absent
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_licence_and_detectors.py -q
+# generated_at: 2026-08-05T03:57:55.562962+00:00
+# action_kind: pytest
+..............                                                           [100%]
+14 passed in 0.84s

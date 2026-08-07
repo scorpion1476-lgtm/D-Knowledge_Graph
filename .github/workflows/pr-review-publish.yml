@@ -1,0 +1,96 @@
+name: pr-review-publish
+
+# STAGE TWO OF TWO: the TRUSTED publication.
+#
+# This workflow holds `pull-requests: write`. Everything about it is arranged so
+# that the write capability never meets pull-request-controlled code:
+#
+#   * It triggers on `workflow_run`, so it runs from the DEFAULT BRANCH. The
+#     version of this file that executes is the one repository owners merged,
+#     never the one in the pull request.
+#   * There is NO checkout step. Nothing from the pull request's tree is
+#     fetched, and no build, test, or install script from the pull request runs.
+#   * The only code it executes is the tool, installed from a pinned ref that is
+#     a literal in this file. The ref is never derived from the event payload.
+#   * The artifact it downloads is treated as untrusted input. `dkg pr-publish`
+#     validates it (single well-formed marker on the first line, within the size
+#     limit, no raw markup) and refuses to post a body that fails. Validation is
+#     not optional and there is no flag that skips it.
+#   * The pull-request number is stripped to digits before use.
+#
+# It is therefore safe against a fork pull request whose author controls every
+# file in the repository under test.
+
+on:
+  workflow_run:
+    workflows: ["pr-review-analysis"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    # Only a successful analysis of a pull request. A workflow_run from any
+    # other event, or from a failed run, is not published.
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      # actions: read is needed to download the other run's artifact.
+      actions: read
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+
+      - name: Install the tool from a pinned trusted ref
+        shell: bash
+        env:
+          # Literals. Deriving either of these from the event payload would be
+          # exactly the hole this two-stage split exists to close.
+          DKG_REPO_URL: "https://github.com/local/D-Knowledge_Graph.git"
+          DKG_REF: "v0.1.0"
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install "d-knowledge-graph @ git+${DKG_REPO_URL}@${DKG_REF}"
+
+      - name: Download the artifact the unprivileged run produced
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          set -euo pipefail
+          SAFE_RUN_ID="$(printf '%s' "$RUN_ID" | tr -cd '0-9')"
+          test -n "$SAFE_RUN_ID"
+          mkdir -p incoming
+          gh run download "$SAFE_RUN_ID" \
+            --repo "$GITHUB_REPOSITORY" \
+            --name dkg-pr-review \
+            --dir incoming
+
+      - name: Validate the artifact and post the sticky comment
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          SAFE_PR="$(tr -cd '0-9' < incoming/pr-number.txt)"
+          if [ -z "$SAFE_PR" ]; then
+            echo "the artifact carried no usable pull-request number" >&2
+            exit 1
+          fi
+          test -f incoming/dkg-pr-comment.md
+          dkg pr-publish \
+            --body-file incoming/dkg-pr-comment.md \
+            --repo "$GITHUB_REPOSITORY" \
+            --pr "$SAFE_PR" \
+            --marker dkg-code-review \
+            --token-env GITHUB_TOKEN \
+            --allow-egress

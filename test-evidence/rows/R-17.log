@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-17
+# area: Delivery and distribution
+# requirement: Gate a merge on a named risk level rather than a raw count, with the thresholds for each level published and the gate off by default, and the score reported even when the gate is disabled
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_risk_gate.py -q
+# generated_at: 2026-08-06T21:31:11.177478+00:00
+# action_kind: executed
+# exit_code: 0
+
+.............                                                            [100%]
+13 passed in 0.35s

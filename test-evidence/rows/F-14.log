@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-14
+# area: MCP
+# requirement: Provide a compact orientation tool that returns the graph's shape, the highest-value entry points, and the suggested next tool call within a small documented token ceiling, so a client can orient in one cheap call instead of several expensive ones
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k orientation
+# generated_at: 2026-08-06T09:23:03.541068+00:00
+# action_kind: executed
+# exit_code: 0
+
+.                                                                        [100%]
+1 passed, 28 deselected in 0.15s

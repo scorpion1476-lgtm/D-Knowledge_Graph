@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-06
+# area: Advanced code analysis
+# requirement: Label every code edge with a three-tier confidence class (extracted, inferred, ambiguous) alongside its numeric confidence, persist the tier, and surface it in every analysis result so a consumer can filter by evidence strength without knowing the numeric thresholds
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/graph/test_analysis_capabilities.py -q -k tier
+# generated_at: 2026-08-06T09:23:01.999152+00:00
+# action_kind: executed
+# exit_code: 0
+
+....                                                                     [100%]
+4 passed, 19 deselected in 0.21s

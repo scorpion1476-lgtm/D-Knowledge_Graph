@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: O-03
+# area: Retrieval and graph enrichment
+# requirement: Published retrieval quality (MRR, nDCG, recall) on a retained corpus
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/retrieval/test_metrics.py -q
+# generated_at: 2026-08-04T03:46:30.251768+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.02s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-21
+# area: Source-code plane
+# requirement: Remove named paths from the code graph without a full rebuild, with a dry-run that reports exactly which files, symbols, and edges would be dropped
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_forget.py -q
+# generated_at: 2026-08-06T16:24:44.369053+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_forget.py
+# exit_code: 0
+...........                                                              [100%]
+11 passed in 0.38s

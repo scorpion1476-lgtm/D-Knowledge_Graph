@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: B-04
+# area: Ingestion
+# requirement: RSS and Atom parsing
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_rss.py -q
+# generated_at: 2026-08-04T03:42:19.366832+00:00
+# action_kind: pytest
+..s                                                                      [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/integration/test_rss.py:34: feedparser installed; nothing to test on this host
+2 passed, 1 skipped in 0.13s

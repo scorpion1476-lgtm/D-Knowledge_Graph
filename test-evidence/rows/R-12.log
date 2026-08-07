@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-12
+# area: Delivery and distribution
+# requirement: Install editor and version-control hooks that update the graph incrementally when a file is saved and when a commit is made, resolving the real hooks directory so linked worktrees and redirected hook paths work, and degrading to a no-op rather than blocking the commit when the graph is unavailable
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_update_hooks.py -q
+# generated_at: 2026-08-06T09:23:01.065857+00:00
+# action_kind: executed
+# exit_code: 0
+
+................                                                         [100%]
+16 passed in 1.96s

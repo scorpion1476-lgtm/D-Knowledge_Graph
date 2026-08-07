@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: A-03
+# area: Knowledge graph foundation
+# requirement: Full text search using SQLite FTS5
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_search.py -q
+# generated_at: 2026-08-04T03:42:11.747356+00:00
+# action_kind: pytest
+........                                                                 [100%]
+8 passed in 1.06s

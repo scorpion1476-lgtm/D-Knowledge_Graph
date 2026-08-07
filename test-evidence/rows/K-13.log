@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-13
+# area: Supply chain
+# requirement: Whole repository under one source-available non-commercial licence (PolyForm Noncommercial 1.0.0 plus a no-modification term), with no separately licensed component, nothing excluded from the wheel, and the earlier Apache-2.0 grant acknowledged rather than hidden
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_licence_and_detectors.py -q
+# generated_at: 2026-08-05T03:57:56.609066+00:00
+# action_kind: pytest
+..............                                                           [100%]
+14 passed in 0.60s

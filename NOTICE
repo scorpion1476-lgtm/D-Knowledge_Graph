@@ -1,0 +1,25 @@
+D-Knowledge Graph
+Copyright 2026 D-Knowledge Graph maintainers
+
+This product is source-available and free for personal and non-commercial use
+only, under the D-Knowledge Graph Source-Available Non-Commercial Licence (see
+LICENSE). Commercial use is not permitted. Modification, and distribution of
+modified versions, are not permitted.
+
+This is not an open-source licence and not a free-software licence.
+
+The licence covers the entire repository, including the Ariadne module. There is
+no separately licensed component and no component excluded from the build.
+
+This product is an original, clean-room implementation. Its default runtime uses
+only the Python standard library and has zero mandatory third-party runtime
+dependencies.
+
+Optional extras use unmodified permissive third-party packages under their own
+upstream licences (Apache-2.0, MIT, BSD, ISC, HPND). Those third-party licences
+are unaffected by the terms above. See THIRD_PARTY_NOTICES.md and
+docs/DEPENDENCY_AND_LICENCE_POLICY.md for the full inventory.
+
+Versions distributed before 2026-08-05 were released under the Apache License
+2.0. That grant, for those versions, remains in force for anyone who received a
+copy under it.

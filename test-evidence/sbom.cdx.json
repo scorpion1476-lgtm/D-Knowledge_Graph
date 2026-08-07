@@ -1,0 +1,698 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "licenses": [
+        {
+          "license": {
+            "name": "LicenseRef-DKG-Source-Available-NonCommercial"
+          }
+        }
+      ],
+      "name": "d-knowledge-graph",
+      "purl": "pkg:pypi/d-knowledge-graph@0.1.0",
+      "type": "application",
+      "version": "0.1.0"
+    },
+    {
+      "name": "anyio",
+      "purl": "pkg:pypi/anyio@4.14.2",
+      "type": "library",
+      "version": "4.14.2"
+    },
+    {
+      "name": "ast_serialize",
+      "purl": "pkg:pypi/ast_serialize@0.6.0",
+      "type": "library",
+      "version": "0.6.0"
+    },
+    {
+      "name": "av",
+      "purl": "pkg:pypi/av@17.1.0",
+      "type": "library",
+      "version": "17.1.0"
+    },
+    {
+      "name": "beautifulsoup4",
+      "purl": "pkg:pypi/beautifulsoup4@4.15.0",
+      "type": "library",
+      "version": "4.15.0"
+    },
+    {
+      "name": "build",
+      "purl": "pkg:pypi/build@1.5.0",
+      "type": "library",
+      "version": "1.5.0"
+    },
+    {
+      "name": "certifi",
+      "purl": "pkg:pypi/certifi@2026.7.22",
+      "type": "library",
+      "version": "2026.7.22"
+    },
+    {
+      "name": "charset-normalizer",
+      "purl": "pkg:pypi/charset-normalizer@3.4.9",
+      "type": "library",
+      "version": "3.4.9"
+    },
+    {
+      "name": "click",
+      "purl": "pkg:pypi/click@8.4.2",
+      "type": "library",
+      "version": "8.4.2"
+    },
+    {
+      "name": "coloredlogs",
+      "purl": "pkg:pypi/coloredlogs@15.0.1",
+      "type": "library",
+      "version": "15.0.1"
+    },
+    {
+      "name": "coverage",
+      "purl": "pkg:pypi/coverage@7.15.2",
+      "type": "library",
+      "version": "7.15.2"
+    },
+    {
+      "name": "ctranslate2",
+      "purl": "pkg:pypi/ctranslate2@4.8.1",
+      "type": "library",
+      "version": "4.8.1"
+    },
+    {
+      "name": "d-knowledge-graph",
+      "purl": "pkg:pypi/d-knowledge-graph@0.1.0",
+      "type": "library",
+      "version": "0.1.0"
+    },
+    {
+      "name": "et_xmlfile",
+      "purl": "pkg:pypi/et_xmlfile@2.0.0",
+      "type": "library",
+      "version": "2.0.0"
+    },
+    {
+      "name": "exceptiongroup",
+      "purl": "pkg:pypi/exceptiongroup@1.3.1",
+      "type": "library",
+      "version": "1.3.1"
+    },
+    {
+      "name": "fastembed",
+      "purl": "pkg:pypi/fastembed@0.8.0",
+      "type": "library",
+      "version": "0.8.0"
+    },
+    {
+      "name": "faster-whisper",
+      "purl": "pkg:pypi/faster-whisper@1.2.1",
+      "type": "library",
+      "version": "1.2.1"
+    },
+    {
+      "name": "feedparser",
+      "purl": "pkg:pypi/feedparser@6.0.14",
+      "type": "library",
+      "version": "6.0.14"
+    },
+    {
+      "name": "feedparser-sgmllib",
+      "purl": "pkg:pypi/feedparser-sgmllib@2.0.1",
+      "type": "library",
+      "version": "2.0.1"
+    },
+    {
+      "name": "filelock",
+      "purl": "pkg:pypi/filelock@3.32.2",
+      "type": "library",
+      "version": "3.32.2"
+    },
+    {
+      "name": "flatbuffers",
+      "purl": "pkg:pypi/flatbuffers@25.12.19",
+      "type": "library",
+      "version": "25.12.19"
+    },
+    {
+      "name": "fsspec",
+      "purl": "pkg:pypi/fsspec@2026.7.0",
+      "type": "library",
+      "version": "2026.7.0"
+    },
+    {
+      "name": "h11",
+      "purl": "pkg:pypi/h11@0.16.0",
+      "type": "library",
+      "version": "0.16.0"
+    },
+    {
+      "name": "hf-xet",
+      "purl": "pkg:pypi/hf-xet@1.5.2",
+      "type": "library",
+      "version": "1.5.2"
+    },
+    {
+      "name": "httpcore",
+      "purl": "pkg:pypi/httpcore@1.0.9",
+      "type": "library",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httpx",
+      "purl": "pkg:pypi/httpx@0.28.1",
+      "type": "library",
+      "version": "0.28.1"
+    },
+    {
+      "name": "huggingface_hub",
+      "purl": "pkg:pypi/huggingface_hub@1.26.0",
+      "type": "library",
+      "version": "1.26.0"
+    },
+    {
+      "name": "humanfriendly",
+      "purl": "pkg:pypi/humanfriendly@10.0",
+      "type": "library",
+      "version": "10.0"
+    },
+    {
+      "name": "idna",
+      "purl": "pkg:pypi/idna@3.18",
+      "type": "library",
+      "version": "3.18"
+    },
+    {
+      "name": "iniconfig",
+      "purl": "pkg:pypi/iniconfig@2.3.0",
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "name": "Jinja2",
+      "purl": "pkg:pypi/jinja2@3.1.6",
+      "type": "library",
+      "version": "3.1.6"
+    },
+    {
+      "name": "joblib",
+      "purl": "pkg:pypi/joblib@1.5.3",
+      "type": "library",
+      "version": "1.5.3"
+    },
+    {
+      "name": "librt",
+      "purl": "pkg:pypi/librt@0.13.0",
+      "type": "library",
+      "version": "0.13.0"
+    },
+    {
+      "name": "loguru",
+      "purl": "pkg:pypi/loguru@0.7.3",
+      "type": "library",
+      "version": "0.7.3"
+    },
+    {
+      "name": "lxml",
+      "purl": "pkg:pypi/lxml@6.1.1",
+      "type": "library",
+      "version": "6.1.1"
+    },
+    {
+      "name": "markdown-it-py",
+      "purl": "pkg:pypi/markdown-it-py@4.2.0",
+      "type": "library",
+      "version": "4.2.0"
+    },
+    {
+      "name": "MarkupSafe",
+      "purl": "pkg:pypi/markupsafe@3.0.3",
+      "type": "library",
+      "version": "3.0.3"
+    },
+    {
+      "name": "mdurl",
+      "purl": "pkg:pypi/mdurl@0.1.2",
+      "type": "library",
+      "version": "0.1.2"
+    },
+    {
+      "name": "mmh3",
+      "purl": "pkg:pypi/mmh3@5.2.1",
+      "type": "library",
+      "version": "5.2.1"
+    },
+    {
+      "name": "model2vec",
+      "purl": "pkg:pypi/model2vec@0.8.2",
+      "type": "library",
+      "version": "0.8.2"
+    },
+    {
+      "name": "mpmath",
+      "purl": "pkg:pypi/mpmath@1.3.0",
+      "type": "library",
+      "version": "1.3.0"
+    },
+    {
+      "name": "mypy",
+      "purl": "pkg:pypi/mypy@2.3.0",
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "name": "mypy_extensions",
+      "purl": "pkg:pypi/mypy_extensions@1.1.0",
+      "type": "library",
+      "version": "1.1.0"
+    },
+    {
+      "name": "numpy",
+      "purl": "pkg:pypi/numpy@2.2.6",
+      "type": "library",
+      "version": "2.2.6"
+    },
+    {
+      "name": "onnxruntime",
+      "purl": "pkg:pypi/onnxruntime@1.23.2",
+      "type": "library",
+      "version": "1.23.2"
+    },
+    {
+      "name": "openpyxl",
+      "purl": "pkg:pypi/openpyxl@3.1.5",
+      "type": "library",
+      "version": "3.1.5"
+    },
+    {
+      "name": "packaging",
+      "purl": "pkg:pypi/packaging@26.2",
+      "type": "library",
+      "version": "26.2"
+    },
+    {
+      "name": "pathspec",
+      "purl": "pkg:pypi/pathspec@1.1.1",
+      "type": "library",
+      "version": "1.1.1"
+    },
+    {
+      "name": "pillow",
+      "purl": "pkg:pypi/pillow@12.3.0",
+      "type": "library",
+      "version": "12.3.0"
+    },
+    {
+      "name": "pip",
+      "purl": "pkg:pypi/pip@26.2.1",
+      "type": "library",
+      "version": "26.2.1"
+    },
+    {
+      "name": "platformdirs",
+      "purl": "pkg:pypi/platformdirs@4.11.0",
+      "type": "library",
+      "version": "4.11.0"
+    },
+    {
+      "name": "pluggy",
+      "purl": "pkg:pypi/pluggy@1.6.0",
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "name": "protobuf",
+      "purl": "pkg:pypi/protobuf@7.35.1",
+      "type": "library",
+      "version": "7.35.1"
+    },
+    {
+      "name": "py_rust_stemmers",
+      "purl": "pkg:pypi/py_rust_stemmers@0.1.8",
+      "type": "library",
+      "version": "0.1.8"
+    },
+    {
+      "name": "py-serializable",
+      "purl": "pkg:pypi/py-serializable@2.1.0",
+      "type": "library",
+      "version": "2.1.0"
+    },
+    {
+      "name": "Pygments",
+      "purl": "pkg:pypi/pygments@2.20.0",
+      "type": "library",
+      "version": "2.20.0"
+    },
+    {
+      "name": "pyparsing",
+      "purl": "pkg:pypi/pyparsing@3.3.2",
+      "type": "library",
+      "version": "3.3.2"
+    },
+    {
+      "name": "pypdf",
+      "purl": "pkg:pypi/pypdf@6.14.2",
+      "type": "library",
+      "version": "6.14.2"
+    },
+    {
+      "name": "pyproject_hooks",
+      "purl": "pkg:pypi/pyproject_hooks@1.2.0",
+      "type": "library",
+      "version": "1.2.0"
+    },
+    {
+      "name": "pytest",
+      "purl": "pkg:pypi/pytest@9.1.1",
+      "type": "library",
+      "version": "9.1.1"
+    },
+    {
+      "name": "pytest-cov",
+      "purl": "pkg:pypi/pytest-cov@7.1.0",
+      "type": "library",
+      "version": "7.1.0"
+    },
+    {
+      "name": "PyYAML",
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "type": "library",
+      "version": "6.0.3"
+    },
+    {
+      "name": "regex",
+      "purl": "pkg:pypi/regex@2026.7.19",
+      "type": "library",
+      "version": "2026.7.19"
+    },
+    {
+      "name": "requests",
+      "purl": "pkg:pypi/requests@2.34.2",
+      "type": "library",
+      "version": "2.34.2"
+    },
+    {
+      "name": "rich",
+      "purl": "pkg:pypi/rich@15.0.0",
+      "type": "library",
+      "version": "15.0.0"
+    },
+    {
+      "name": "ruff",
+      "purl": "pkg:pypi/ruff@0.16.1",
+      "type": "library",
+      "version": "0.16.1"
+    },
+    {
+      "name": "safetensors",
+      "purl": "pkg:pypi/safetensors@0.8.0",
+      "type": "library",
+      "version": "0.8.0"
+    },
+    {
+      "name": "setuptools",
+      "purl": "pkg:pypi/setuptools@83.0.0",
+      "type": "library",
+      "version": "83.0.0"
+    },
+    {
+      "name": "soupsieve",
+      "purl": "pkg:pypi/soupsieve@2.9.1",
+      "type": "library",
+      "version": "2.9.1"
+    },
+    {
+      "name": "sympy",
+      "purl": "pkg:pypi/sympy@1.14.0",
+      "type": "library",
+      "version": "1.14.0"
+    },
+    {
+      "name": "tiktoken",
+      "purl": "pkg:pypi/tiktoken@0.13.0",
+      "type": "library",
+      "version": "0.13.0"
+    },
+    {
+      "name": "tokenizers",
+      "purl": "pkg:pypi/tokenizers@0.23.1",
+      "type": "library",
+      "version": "0.23.1"
+    },
+    {
+      "name": "tomli",
+      "purl": "pkg:pypi/tomli@2.4.1",
+      "type": "library",
+      "version": "2.4.1"
+    },
+    {
+      "name": "tomli_w",
+      "purl": "pkg:pypi/tomli_w@1.2.0",
+      "type": "library",
+      "version": "1.2.0"
+    },
+    {
+      "name": "tqdm",
+      "purl": "pkg:pypi/tqdm@4.70.0",
+      "type": "library",
+      "version": "4.70.0"
+    },
+    {
+      "name": "tree-sitter",
+      "purl": "pkg:pypi/tree-sitter@0.26.0",
+      "type": "library",
+      "version": "0.26.0"
+    },
+    {
+      "name": "tree-sitter-bash",
+      "purl": "pkg:pypi/tree-sitter-bash@0.25.1",
+      "type": "library",
+      "version": "0.25.1"
+    },
+    {
+      "name": "tree-sitter-c",
+      "purl": "pkg:pypi/tree-sitter-c@0.24.2",
+      "type": "library",
+      "version": "0.24.2"
+    },
+    {
+      "name": "tree-sitter-c-sharp",
+      "purl": "pkg:pypi/tree-sitter-c-sharp@0.23.5",
+      "type": "library",
+      "version": "0.23.5"
+    },
+    {
+      "name": "tree-sitter-cpp",
+      "purl": "pkg:pypi/tree-sitter-cpp@0.23.4",
+      "type": "library",
+      "version": "0.23.4"
+    },
+    {
+      "name": "tree-sitter-dart",
+      "purl": "pkg:pypi/tree-sitter-dart@0.1.0",
+      "type": "library",
+      "version": "0.1.0"
+    },
+    {
+      "name": "tree-sitter-elixir",
+      "purl": "pkg:pypi/tree-sitter-elixir@0.3.5",
+      "type": "library",
+      "version": "0.3.5"
+    },
+    {
+      "name": "tree-sitter-go",
+      "purl": "pkg:pypi/tree-sitter-go@0.25.0",
+      "type": "library",
+      "version": "0.25.0"
+    },
+    {
+      "name": "tree-sitter-hcl",
+      "purl": "pkg:pypi/tree-sitter-hcl@1.2.0",
+      "type": "library",
+      "version": "1.2.0"
+    },
+    {
+      "name": "tree-sitter-java",
+      "purl": "pkg:pypi/tree-sitter-java@0.23.5",
+      "type": "library",
+      "version": "0.23.5"
+    },
+    {
+      "name": "tree-sitter-javascript",
+      "purl": "pkg:pypi/tree-sitter-javascript@0.25.0",
+      "type": "library",
+      "version": "0.25.0"
+    },
+    {
+      "name": "tree-sitter-julia",
+      "purl": "pkg:pypi/tree-sitter-julia@0.23.1",
+      "type": "library",
+      "version": "0.23.1"
+    },
+    {
+      "name": "tree-sitter-kotlin",
+      "purl": "pkg:pypi/tree-sitter-kotlin@1.1.0",
+      "type": "library",
+      "version": "1.1.0"
+    },
+    {
+      "name": "tree-sitter-language-pack",
+      "purl": "pkg:pypi/tree-sitter-language-pack@1.14.3",
+      "type": "library",
+      "version": "1.14.3"
+    },
+    {
+      "name": "tree-sitter-lua",
+      "purl": "pkg:pypi/tree-sitter-lua@0.5.0",
+      "type": "library",
+      "version": "0.5.0"
+    },
+    {
+      "name": "tree-sitter-luau",
+      "purl": "pkg:pypi/tree-sitter-luau@1.2.0",
+      "type": "library",
+      "version": "1.2.0"
+    },
+    {
+      "name": "tree-sitter-nix",
+      "purl": "pkg:pypi/tree-sitter-nix@0.1.0",
+      "type": "library",
+      "version": "0.1.0"
+    },
+    {
+      "name": "tree-sitter-objc",
+      "purl": "pkg:pypi/tree-sitter-objc@3.0.2",
+      "type": "library",
+      "version": "3.0.2"
+    },
+    {
+      "name": "tree-sitter-php",
+      "purl": "pkg:pypi/tree-sitter-php@0.24.1",
+      "type": "library",
+      "version": "0.24.1"
+    },
+    {
+      "name": "tree-sitter-powershell",
+      "purl": "pkg:pypi/tree-sitter-powershell@0.26.4",
+      "type": "library",
+      "version": "0.26.4"
+    },
+    {
+      "name": "tree-sitter-python",
+      "purl": "pkg:pypi/tree-sitter-python@0.25.0",
+      "type": "library",
+      "version": "0.25.0"
+    },
+    {
+      "name": "tree-sitter-ruby",
+      "purl": "pkg:pypi/tree-sitter-ruby@0.23.1",
+      "type": "library",
+      "version": "0.23.1"
+    },
+    {
+      "name": "tree-sitter-rust",
+      "purl": "pkg:pypi/tree-sitter-rust@0.24.2",
+      "type": "library",
+      "version": "0.24.2"
+    },
+    {
+      "name": "tree-sitter-scala",
+      "purl": "pkg:pypi/tree-sitter-scala@0.26.0",
+      "type": "library",
+      "version": "0.26.0"
+    },
+    {
+      "name": "tree-sitter-solidity",
+      "purl": "pkg:pypi/tree-sitter-solidity@1.2.13",
+      "type": "library",
+      "version": "1.2.13"
+    },
+    {
+      "name": "tree-sitter-sql",
+      "purl": "pkg:pypi/tree-sitter-sql@0.3.11",
+      "type": "library",
+      "version": "0.3.11"
+    },
+    {
+      "name": "tree-sitter-swift",
+      "purl": "pkg:pypi/tree-sitter-swift@0.7.3",
+      "type": "library",
+      "version": "0.7.3"
+    },
+    {
+      "name": "tree-sitter-typescript",
+      "purl": "pkg:pypi/tree-sitter-typescript@0.23.2",
+      "type": "library",
+      "version": "0.23.2"
+    },
+    {
+      "name": "tree-sitter-verilog",
+      "purl": "pkg:pypi/tree-sitter-verilog@1.0.3",
+      "type": "library",
+      "version": "1.0.3"
+    },
+    {
+      "name": "tree-sitter-yaml",
+      "purl": "pkg:pypi/tree-sitter-yaml@0.7.2",
+      "type": "library",
+      "version": "0.7.2"
+    },
+    {
+      "name": "tree-sitter-zig",
+      "purl": "pkg:pypi/tree-sitter-zig@1.1.2",
+      "type": "library",
+      "version": "1.1.2"
+    },
+    {
+      "name": "tree-sitter-zsh",
+      "purl": "pkg:pypi/tree-sitter-zsh@0.63.4",
+      "type": "library",
+      "version": "0.63.4"
+    },
+    {
+      "name": "typing_extensions",
+      "purl": "pkg:pypi/typing_extensions@4.16.0",
+      "type": "library",
+      "version": "4.16.0"
+    },
+    {
+      "name": "urllib3",
+      "purl": "pkg:pypi/urllib3@2.7.0",
+      "type": "library",
+      "version": "2.7.0"
+    },
+    {
+      "name": "watchfiles",
+      "purl": "pkg:pypi/watchfiles@1.2.0",
+      "type": "library",
+      "version": "1.2.0"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "licenses": [
+        {
+          "license": {
+            "name": "LicenseRef-DKG-Source-Available-NonCommercial"
+          }
+        }
+      ],
+      "name": "d-knowledge-graph",
+      "purl": "pkg:pypi/d-knowledge-graph@0.1.0",
+      "type": "application",
+      "version": "0.1.0"
+    },
+    "timestamp": "2026-08-07T10:35:55.166941+00:00",
+    "tools": [
+      {
+        "name": "sbom.py",
+        "vendor": "d-knowledge-graph",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:5ddea59e8f79cc206bf1fb7dd3a1f7775b7c",
+  "specVersion": "1.5",
+  "version": 1
+}

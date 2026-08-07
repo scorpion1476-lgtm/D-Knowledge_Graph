@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: B-05
+# area: Ingestion
+# requirement: Safe webpage fetch with strict SSRF controls
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/security -q
+# generated_at: 2026-08-04T03:42:19.866273+00:00
+# action_kind: pytest
+.......................................................                  [100%]
+55 passed in 1.26s

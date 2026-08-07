@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-02
+# area: Graph analysis and review
+# requirement: Hub and bridge detection over the code graph: Brandes betweenness, degree centrality, iterative low-link articulation points and bridge edges, and combined chokepoints, exposed on the CLI and as a read-only MCP tool
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_centrality.py -q
+# generated_at: 2026-08-05T03:45:54.357283+00:00
+# action_kind: pytest
+.......................                                                  [100%]
+23 passed in 0.31s

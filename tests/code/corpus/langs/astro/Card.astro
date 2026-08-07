@@ -1,0 +1,11 @@
+---
+import Badge from "../components/Badge.astro";
+
+type CardKind = "wide" | "narrow";
+
+function cardClass(kind: CardKind): string {
+  return kind;
+}
+---
+
+<div class={cardClass("wide")}><Badge /></div>

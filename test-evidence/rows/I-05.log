@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: I-05
+# area: Identity and tenancy
+# requirement: Per tenant data isolation tests
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_tenant_isolation.py -q
+# generated_at: 2026-08-04T03:44:04.331455+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 1.14s

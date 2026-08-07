@@ -1,0 +1,713 @@
+{
+  "caveats": [
+    "Measured on the two corpora named above. This is not a universal claim.",
+    "The reduction depends on corpus size and on the question. A repository that fits in a context window does not need a graph at all.",
+    "The real-code corpus is this project's own source. Self-measurement is a real limitation: it is not an independent sample of code in general. Its ground truth is independent of the graph (Python's ast), which is the part that would otherwise be circular.",
+    "The underlying code edges are structural and name-based, so the matched set is over-approximate: the graph route can return symbols that are not truly affected. Recall against the required set is reported per question; precision is not claimed.",
+    "Grep-and-read is a strong baseline but not the strongest imaginable: an agent that greps and then reads only the matching FUNCTIONS rather than whole files would land between it and the graph route."
+  ],
+  "corpora": [
+    {
+      "corpus": {
+        "characters": 256861,
+        "edges_ingested": 7431,
+        "files": 414,
+        "nodes_ingested": 2927,
+        "tokens": 82800
+      },
+      "label": "synthetic (tests/code/corpus/large/code, ground truth by construction)",
+      "measurements": [
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 354,
+            "tokens": 7160
+          },
+          "depth": 3,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 148,
+                "recall_of_required": 0.5533333333333333,
+                "slices": 206,
+                "token_budget": 6000,
+                "tokens": 6165
+              },
+              "matched": 354,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 354,
+              "tokens": 10168,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 148,
+                "recall_of_required": 0.5533333333333333,
+                "slices": 206,
+                "token_budget": 6000,
+                "tokens": 6165
+              },
+              "matched": 354,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 354,
+              "tokens": 13430,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 60,
+                "recall_of_required": 0.8066666666666666,
+                "slices": 294,
+                "token_budget": 6000,
+                "tokens": 5997
+              },
+              "matched": 354,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 354,
+              "tokens": 7160,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 51,
+            "recall_of_required": 1.0,
+            "tokens": 10347
+          },
+          "naive_whole_corpus": {
+            "files": 414,
+            "recall_of_required": 1.0,
+            "tokens": 82800
+          },
+          "name": "impact:layer_0_gateway",
+          "question": "If I change layer_0_gateway, what else is affected?",
+          "reduction_vs_grep_and_read": 0.308,
+          "reduction_vs_naive": 0.9135,
+          "relation": "impact",
+          "required_symbols": 300,
+          "seed": "layer_0.py::layer_0_gateway"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 354,
+            "tokens": 7160
+          },
+          "depth": 3,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 148,
+                "recall_of_required": 0.5533333333333333,
+                "slices": 206,
+                "token_budget": 6000,
+                "tokens": 6165
+              },
+              "matched": 354,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 354,
+              "tokens": 10168,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 148,
+                "recall_of_required": 0.5533333333333333,
+                "slices": 206,
+                "token_budget": 6000,
+                "tokens": 6165
+              },
+              "matched": 354,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 354,
+              "tokens": 13430,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 60,
+                "recall_of_required": 0.8066666666666666,
+                "slices": 294,
+                "token_budget": 6000,
+                "tokens": 5997
+              },
+              "matched": 354,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 354,
+              "tokens": 7160,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 51,
+            "recall_of_required": 1.0,
+            "tokens": 10227
+          },
+          "naive_whole_corpus": {
+            "files": 414,
+            "recall_of_required": 1.0,
+            "tokens": 82800
+          },
+          "name": "impact:layer_1_gateway",
+          "question": "If I change layer_1_gateway, what else is affected?",
+          "reduction_vs_grep_and_read": 0.2999,
+          "reduction_vs_naive": 0.9135,
+          "relation": "impact",
+          "required_symbols": 300,
+          "seed": "layer_1.py::layer_1_gateway"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 26,
+            "tokens": 589
+          },
+          "depth": 1,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 26,
+                "token_budget": 6000,
+                "tokens": 911
+              },
+              "matched": 26,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 26,
+              "tokens": 911,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 26,
+                "token_budget": 6000,
+                "tokens": 976
+              },
+              "matched": 26,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 26,
+              "tokens": 976,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 26,
+                "token_budget": 6000,
+                "tokens": 589
+              },
+              "matched": 26,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 26,
+              "tokens": 589,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 9,
+            "recall_of_required": 1.0,
+            "tokens": 1685
+          },
+          "naive_whole_corpus": {
+            "files": 414,
+            "recall_of_required": 1.0,
+            "tokens": 82800
+          },
+          "name": "callers:core_util_0",
+          "question": "What calls core_util_0?",
+          "reduction_vs_grep_and_read": 0.6504,
+          "reduction_vs_naive": 0.9929,
+          "relation": "callers",
+          "required_symbols": 25,
+          "seed": "core.py::core_util_0"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 9,
+            "tokens": 265
+          },
+          "depth": 1,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 9,
+                "token_budget": 6000,
+                "tokens": 496
+              },
+              "matched": 9,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 9,
+              "tokens": 496,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 9,
+                "token_budget": 6000,
+                "tokens": 616
+              },
+              "matched": 9,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 9,
+              "tokens": 616,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 9,
+                "token_budget": 6000,
+                "tokens": 265
+              },
+              "matched": 9,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 9,
+              "tokens": 265,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 9,
+            "recall_of_required": 1.0,
+            "tokens": 1685
+          },
+          "naive_whole_corpus": {
+            "files": 414,
+            "recall_of_required": 1.0,
+            "tokens": 82800
+          },
+          "name": "callers:core_entry",
+          "question": "What calls core_entry?",
+          "reduction_vs_grep_and_read": 0.8427,
+          "reduction_vs_naive": 0.9968,
+          "relation": "callers",
+          "required_symbols": 8,
+          "seed": "core.py::core_entry"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 11,
+            "tokens": 283
+          },
+          "depth": 2,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 11,
+                "token_budget": 6000,
+                "tokens": 283
+              },
+              "matched": 11,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 11,
+              "tokens": 283,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 11,
+                "token_budget": 6000,
+                "tokens": 352
+              },
+              "matched": 11,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 11,
+              "tokens": 352,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 11,
+                "token_budget": 6000,
+                "tokens": 283
+              },
+              "matched": 11,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 11,
+              "tokens": 283,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 9,
+            "recall_of_required": 1.0,
+            "tokens": 1685
+          },
+          "naive_whole_corpus": {
+            "files": 414,
+            "recall_of_required": 1.0,
+            "tokens": 82800
+          },
+          "name": "callees:core_entry",
+          "question": "What does core_entry end up calling?",
+          "reduction_vs_grep_and_read": 0.832,
+          "reduction_vs_naive": 0.9966,
+          "relation": "callees",
+          "required_symbols": 10,
+          "seed": "core.py::core_entry"
+        }
+      ],
+      "summary": {
+        "median_reduction_vs_grep_and_read": 0.6504,
+        "median_reduction_vs_naive": 0.9929,
+        "questions": 5,
+        "questions_answered_completely": 5,
+        "questions_cheaper_than_grep_and_read": 5,
+        "worst_reduction_vs_grep_and_read": 0.2999
+      }
+    },
+    {
+      "corpus": {
+        "characters": 845788,
+        "edges_ingested": 4847,
+        "files": 144,
+        "nodes_ingested": 1121,
+        "tokens": 199366
+      },
+      "label": "real code (src/dkg, ground truth from Python's ast, independent of the graph)",
+      "measurements": [
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 23,
+            "tokens": 767
+          },
+          "depth": 1,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 23,
+                "token_budget": 6000,
+                "tokens": 2845
+              },
+              "matched": 23,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 23,
+              "tokens": 2845,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 4,
+                "recall_of_required": 0.8181818181818182,
+                "slices": 19,
+                "token_budget": 6000,
+                "tokens": 5968
+              },
+              "matched": 23,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 23,
+              "tokens": 6729,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 23,
+                "token_budget": 6000,
+                "tokens": 767
+              },
+              "matched": 23,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 23,
+              "tokens": 767,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 12,
+            "recall_of_required": 1.0,
+            "tokens": 15624
+          },
+          "naive_whole_corpus": {
+            "files": 144,
+            "recall_of_required": 1.0,
+            "tokens": 199366
+          },
+          "name": "real-callers:execute",
+          "question": "What calls execute?",
+          "reduction_vs_grep_and_read": 0.9509,
+          "reduction_vs_naive": 0.9962,
+          "relation": "callers",
+          "required_symbols": 22,
+          "seed": "dkg/core/db.py::Database.execute"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 22,
+            "tokens": 746
+          },
+          "depth": 1,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 22,
+                "token_budget": 6000,
+                "tokens": 2075
+              },
+              "matched": 22,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 22,
+              "tokens": 2075,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 1,
+                "recall_of_required": 0.9473684210526315,
+                "slices": 21,
+                "token_budget": 6000,
+                "tokens": 4677
+              },
+              "matched": 22,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 22,
+              "tokens": 7628,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 22,
+                "token_budget": 6000,
+                "tokens": 746
+              },
+              "matched": 22,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 22,
+              "tokens": 746,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 18,
+            "recall_of_required": 1.0,
+            "tokens": 34159
+          },
+          "naive_whole_corpus": {
+            "files": 144,
+            "recall_of_required": 1.0,
+            "tokens": 199366
+          },
+          "name": "real-callers:fetchone",
+          "question": "What calls fetchone?",
+          "reduction_vs_grep_and_read": 0.9782,
+          "reduction_vs_naive": 0.9963,
+          "relation": "callers",
+          "required_symbols": 19,
+          "seed": "dkg/core/db.py::Database.fetchone"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 12,
+            "tokens": 527
+          },
+          "depth": 1,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 12,
+                "token_budget": 6000,
+                "tokens": 1244
+              },
+              "matched": 12,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 12,
+              "tokens": 1244,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 12,
+                "token_budget": 6000,
+                "tokens": 5812
+              },
+              "matched": 12,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 12,
+              "tokens": 5812,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 12,
+                "token_budget": 6000,
+                "tokens": 527
+              },
+              "matched": 12,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 12,
+              "tokens": 527,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 6,
+            "recall_of_required": 1.0,
+            "tokens": 23404
+          },
+          "naive_whole_corpus": {
+            "files": 144,
+            "recall_of_required": 1.0,
+            "tokens": 199366
+          },
+          "name": "real-callers:edges_for",
+          "question": "What calls edges_for?",
+          "reduction_vs_grep_and_read": 0.9775,
+          "reduction_vs_naive": 0.9974,
+          "relation": "callers",
+          "required_symbols": 11,
+          "seed": "dkg/code/analysis.py::CodeGraphView.edges_for"
+        },
+        {
+          "cheapest_complete_answer": {
+            "detail": "signature",
+            "slices": 8,
+            "tokens": 530
+          },
+          "depth": 1,
+          "graph_slices_by_detail": {
+            "focused": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 8,
+                "token_budget": 6000,
+                "tokens": 1039
+              },
+              "matched": 8,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 8,
+              "tokens": 1039,
+              "traversal_truncated": false
+            },
+            "full": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 8,
+                "token_budget": 6000,
+                "tokens": 3121
+              },
+              "matched": 8,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 8,
+              "tokens": 3121,
+              "traversal_truncated": false
+            },
+            "signature": {
+              "at_fixed_budget": {
+                "omitted": 0,
+                "recall_of_required": 1.0,
+                "slices": 8,
+                "token_budget": 6000,
+                "tokens": 530
+              },
+              "matched": 8,
+              "recall_of_required": 1.0,
+              "recall_of_required_by_returned_symbol": 1.0,
+              "slices": 8,
+              "tokens": 530,
+              "traversal_truncated": false
+            }
+          },
+          "grep_and_read": {
+            "files": 5,
+            "recall_of_required": 1.0,
+            "tokens": 23666
+          },
+          "naive_whole_corpus": {
+            "files": 144,
+            "recall_of_required": 1.0,
+            "tokens": 199366
+          },
+          "name": "real-callers:get_language",
+          "question": "What calls get_language?",
+          "reduction_vs_grep_and_read": 0.9776,
+          "reduction_vs_naive": 0.9973,
+          "relation": "callers",
+          "required_symbols": 7,
+          "seed": "dkg/code/capability.py::get_language"
+        }
+      ],
+      "summary": {
+        "median_reduction_vs_grep_and_read": 0.97755,
+        "median_reduction_vs_naive": 0.9967999999999999,
+        "questions": 4,
+        "questions_answered_completely": 4,
+        "questions_cheaper_than_grep_and_read": 4,
+        "worst_reduction_vs_grep_and_read": 0.9509
+      }
+    }
+  ],
+  "method": "Three routes per question, all counted by the same real tokenizer. Naive whole corpus: every file. Grep and read: every file whose text contains the symbol, in full, which is what a capable agent without a graph does. Graph slices: one slice per relevant SYMBOL, reduced to its declaration plus the lines bearing on the question. The quoted figure is the CHEAPEST detail level that keeps every required symbol, so a saving bought by losing part of the answer never reaches the headline. The uncapped cost is what is compared, because the baselines are uncapped too; what a fixed budget buys is reported separately per detail level.",
+  "settings": {
+    "detail_levels": [
+      "signature",
+      "focused",
+      "full"
+    ],
+    "token_budget": 6000
+  },
+  "tokenizer": {
+    "is_real_tokenizer": true,
+    "name": "cl100k_base",
+    "note": "Both sides of every comparison are counted by this one tokenizer. When is_real_tokenizer is false these are estimator counts and must not be quoted as token counts."
+  }
+}

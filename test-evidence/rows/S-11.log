@@ -1,0 +1,15 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-11
+# area: Evidence and reproducibility
+# requirement: Measure and publish incremental-update latency on a large repository, reporting the cold build, the no-change update, the changed-file update, and the number of files actually re-parsed, with process start-up separated from marginal cost so the figure cannot be read as faster than it is
+# status: NOT IMPLEMENTED
+# acceptance_test: pytest tests/benchmark/test_incremental_latency.py -q
+# generated_at: 2026-08-05T15:20:14.251344+00:00
+# action_kind: documentary
+
+This row records a parity gap found by comparing the platform against a
+public reference implementation of the same problem domain. The row is not
+implemented yet, so this file is a documentary record and not an executed
+acceptance run. It exists so the row has the evidence file every row must
+have, and it can never promote the row: the validator rejects a documentary
+log as support for a production-ready status.

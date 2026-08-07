@@ -1,0 +1,10 @@
+The quick brown fox jumps over the lazy dog.
+Invoice number 4096 dated 2026-08-02 total 1530 dollars.
+Acme Corporation shipped 27 units to Berlin on Tuesday.
+Meeting notes: review the confidence formula and the evidence ledger.
+Contact support at help@example.org or call 555 0100.
+Version 2.3.7 was released on 18 July 2026.
+The knowledge graph stores sources, documents, chunks, and claims.
+Temperature rose from 12 to 34 degrees over three hours.
+Order 8821: 3 widgets, 5 gaskets, 1 manual, shipped complete.
+Local first, air gapped by default, with no cloud call.

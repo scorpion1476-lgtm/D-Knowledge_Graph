@@ -1,0 +1,64 @@
+name: Documentation problem or overstated claim
+description: A document says something the repository does not do, or a number that does not match its artifact.
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is one of the most valuable reports you can file here. The project's
+        standard is honest labelling: every status is backed by real on-disk
+        evidence and every measured number is read out of an artifact under
+        `test-evidence/`. A document that overstates what the code does is a bug
+        against that standard, and it is treated as one.
+
+  - type: input
+    id: document
+    attributes:
+      label: Which document
+      description: The repository path.
+      placeholder: docs/BENCHMARKS.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: quote
+    attributes:
+      label: The exact sentence or number
+      description: Quote it, so there is no ambiguity about what is being challenged.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What the repository actually does
+      description: >-
+        The code, the test, the artifact under `test-evidence/`, or the command
+        output that contradicts it. A path and a line number is enough.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - A claim the code does not support
+        - A number that does not match its artifact
+        - A missing caveat on an advisory or over-approximate result
+        - A dead link, a dead anchor, or a cited path that does not exist
+        - Out of date after a change
+        - Unclear or wrong instructions
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The output of `dkg --version`, if the problem depends on the build.
+      placeholder: dkg 0.1.0
+    validations:
+      required: false

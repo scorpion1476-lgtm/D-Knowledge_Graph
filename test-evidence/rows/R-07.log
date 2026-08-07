@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-07
+# area: Delivery and distribution
+# requirement: Configure the read-only MCP server for at least 15 AI coding tools from one command, auto-detecting which are present, with per-tool targeting, a dry run, and an ownership marker so nothing another installer wrote is ever replaced
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_mcp_configure_breadth.py -q
+# generated_at: 2026-08-06T21:31:03.004942+00:00
+# action_kind: executed
+# exit_code: 0
+
+.................                                                        [100%]
+17 passed in 0.36s

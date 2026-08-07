@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+"""Generate the code-resolution ambiguity corpus and its ground truth.
+
+The corpus is deliberately, systematically ambiguous so that name-based
+(structural) resolution over-approximates and type-aware resolution does not:
+
+- ``animals.py`` / ``animals.js`` define N classes that ALL share a method named
+  ``speak``. A structural resolver linking a ``.speak()`` call by name alone
+  reaches every one of the N classes; only one is correct.
+- ``app.py`` / ``app.js`` define caller functions of three kinds:
+    * direct   : ``x = A{i}(); x.speak()``            -> A{i}.speak
+    * polymorphic (reassignment): ``x = A0(); x = A{i}(); x.speak()`` -> A{i}.speak
+      (a flow-sensitive dataflow or a language server must pick the last type)
+    * unique   : ``uses_unique_{k}() -> unique_helper_{k}()`` where the callee
+      name is unique, so structural and resolved agree (a non-helping case that
+      keeps the corpus honest rather than only rewarding resolution).
+
+The ground truth is the set of direct caller-to-method call edges, hand-specified
+here from the construction (not read back from the parser). Constructor edges are
+excluded so the measurement isolates the disambiguation lever. Go is kept as a
+single structural-only file (no Go language server or dataflow this wave).
+
+Run ``python tests/code/corpus/ambiguity/generate_corpus.py`` to regenerate the
+corpus files and ``ground_truth.json`` in place. The corpus is retained and
+versioned; this generator documents exactly how it is built so anyone can
+reproduce it.
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+
+N_CLASSES = 12          # classes that all share a speak() method
+N_POLY = 6              # polymorphic reassignment callers (subset of classes)
+N_UNIQUE = 6            # unique-name helper/caller pairs (structural == resolved)
+
+
+def _python() -> dict:
+    classes = [f"A{i}" for i in range(N_CLASSES)]
+    animals = []
+    for i, c in enumerate(classes):
+        animals.append(f"class {c}:\n    def speak(self):\n        return \"{c.lower()}\"\n")
+    animals_py = "\n".join(animals)
+
+    lines = ["from animals import " + ", ".join(classes), "", ""]
+    edges: list[list[str]] = []
+    # direct callers
+    for i, c in enumerate(classes):
+        lines += [f"def run_a{i}():", f"    x = {c}()", "    return x.speak()", "", ""]
+        edges.append([f"app.py::run_a{i}", f"animals.py::{c}.speak"])
+    # polymorphic reassignment callers: first assign A0, then reassign A{j}
+    for j in range(1, N_POLY + 1):
+        c = classes[j]
+        lines += [f"def poly_a{j}():", "    x = A0()", f"    x = {c}()", "    return x.speak()", "", ""]
+        edges.append([f"app.py::poly_a{j}", f"animals.py::{c}.speak"])
+    # unique-name pairs
+    for k in range(N_UNIQUE):
+        lines += [f"def unique_helper_{k}():", f"    return {k}", "", ""]
+        lines += [f"def uses_unique_{k}():", f"    return unique_helper_{k}()", "", ""]
+        edges.append([f"app.py::uses_unique_{k}", f"app.py::unique_helper_{k}"])
+    app_py = "\n".join(lines).rstrip() + "\n"
+    return {"animals.py": animals_py, "app.py": app_py, "edges": edges}
+
+
+def _javascript() -> dict:
+    classes = [f"A{i}" for i in range(N_CLASSES)]
+    animals = []
+    for c in classes:
+        animals.append(f"export class {c} {{\n  speak() {{\n    return \"{c.lower()}\";\n  }}\n}}\n")
+    animals_js = "\n".join(animals)
+
+    lines = ["import { " + ", ".join(classes) + " } from \"./animals.js\";", "", ""]
+    edges: list[list[str]] = []
+    for i, c in enumerate(classes):
+        lines += [f"export function runA{i}() {{", f"  const x = new {c}();", "  return x.speak();", "}", ""]
+        edges.append([f"app.js::runA{i}", f"animals.js::{c}.speak"])
+    for j in range(1, N_POLY + 1):
+        c = classes[j]
+        lines += [f"export function polyA{j}() {{", "  let x = new A0();", f"  x = new {c}();", "  return x.speak();", "}", ""]
+        edges.append([f"app.js::polyA{j}", f"animals.js::{c}.speak"])
+    for k in range(N_UNIQUE):
+        lines += [f"export function uniqueHelper{k}() {{", f"  return {k};", "}", ""]
+        lines += [f"export function usesUnique{k}() {{", f"  return uniqueHelper{k}();", "}", ""]
+        edges.append([f"app.js::usesUnique{k}", f"app.js::uniqueHelper{k}"])
+    app_js = "\n".join(lines).rstrip() + "\n"
+    return {"animals.js": animals_js, "app.js": app_js, "edges": edges}
+
+
+def main() -> int:
+    py = _python()
+    js = _javascript()
+    (HERE / "python" / "animals.py").write_text(py["animals.py"], encoding="utf-8")
+    (HERE / "python" / "app.py").write_text(py["app.py"], encoding="utf-8")
+    (HERE / "javascript" / "animals.js").write_text(js["animals.js"], encoding="utf-8")
+    (HERE / "javascript" / "app.js").write_text(js["app.js"], encoding="utf-8")
+
+    ground_truth = {
+        "note": (
+            "Generated by generate_corpus.py. N classes share one method name so "
+            "structural resolution over-approximates; type-aware resolution and "
+            "dataflow disambiguate. Direct, polymorphic-reassignment, and "
+            "unique-name callers. Constructor edges excluded. Go is structural only."
+        ),
+        "generator": "tests/code/corpus/ambiguity/generate_corpus.py",
+        "parameters": {"classes": N_CLASSES, "polymorphic_callers": N_POLY, "unique_pairs": N_UNIQUE},
+        "languages": {
+            "python": {
+                "resolution_status": "resolved (pyright language server + dataflow)",
+                "paths": ["animals.py", "app.py"],
+                "true_call_edges": py["edges"],
+            },
+            "javascript": {
+                "resolution_status": "resolved (typescript-language-server + dataflow)",
+                "paths": ["animals.js", "app.js"],
+                "true_call_edges": js["edges"],
+            },
+            "go": {
+                "resolution_status": "structural only (not resolved this wave)",
+                "reason": (
+                    "no Go toolchain and no Go language server present, and no Go "
+                    "dataflow this wave; the parser also does not qualify methods by "
+                    "receiver type, so same-named methods share one identifier. Go "
+                    "keeps the structural baseline and is reported honestly."
+                ),
+                "paths": ["animals.go"],
+            },
+        },
+    }
+    (HERE / "ground_truth.json").write_text(
+        json.dumps(ground_truth, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"python: {len(py['edges'])} true edges; javascript: {len(js['edges'])} true edges")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

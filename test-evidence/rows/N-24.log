@@ -1,0 +1,16 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-24
+# area: Source-code plane
+# requirement: Expose the language inventory on the CLI and the read-only MCP surface, reporting per language how it is parsed, which extra ships its grammar, and whether that grammar is available in this environment, so a caller never has to infer coverage from a failure
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_language_breadth.py tests/code/test_mcp_code.py -q
+# generated_at: 2026-08-05T19:23:00.026447+00:00
+# action_kind: pytest
+.................                                                        [100%]
+=============================== warnings summary ===============================
+tests/code/test_language_breadth.py::test_published_accuracy_covers_every_claimed_language_and_states_fidelity
+  /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/src/dkg/code/capability.py:123: DeprecationWarning: int argument support is deprecated
+    return tree_sitter.Language(fn())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 0.23s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-08
+# area: Supply chain
+# requirement: Checksums for generated artefacts
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/release/test_evidence_checksums.py -q
+# generated_at: 2026-08-07T00:34:50.118790+00:00
+# action_kind: executed
+# exit_code: 0
+
+.......                                                                  [100%]
+7 passed in 0.14s

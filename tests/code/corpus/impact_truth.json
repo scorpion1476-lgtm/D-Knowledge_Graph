@@ -1,0 +1,5 @@
+{
+  "changed_entity": "core.py::base",
+  "comment": "collide.py defines a second base() with the same name; uses_local_base actually calls collide.base, not core.base. The true impact of changing core.base is only chain.mid and chain.top. A name-based structural graph also links uses_local_base to core.base, so it over-approximates.",
+  "true_impact_functions": ["chain.py::mid", "chain.py::top"]
+}

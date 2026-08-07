@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-02
+# area: Advanced code analysis
+# requirement: Intra-procedural dataflow (def-use type inference) and optional source-to-sink taint
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_resolve.py::test_dataflow_resolves_polymorphism_without_a_server -q
+# generated_at: 2026-08-04T03:46:48.217344+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 0.04s

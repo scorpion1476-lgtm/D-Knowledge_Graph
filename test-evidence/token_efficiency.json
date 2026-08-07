@@ -1,0 +1,210 @@
+{
+  "corpus": {
+    "bytes": 24463,
+    "characters": 25197,
+    "edges_ingested": 745,
+    "estimated_tokens": 12620,
+    "files": 38,
+    "generator": "tests/code/corpus/tokens/generate_corpus.py",
+    "path": "tests/code/corpus/tokens",
+    "symbols_ingested": 289
+  },
+  "estimator": {
+    "kind": "in-repo deterministic estimator, not a vendor tokenizer",
+    "note": "Both sides of every comparison use this estimator, so the ratio is substantially independent of it. Character counts and the character ratio are published so that can be verified.",
+    "rule": "runs of up to four letters, single digits, newlines, and single non-alphanumeric characters each count as one token; other whitespace is not counted"
+  },
+  "follow_up_file_cap": 10,
+  "measurements": [
+    {
+      "character_ratio_vs_graph_plus_sources": 0.6398,
+      "files_named": 38,
+      "files_omitted_by_cap": 28,
+      "files_opened": 10,
+      "full_corpus": {
+        "characters": 25197,
+        "tokens": 12620
+      },
+      "graph_answer": {
+        "characters": 32980,
+        "tokens": 15840
+      },
+      "graph_plus_all_named_sources": {
+        "characters": 58178,
+        "tokens": 28461
+      },
+      "graph_plus_sources": {
+        "characters": 39384,
+        "tokens": 18907
+      },
+      "name": "blast_radius",
+      "question": "If I change core_util_0, what else is affected?",
+      "token_ratio_uncapped": 0.4434,
+      "token_ratio_vs_graph_answer": 0.7967,
+      "token_ratio_vs_graph_plus_sources": 0.6675
+    },
+    {
+      "character_ratio_vs_graph_plus_sources": 1.3846,
+      "files_named": 3,
+      "files_omitted_by_cap": 0,
+      "files_opened": 3,
+      "full_corpus": {
+        "characters": 25197,
+        "tokens": 12620
+      },
+      "graph_answer": {
+        "characters": 16227,
+        "tokens": 8228
+      },
+      "graph_plus_all_named_sources": {
+        "characters": 18198,
+        "tokens": 9149
+      },
+      "graph_plus_sources": {
+        "characters": 18198,
+        "tokens": 9149
+      },
+      "name": "execution_flow",
+      "question": "What does mod_00_run end up calling?",
+      "token_ratio_uncapped": 1.3794,
+      "token_ratio_vs_graph_answer": 1.5338,
+      "token_ratio_vs_graph_plus_sources": 1.3794
+    },
+    {
+      "character_ratio_vs_graph_plus_sources": 1.5658,
+      "files_named": 10,
+      "files_omitted_by_cap": 0,
+      "files_opened": 10,
+      "full_corpus": {
+        "characters": 25197,
+        "tokens": 12620
+      },
+      "graph_answer": {
+        "characters": 10798,
+        "tokens": 4621
+      },
+      "graph_plus_all_named_sources": {
+        "characters": 16092,
+        "tokens": 7118
+      },
+      "graph_plus_sources": {
+        "characters": 16092,
+        "tokens": 7118
+      },
+      "name": "chokepoints",
+      "question": "Which symbols are the architectural chokepoints in this repository?",
+      "token_ratio_uncapped": 1.773,
+      "token_ratio_vs_graph_answer": 2.731,
+      "token_ratio_vs_graph_plus_sources": 1.773
+    },
+    {
+      "character_ratio_vs_graph_plus_sources": 1.5983,
+      "files_named": 12,
+      "files_omitted_by_cap": 2,
+      "files_opened": 10,
+      "full_corpus": {
+        "characters": 25197,
+        "tokens": 12620
+      },
+      "graph_answer": {
+        "characters": 9229,
+        "tokens": 4303
+      },
+      "graph_plus_all_named_sources": {
+        "characters": 17259,
+        "tokens": 8186
+      },
+      "graph_plus_sources": {
+        "characters": 15765,
+        "tokens": 7430
+      },
+      "name": "untested_hotspots",
+      "question": "Which heavily used symbols have no test covering them?",
+      "token_ratio_uncapped": 1.5417,
+      "token_ratio_vs_graph_answer": 2.9328,
+      "token_ratio_vs_graph_plus_sources": 1.6985
+    },
+    {
+      "character_ratio_vs_graph_plus_sources": 1.5056,
+      "files_named": 6,
+      "files_omitted_by_cap": 0,
+      "files_opened": 6,
+      "full_corpus": {
+        "characters": 25197,
+        "tokens": 12620
+      },
+      "graph_answer": {
+        "characters": 13188,
+        "tokens": 6285
+      },
+      "graph_plus_all_named_sources": {
+        "characters": 16736,
+        "tokens": 7900
+      },
+      "graph_plus_sources": {
+        "characters": 16736,
+        "tokens": 7900
+      },
+      "name": "review_questions",
+      "question": "What should I be asking about in review of this repository?",
+      "token_ratio_uncapped": 1.5975,
+      "token_ratio_vs_graph_answer": 2.008,
+      "token_ratio_vs_graph_plus_sources": 1.5975
+    }
+  ],
+  "scaling": [
+    {
+      "corpus_tokens": 3570,
+      "files": 13,
+      "leaf_modules": 5,
+      "mean_token_ratio_graph_plus_sources": 0.5838,
+      "per_question": {
+        "blast_radius": 0.4756,
+        "chokepoints": 0.5447,
+        "execution_flow": 0.3902,
+        "review_questions": 0.7556,
+        "untested_hotspots": 0.7527
+      }
+    },
+    {
+      "corpus_tokens": 7190,
+      "files": 23,
+      "leaf_modules": 15,
+      "mean_token_ratio_graph_plus_sources": 0.9321,
+      "per_question": {
+        "blast_radius": 0.5958,
+        "chokepoints": 1.0066,
+        "execution_flow": 0.7859,
+        "review_questions": 1.2172,
+        "untested_hotspots": 1.0552
+      }
+    },
+    {
+      "corpus_tokens": 12620,
+      "files": 38,
+      "leaf_modules": 30,
+      "mean_token_ratio_graph_plus_sources": 1.4232,
+      "per_question": {
+        "blast_radius": 0.6675,
+        "chokepoints": 1.773,
+        "execution_flow": 1.3794,
+        "review_questions": 1.5975,
+        "untested_hotspots": 1.6985
+      }
+    }
+  ],
+  "summary": {
+    "headline_metric": "token_ratio_vs_graph_plus_sources",
+    "max_token_ratio_graph_plus_sources": 1.773,
+    "mean_token_ratio_answer_only": 2.0005,
+    "mean_token_ratio_graph_plus_sources": 1.4232,
+    "mean_token_ratio_uncapped": 1.347,
+    "min_token_ratio_graph_plus_sources": 0.6675,
+    "questions": 5
+  },
+  "why": {
+    "headline": "The figure to quote is token_ratio_vs_graph_plus_sources, which charges the graph route for reading the files its answer names. The answer-only ratio is reported for completeness and flatters the graph route by assuming no code is read at all.",
+    "limitation": "Answer quality is not measured here, only size. The accuracy of the underlying analyses is measured separately, and those analyses are structural and over-approximate.",
+    "scope": "Measured on this corpus only. The ratio scales with corpus size: the full-corpus cost grows with the repository while a graph answer stays bounded by what the question touches. This is not a universal claim and must not be quoted as one."
+  }
+}

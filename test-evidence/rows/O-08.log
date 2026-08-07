@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: O-08
+# area: Retrieval and graph enrichment
+# requirement: Offer a second selectable embedding backend behind the existing adapter interface, including an endpoint-compatible remote backend that is off by default, refuses to run without an explicit egress opt-in, prints the egress warning naming exactly what text would leave the machine, and skips the warning only for a loopback endpoint
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/retrieval/test_embedding_backends.py -q
+# generated_at: 2026-08-06T21:31:27.389442+00:00
+# action_kind: executed
+# exit_code: 0
+
+.........................                                                [100%]
+25 passed in 2.12s

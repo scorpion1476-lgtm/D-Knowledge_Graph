@@ -1,0 +1,265 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "d-knowledge-graph"
+version = "0.1.0"
+description = "Local first, source available, LLM agnostic knowledge graph and multi agent research platform"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "LicenseRef-DKG-Source-Available-NonCommercial" }
+authors = [{ name = "D-Knowledge_Graph contributors" }]
+keywords = [
+  "knowledge-graph",
+  "local-first",
+  "sqlite",
+  "fts5",
+  "mcp",
+  "multi-agent",
+  "research",
+  "provenance",
+]
+classifiers = [
+  # Source-available and non-commercial: there is no OSI classifier for this,
+  # and claiming an OSI-approved one would be false.
+  "License :: Other/Proprietary License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Text Processing :: Indexing",
+]
+
+# Zero mandatory runtime dependencies beyond the Python standard library.
+# Every optional integration is behind an adapter and is declared as an extra.
+dependencies = []
+
+[project.optional-dependencies]
+html   = ["beautifulsoup4>=4.12", "lxml>=4.9"]
+pdf    = ["pypdf>=4.0"]
+rss    = ["feedparser>=6.0"]
+web    = ["httpx>=0.27"]
+mcp    = []
+# Media plane (document-and-media plane). Core stays zero mandatory deps.
+# media-image adds Pillow (HPND, permissive) for decode and EXIF; OCR uses the
+# external tesseract binary (Apache-2.0). media-video uses external ffprobe and
+# ffmpeg (carve-out) and an external ASR engine; asr-faster-whisper is an
+# optional in-process ASR (faster-whisper, MIT) that requires a pre-staged model.
+media-image = ["Pillow>=10.0"]
+media-video = []
+asr-faster-whisper = ["faster-whisper>=1.0"]
+# Source-code plane. Tree-sitter core plus vetted permissive (MIT) grammars.
+# In-process parsing, no network, no system binary.
+code = [
+  "tree-sitter>=0.21",
+  "tree-sitter-python>=0.21",
+  "tree-sitter-javascript>=0.21",
+  "tree-sitter-go>=0.21",
+]
+# Wider language set. Same in-process Tree-sitter parsing, no subprocess and no
+# network; every grammar here is MIT, matching the permissive-only rule. Kept as
+# a separate extra so the starter 'code' footprint is unchanged and each
+# language stays capability-detected: the core installs and passes with none of
+# these present. Parse accuracy for every language is measured before it is
+# claimed (see docs/BENCHMARKS.md).
+code-extended = [
+  "tree-sitter>=0.21",
+  "tree-sitter-typescript>=0.21",
+  "tree-sitter-java>=0.21",
+  "tree-sitter-ruby>=0.21",
+  "tree-sitter-rust>=0.21",
+]
+# The full language set, and a superset of the two extras above: installing this
+# one alone gives every language, including the starter three. Same in-process
+# Tree-sitter parsing, no subprocess and no network. Every grammar here is permissive: MIT except tree-sitter-elixir
+# and tree-sitter-hcl, which are Apache-2.0. No GPL, LGPL, or AGPL grammar is
+# used anywhere, and no grammar is vendored. Kept as a separate extra so the
+# starter 'code' footprint is unchanged and every language stays
+# capability-detected: the core installs and passes with none of these present.
+# Parse accuracy for every language is measured against a labelled corpus before
+# it is claimed (see docs/BENCHMARKS.md and scripts/language_accuracy.py).
+#
+# R, GDScript, ReScript, VB.NET, and Perl have no dedicated grammar package this
+# project can depend on; their grammar comes from the 'code-bundle' extra below.
+# Without that extra they degrade to the documented pattern extractor in
+# src/dkg/code/fallback.py, which needs no dependency at all.
+code-full = [
+  "tree-sitter>=0.21",
+  "tree-sitter-python>=0.21",
+  "tree-sitter-javascript>=0.21",
+  "tree-sitter-go>=0.21",
+  "tree-sitter-typescript>=0.21",
+  "tree-sitter-java>=0.21",
+  "tree-sitter-ruby>=0.21",
+  "tree-sitter-rust>=0.21",
+  "tree-sitter-c>=0.21",
+  "tree-sitter-cpp>=0.21",
+  "tree-sitter-c-sharp>=0.21",
+  "tree-sitter-objc>=3.0",
+  "tree-sitter-zig>=1.1",
+  "tree-sitter-kotlin>=1.1",
+  "tree-sitter-swift>=0.7",
+  "tree-sitter-dart>=0.1",
+  "tree-sitter-php>=0.22",
+  "tree-sitter-lua>=0.2",
+  "tree-sitter-luau>=1.2",
+  "tree-sitter-julia>=0.22",
+  "tree-sitter-scala>=0.21",
+  "tree-sitter-elixir>=0.3",
+  "tree-sitter-bash>=0.21",
+  "tree-sitter-zsh>=0.6",
+  "tree-sitter-powershell>=0.26",
+  "tree-sitter-solidity>=1.2",
+  "tree-sitter-sql>=0.3",
+  "tree-sitter-verilog>=1.0",
+  "tree-sitter-nix>=0.1",
+  "tree-sitter-hcl>=1.2",
+  "tree-sitter-yaml>=0.7",
+]
+# Grammars for the five languages that publish no dedicated Tree-sitter package
+# this project can depend on: R, GDScript, ReScript, and VB.NET publish none to
+# PyPI, and tree-sitter-perl publishes no wheel for every supported platform.
+# They come instead from a bundle that compiles hundreds of grammars into one
+# shared object, which is why the WHOLE bundle is audited rather than only the
+# five: installing this extra ships all of them.
+#
+# The bundle publishes no per-grammar licence manifest, but it does publish the
+# upstream repository and the exact revision compiled in for every grammar.
+# scripts/audit_grammar_bundle.py resolves each licence from that primary source
+# and writes docs/grammar_bundle_licences.json, a committed artifact a test
+# checks. At the audited version every grammar resolved permissive and none was
+# copyleft; the five enabled here are MIT, pinned in
+# dkg.code.capability.BUNDLE_GRAMMAR_SOURCES with the revision measured.
+# Attribution is in THIRD_PARTY_NOTICES.md.
+#
+# Pinned to an exact version, not a floor: the audit is only meaningful for the
+# revisions that version compiles, so a floating upper bound would let unaudited
+# grammars in silently.
+code-bundle = [
+  "tree-sitter>=0.21",
+  "tree-sitter-language-pack==1.14.3",
+]
+# Shared retrieval core (Wave 3a). Real local embeddings and a real local
+# cross-encoder reranker. Core stays zero mandatory deps; both are optional,
+# capability-detected, and load pre-staged models local-files-only (no runtime
+# download). model2vec is MIT with numpy-only inference; fastembed is Apache-2.0
+# over ONNX Runtime. Both have permissive model weights (potion-base-8M MIT,
+# ms-marco-MiniLM-L-6-v2 Apache-2.0).
+embeddings = ["model2vec>=0.3"]
+reranker   = ["fastembed>=0.3"]
+# Image object and content detection (Wave 3b). Zero-shot CLIP over ONNX via
+# fastembed (Apache-2.0), with MIT model weights (Qdrant/clip-ViT-B-32). Torch-free,
+# pre-staged, local-files-only at runtime. Scene/keyframe detection and on-screen
+# OCR need no Python extra (the external ffmpeg and tesseract binaries).
+media-detect = ["fastembed>=0.3"]
+# Delivery plane (Wave 4b). Optional file-watching for the multi-repo watch
+# daemon. watchfiles is MIT and watches the local filesystem only (no network).
+# The daemon degrades to a standard-library polling watcher when this is absent,
+# and the core works without the daemon entirely.
+watch = ["watchfiles>=0.21"]
+# Release and build tooling (Wave 5). Used only in the release workflow to build
+# the wheel reproducibly and sign it; not a product runtime dependency, so it is
+# kept out of the product-closure lockfile and SBOM. build is MIT; sigstore is
+# Apache-2.0. Provenance is emitted by a SHA-pinned GitHub action, not a Python
+# dependency.
+release = ["build>=1.2", "sigstore>=3.0"]
+dev    = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+  "mypy>=1.10",
+  # Tooling only, for scripts/export_matrix_xlsx.py. MIT, and never imported by
+  # the product, so the zero-dependency runtime core is unaffected.
+  "openpyxl>=3.1",
+  # Real BPE tokenizer for the token-cost benchmark. MIT. Benchmark and CI
+  # tooling only: it fetches its encoding file on first use, so it must never
+  # sit on a runtime path. The product falls back to a documented in-repo
+  # estimator and says which one it used.
+  "tiktoken>=0.7",
+]
+
+[project.scripts]
+dkg = "dkg.cli.entry:main"
+d-knowledge-graph = "dkg.cli.entry:main"
+
+[project.urls]
+Homepage = "https://github.com/local/D-Knowledge_Graph"
+Documentation = "https://github.com/local/D-Knowledge_Graph#readme"
+Issues = "https://github.com/local/D-Knowledge_Graph/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+# The whole repository, Ariadne included, is under one source-available
+# non-commercial licence, so there is no longer any component to exclude from
+# the build and Ariadne ships with the package.
+
+[tool.setuptools.package-data]
+"dkg" = ["core/migrations/*.sql", "skills/*.md", "plugins/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# importlib import mode: the suite deliberately has same-named test modules in
+# different plane directories (for example tests/code/test_accuracy.py and
+# tests/media/test_accuracy.py). Under pytest's default "prepend" mode those
+# collide on module name and the whole run aborts during collection. importlib
+# gives each file its own module identity, so plane-local test names can stay
+# descriptive without adding package markers to the test tree.
+addopts = "-ra --strict-markers --import-mode=importlib"
+# Corpus directories hold deliberate test DATA, not tests. The token-efficiency
+# corpus contains files named test_mod_NN.py precisely because the code plane
+# must see them as test symbols; pytest would otherwise try to collect them as
+# its own tests and fail on their unresolvable imports. No real test lives under
+# a corpus directory.
+norecursedirs = ["*/corpus", "*/corpus/*"]
+markers = [
+  "unit: pure unit tests",
+  "integration: integration tests using SQLite and filesystem",
+  "security: security control tests (SSRF, redaction, decompression, etc.)",
+  "e2e: end to end scenarios",
+  "slow: slower tests (may exceed 1 second each)",
+]
+
+[tool.ruff]
+# Regex patterns in prompt_defense, redact, and claims extraction do
+# not read cleanly when wrapped, so we allow a generous line budget.
+line-length = 160
+target-version = "py310"
+# The benchmark corpora are deliberate test data (parsed source, long document
+# text, generated graphs), not project code; do not lint or reformat them.
+extend-exclude = ["tests/code/corpus", "tests/retrieval/corpus", "tests/graph/corpus"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S"]
+# Ignored rules:
+#   S101: pytest uses `assert`.
+#   S105/S106: false positives on env-var-name assignment for token config.
+#   S202: our restore_backup validates every member before extraction.
+#   S310: our HTTP fetch paths run validate_url() before urlopen.
+#   S311: random used only for non-cryptographic scheduling ids.
+#   S314: our XML parsers reject DOCTYPE and ENTITY before parsing.
+#   S603: every subprocess call in the media plane uses list arguments, no
+#         shell, a bounded timeout, and a binary resolved via shutil.which;
+#         no user string is ever passed as a command.
+#   S608: all our SQL is parameterised; the flagged f-strings only
+#         interpolate hard-coded column lists and placeholder count.
+ignore = ["S101", "S105", "S106", "S202", "S310", "S311", "S314", "S603", "S608"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "B"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+warn_unused_ignores = true
+warn_return_any = true
+
+# Optional media dependencies are not present in the type-check environment and
+# some ship no stubs; their imports are guarded at runtime by capability checks.
+[[tool.mypy.overrides]]
+module = ["PIL.*", "faster_whisper.*", "tree_sitter", "tree_sitter.*", "tree_sitter_python", "tree_sitter_javascript", "tree_sitter_go", "tree_sitter_typescript", "tree_sitter_java", "tree_sitter_ruby", "tree_sitter_rust", "tree_sitter_c", "tree_sitter_cpp", "tree_sitter_c_sharp", "tree_sitter_objc", "tree_sitter_zig", "tree_sitter_kotlin", "tree_sitter_swift", "tree_sitter_dart", "tree_sitter_php", "tree_sitter_lua", "tree_sitter_luau", "tree_sitter_julia", "tree_sitter_scala", "tree_sitter_elixir", "tree_sitter_bash", "tree_sitter_zsh", "tree_sitter_powershell", "tree_sitter_solidity", "tree_sitter_sql", "tree_sitter_verilog", "tree_sitter_nix", "tree_sitter_hcl", "tree_sitter_yaml", "model2vec", "model2vec.*", "fastembed", "fastembed.*", "watchfiles", "watchfiles.*"]
+ignore_missing_imports = true

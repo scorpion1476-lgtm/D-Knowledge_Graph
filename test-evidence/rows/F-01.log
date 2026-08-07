@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-01
+# area: MCP
+# requirement: Local stdio MCP server
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_mcp_stdio.py -q
+# generated_at: 2026-08-04T03:43:03.531361+00:00
+# action_kind: pytest
+......                                                                   [100%]
+6 passed in 0.92s

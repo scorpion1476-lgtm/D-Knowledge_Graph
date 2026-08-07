@@ -1,0 +1,18 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-17
+# area: Source-code plane
+# requirement: Ship a vetted set of permissive grammars with the code extras so a project registering an extra language through the project-owned config file needs no separate grammar install, with the licence of every bundled grammar recorded in the third-party notices
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_language_breadth.py -q
+# generated_at: 2026-08-07T01:05:01.916514+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+tests/code/test_language_breadth.py::test_published_accuracy_covers_every_claimed_language_and_states_fidelity
+  /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/src/dkg/code/capability.py:200: DeprecationWarning: int argument support is deprecated
+    return tree_sitter.Language(fn())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 0.28s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-16
+# area: MCP
+# requirement: List every registered repository and search across all of them from read-only MCP tools, returning per-repository attribution and honouring the same bounds and token budget as the single-repository search
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_cross_repo_search.py -q
+# generated_at: 2026-08-06T16:24:58.547267+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/unit/test_cross_repo_search.py
+# exit_code: 0
+..................                                                       [100%]
+18 passed in 0.80s

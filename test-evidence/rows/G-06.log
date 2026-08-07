@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: G-06
+# area: Skills and hooks
+# requirement: Config migration, repair, backup, rollback, doctor
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/e2e/test_cli.py -q
+# generated_at: 2026-08-04T03:43:32.646451+00:00
+# action_kind: pytest
+.......                                                                  [100%]
+7 passed in 2.94s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: O-01
+# area: Retrieval and graph enrichment
+# requirement: Real local embedding model (model2vec), pre-staged and air-gapped, with recorded provenance
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/retrieval/test_real_embedding.py -q
+# generated_at: 2026-08-07T00:17:59.398861+00:00
+# action_kind: executed
+# exit_code: 0
+
+........                                                                 [100%]
+8 passed in 0.58s

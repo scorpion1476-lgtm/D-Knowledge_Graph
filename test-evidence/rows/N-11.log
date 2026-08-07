@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-11
+# area: Source-code plane
+# requirement: Ingest computational notebooks (.ipynb, both the standard and the vendor-extended cell formats) by extracting code cells into the code graph with their source order and cell provenance preserved
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_notebooks_sfc_iac.py -q
+# generated_at: 2026-08-05T19:22:55.778406+00:00
+# action_kind: pytest
+......................                                                   [100%]
+22 passed in 0.07s

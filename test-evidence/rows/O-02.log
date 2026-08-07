@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: O-02
+# area: Retrieval and graph enrichment
+# requirement: Local cross-encoder reranker over the keyword-plus-vector candidate set
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/retrieval/test_reranker.py -q
+# generated_at: 2026-08-07T00:18:00.984070+00:00
+# action_kind: executed
+# exit_code: 0
+
+...                                                                      [100%]
+3 passed in 1.09s

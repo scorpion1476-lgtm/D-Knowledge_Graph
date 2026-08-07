@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-04
+# area: Cross platform
+# requirement: Local installation
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/e2e/test_local_install.py -q
+# generated_at: 2026-08-07T00:17:51.961382+00:00
+# action_kind: executed
+# exit_code: 0
+
+................                                                         [100%]
+16 passed in 7.58s

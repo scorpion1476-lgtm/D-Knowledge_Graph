@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-05
+# area: MCP
+# requirement: Request size limits
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_mcp_http.py -q
+# generated_at: 2026-08-04T03:43:07.065860+00:00
+# action_kind: pytest
+.....                                                                    [100%]
+5 passed in 0.30s

@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: I-02
+# area: Identity and tenancy
+# requirement: Optional self hosted identity adapter
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_tenancy_flow.py -q
+# generated_at: 2026-08-04T03:44:02.225809+00:00
+# action_kind: pytest
+.............                                                            [100%]
+13 passed in 0.24s

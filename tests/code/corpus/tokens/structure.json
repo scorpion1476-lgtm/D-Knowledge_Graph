@@ -1,0 +1,31 @@
+{
+  "bytes": 24463,
+  "core_utilities": 6,
+  "deterministic": true,
+  "files": 38,
+  "functions_per_module": 8,
+  "generator": "tests/code/corpus/tokens/generate_corpus.py",
+  "known_by_construction": {
+    "core_entry": "called by every layer gateway",
+    "core_util_0": "called by every layer gateway and every layer step",
+    "hub_symbols": [
+      "core_util_0",
+      "core_entry"
+    ],
+    "unreferenced": [
+      "core_unused_helper",
+      "mod_00_orphan",
+      "mod_05_orphan",
+      "mod_10_orphan",
+      "mod_15_orphan",
+      "mod_20_orphan",
+      "mod_25_orphan"
+    ]
+  },
+  "layers": 5,
+  "modules": 30,
+  "tested_modules": [
+    0,
+    1
+  ]
+}

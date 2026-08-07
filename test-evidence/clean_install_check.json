@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "python": "3.14.3",
+  "started_at": "2026-08-07T00:31:28.756173+00:00",
+  "steps": [
+    {
+      "detail": "initialised D-Knowledge_Graph home at /private/var/folders/fh/kyn19h4j6t94q_9scktwdv7r0000gq/T/dkg-clean-385n5cvx/home\n",
+      "name": "dkg init",
+      "ok": true
+    },
+    {
+      "detail": "{\n  \"app_version\": \"0.1.0\",\n  \"chunks\": 0,\n  \"claims\": 0,\n  \"documents\": 0,\n  \"entities\": 0,\n  \"home\": \"/private/var/folders/fh/kyn19h4j6t94q_9scktwdv7r0000gq/T/dkg-clean-385n5cvx/home\",\n  \"network_allowed\": false,\n  \"schema_major\": 1,\n  \"telemetry_enabled\": false\n}\n",
+      "name": "dkg --json status",
+      "ok": true
+    },
+    {
+      "detail": "{\n  \"capabilities\": [\n    {\n      \"available\": true,\n      \"description\": \"Read-only browser research adapter (stdlib urllib)\",\n      \"kind\": \"adapter\",\n      \"name\": \"adapter.browser\",\n      \"reason\": \"built-in urllib-based read-only browser\"\n    },\n    {\n      \"available\": true,\n      \"description\": \"Embedding adapter: real model2vec when available, else the hashing fallback\",\n      \"kind\": \"ada",
+      "name": "dkg --json capabilities",
+      "ok": true
+    },
+    {
+      "detail": "ingested 1 documents / 1 chunks\n",
+      "name": "dkg ingest",
+      "ok": true
+    },
+    {
+      "detail": "{\n  \"mode\": \"hybrid\",\n  \"query\": \"alpha\",\n  \"results\": [\n    {\n      \"chunk_id\": \"chunk_1bc2e3d92d380be31e91bce1\",\n      \"document_id\": \"doc_18d602aad810dc1f84442555\",\n      \"score\": 0.03333333333333333,\n      \"snippet\": \"# Alpha\\n\\nAlpha is fast. Beta reports gains.\",\n      \"source_id\": \"src_19466b99fbfbb6ed164dfe93\",\n      \"why\": {\n        \"engines\": [\n          \"keyword\",\n          \"fts\"\n      ",
+      "name": "dkg search alpha",
+      "ok": true
+    },
+    {
+      "detail": "{\n  \"chain_ok\": true,\n  \"first_break\": null\n}\n",
+      "name": "dkg audit --verify",
+      "ok": true
+    },
+    {
+      "detail": "backup written to /var/folders/fh/kyn19h4j6t94q_9scktwdv7r0000gq/T/dkg-clean-385n5cvx/backup.tar.gz\n",
+      "name": "dkg backup",
+      "ok": true
+    },
+    {
+      "detail": "restored into /var/folders/fh/kyn19h4j6t94q_9scktwdv7r0000gq/T/dkg-clean-385n5cvx/restored\n",
+      "name": "dkg restore",
+      "ok": true
+    }
+  ]
+}

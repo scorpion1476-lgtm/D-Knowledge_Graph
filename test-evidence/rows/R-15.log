@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-15
+# area: Delivery and distribution
+# requirement: Post one pull-request review comment from the consumer action and update that same comment in place on every push, identified by a hidden marker looked up before each write so the thread is never duplicated
+# status: IMPLEMENTED BUT NOT FULLY VERIFIED
+# acceptance_test: pytest tests/delivery/test_sticky_comment.py -q
+# generated_at: 2026-08-07T07:47:48.313290+00:00
+# action_kind: executed
+# exit_code: 0
+
+...........................                                              [100%]
+27 passed in 0.58s

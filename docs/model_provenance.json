@@ -1,0 +1,175 @@
+{
+  "models": [
+    {
+      "capability": "embeddings",
+      "dimension": 256,
+      "files": [
+        {
+          "bytes": 1449,
+          "file": "models/embeddings/potion-base-8M/.cache/huggingface/trees/bf8b056651a2c21b8d2565580b8569da283cab23.json",
+          "sha256": "95d577f8660b8e9bbd26810c9e52729b8636a3aad91b890da00dac4b87b2b5c9"
+        },
+        {
+          "bytes": 202,
+          "file": "models/embeddings/potion-base-8M/config.json",
+          "sha256": "2a6ac0e9aaa356a68a5688070db78fc3a464fefe85d2f06a1905ce3718687553"
+        },
+        {
+          "bytes": 30236760,
+          "file": "models/embeddings/potion-base-8M/model.safetensors",
+          "sha256": "f65d0f325faadc1e121c319e2faa41170d3fa07d8c89abd48ca5358d9a223de2"
+        },
+        {
+          "bytes": 278,
+          "file": "models/embeddings/potion-base-8M/modules.json",
+          "sha256": "a68dcbed0429dcdd5bfdca92b0b03cc30d09122c0a3fcf4758787d4b244e45b2"
+        },
+        {
+          "bytes": 134,
+          "file": "models/embeddings/potion-base-8M/special_tokens_map.json",
+          "sha256": "a9e8fb6f99fb0b8803f0e6942fdf4d95d6645204620b67dc3310a1024bcbac59"
+        },
+        {
+          "bytes": 683666,
+          "file": "models/embeddings/potion-base-8M/tokenizer.json",
+          "sha256": "e67e803f624fb4d67dea1c730d06e1067e1b14d830e2c2202569e3ef0f70bb50"
+        },
+        {
+          "bytes": 1431,
+          "file": "models/embeddings/potion-base-8M/tokenizer_config.json",
+          "sha256": "6725995e3ab3039857ff5bd99178a7cdf42863abb04449e7bb31feb1f55fe567"
+        },
+        {
+          "bytes": 219690,
+          "file": "models/embeddings/potion-base-8M/vocab.txt",
+          "sha256": "1394523a67ddd404a825428018c0582a6998bcfa044ecbcbf1f4d71adb94c61c"
+        }
+      ],
+      "library": "model2vec",
+      "library_license": "MIT",
+      "model_id": "minishlab/potion-base-8M",
+      "source": "https://huggingface.co/minishlab/potion-base-8M",
+      "staged_path": "models/embeddings/potion-base-8M",
+      "weight_license": "MIT"
+    },
+    {
+      "capability": "reranker",
+      "files": [
+        {
+          "bytes": 573,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/files_metadata.json",
+          "sha256": "61b31a32a3b44675ca4a90a914c8b0966e7a38b5cc72ebbf298094d0400d80a8"
+        },
+        {
+          "bytes": 824,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/snapshots/a09144355adeed5f58c8ed011d209bf8ee5a1fec/config.json",
+          "sha256": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e"
+        },
+        {
+          "bytes": 90992115,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/snapshots/a09144355adeed5f58c8ed011d209bf8ee5a1fec/onnx/model.onnx",
+          "sha256": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870"
+        },
+        {
+          "bytes": 125,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/snapshots/a09144355adeed5f58c8ed011d209bf8ee5a1fec/special_tokens_map.json",
+          "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        },
+        {
+          "bytes": 711396,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/snapshots/a09144355adeed5f58c8ed011d209bf8ee5a1fec/tokenizer.json",
+          "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+        },
+        {
+          "bytes": 1242,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/snapshots/a09144355adeed5f58c8ed011d209bf8ee5a1fec/tokenizer_config.json",
+          "sha256": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        {
+          "bytes": 3289,
+          "file": "models/reranker/models--Xenova--ms-marco-MiniLM-L-6-v2/trees/a09144355adeed5f58c8ed011d209bf8ee5a1fec.json",
+          "sha256": "4f65dd02d7a6fac6eab815a9fc2eca1baafe780db130656ce5e053e0516f4ada"
+        }
+      ],
+      "library": "fastembed",
+      "library_license": "Apache-2.0",
+      "model_id": "Xenova/ms-marco-MiniLM-L-6-v2",
+      "probe_score": 5.2467,
+      "source": "https://huggingface.co/Xenova/ms-marco-MiniLM-L-6-v2",
+      "staged_path": "models/reranker",
+      "weight_license": "Apache-2.0"
+    },
+    {
+      "capability": "media-detect",
+      "files": [
+        {
+          "bytes": 714,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/files_metadata.json",
+          "sha256": "7d6242bef4eef18724588f6bacf5c9613ead68f55cc81b6ad426acbd8a4d7f54"
+        },
+        {
+          "bytes": 536,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/snapshots/48ca1db27cb4063eb311ec2aa7f087a808112876/config.json",
+          "sha256": "4d5923d94bbc4e29864de837df14c138c12b93a0b738c64f3ca41f0c539e17b7"
+        },
+        {
+          "bytes": 254102519,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/snapshots/48ca1db27cb4063eb311ec2aa7f087a808112876/model.onnx",
+          "sha256": "4dbe762b11e36488304471e439cde89da053ad7acaddbf9e096745d142ec8d8b"
+        },
+        {
+          "bytes": 588,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/snapshots/48ca1db27cb4063eb311ec2aa7f087a808112876/special_tokens_map.json",
+          "sha256": "2cdb3b8331a60c92fc1e55a13e9fd61fd2293c5a51275fdcccd62b780052530e"
+        },
+        {
+          "bytes": 2224147,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/snapshots/48ca1db27cb4063eb311ec2aa7f087a808112876/tokenizer.json",
+          "sha256": "b68d571997a1f81bf521fb73806740ddb91e4ed6666cb6e996c066bb289cf55b"
+        },
+        {
+          "bytes": 705,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/snapshots/48ca1db27cb4063eb311ec2aa7f087a808112876/tokenizer_config.json",
+          "sha256": "6bdcee9ccce2a16ca2b4c0c5ed00b42c50ea225f4472a8c4c1e963a2902c2881"
+        },
+        {
+          "bytes": 1146,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-text/trees/48ca1db27cb4063eb311ec2aa7f087a808112876.json",
+          "sha256": "4270d4788b62db138fdc5dcbfe777384383a5383be3aba1cd114755725c30079"
+        },
+        {
+          "bytes": 426,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-vision/files_metadata.json",
+          "sha256": "74494479c7b726eeec544b01e64f11a35562719be529ff9888a794e675479624"
+        },
+        {
+          "bytes": 482,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-vision/snapshots/e0c24ed0fa57fa3e4f97f30de74c51d944036ace/config.json",
+          "sha256": "43bfed060ab82f57833bdd09acdcc2731995cb984651732a9d2b399e63113b9c"
+        },
+        {
+          "bytes": 351686194,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-vision/snapshots/e0c24ed0fa57fa3e4f97f30de74c51d944036ace/model.onnx",
+          "sha256": "c68d3d9a200ddd2a8c8a5510b576d4c94d1ae383bf8b36dd8c084f94e1fb4d63"
+        },
+        {
+          "bytes": 780,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-vision/snapshots/e0c24ed0fa57fa3e4f97f30de74c51d944036ace/preprocessor_config.json",
+          "sha256": "ce945ef831c9972c135b5b198a03d8eeb70478cd69c0238f24caf1903a9965e6"
+        },
+        {
+          "bytes": 738,
+          "file": "models/media-detect/models--Qdrant--clip-ViT-B-32-vision/trees/e0c24ed0fa57fa3e4f97f30de74c51d944036ace.json",
+          "sha256": "d3e4ef6d9ac39583445e01343c53a83d0e69984c22fc1dadc2846fedbc619a53"
+        }
+      ],
+      "library": "fastembed",
+      "library_license": "Apache-2.0",
+      "model_id": "Qdrant/clip-ViT-B-32-vision + Qdrant/clip-ViT-B-32-text",
+      "source": "https://huggingface.co/Qdrant/clip-ViT-B-32-vision",
+      "staged_path": "models/media-detect",
+      "weight_license": "MIT"
+    }
+  ],
+  "note": "Pre-staged local model provenance. Downloads happen only here, at build or CI time. The product loads these files local-files-only and never downloads at runtime."
+}

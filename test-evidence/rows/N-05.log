@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-05
+# area: Source-code plane
+# requirement: Structural blast-radius by bounded reverse traversal (over-approximate)
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_impact.py -q
+# generated_at: 2026-08-04T03:46:25.089133+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.37s

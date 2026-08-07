@@ -1,0 +1,75 @@
+name: Feature request
+description: Propose a capability the platform does not have.
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check `docs/ROADMAP.md` first. It separates what has shipped from what is
+        in progress and what is planned, and it also records what is deliberately
+        not planned, with the reason. If your idea is already there, say so in the
+        issue rather than opening a duplicate.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you file
+      options:
+        - label: I checked `docs/ROADMAP.md` and this is not already listed as shipped or planned.
+          required: true
+        - label: I checked `docs/COMMANDS.md` and no existing subcommand or MCP tool already does this.
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: >-
+        What you are trying to do and where it stops. Describe the situation,
+        not the solution you have in mind.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like it to do
+      description: The behaviour, and where it would live (a subcommand, an MCP tool, a reader, an analysis).
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What you do today instead
+      description: The current workaround, and what it costs you. This is how a request gets prioritised.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Standing constraints this would have to satisfy
+      description: >-
+        These are not negotiable, and a proposal that needs one of them waived is
+        very unlikely to be accepted. Tick the ones you are confident about.
+      options:
+        - label: It needs no new runtime dependency, or only a permissively licensed one (Apache-2.0, MIT, BSD, ISC, HPND).
+          required: false
+        - label: It makes no network call on a runtime path and downloads no model at runtime.
+          required: false
+        - label: It works, or degrades with an honest reason, when no optional extra is installed.
+          required: false
+        - label: If it touches the MCP surface, it is read-only, bounded, and confined to a root.
+          required: false
+        - label: Its accuracy can be measured against a labelled corpus before it is claimed.
+          required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Including using a different tool for this, which is sometimes the right answer. `docs/FAQ.md` says what this platform does not replace.
+    validations:
+      required: false

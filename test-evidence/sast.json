@@ -1,0 +1,51 @@
+{
+  "counts": {
+    "high": 0,
+    "warn": 6
+  },
+  "high": [],
+  "warn": [
+    {
+      "file": "src/dkg/adapters/capability.py",
+      "line": 73,
+      "message": "dynamic import_module with non-literal",
+      "rule": "B107",
+      "severity": "warn"
+    },
+    {
+      "file": "src/dkg/code/capability.py",
+      "line": 35,
+      "message": "dynamic import_module with non-literal",
+      "rule": "B107",
+      "severity": "warn"
+    },
+    {
+      "file": "src/dkg/code/capability.py",
+      "line": 52,
+      "message": "dynamic import_module with non-literal",
+      "rule": "B107",
+      "severity": "warn"
+    },
+    {
+      "file": "src/dkg/code/languages.py",
+      "line": 88,
+      "message": "dynamic import_module with non-literal",
+      "rule": "B107",
+      "severity": "warn"
+    },
+    {
+      "file": "src/dkg/code/languages.py",
+      "line": 219,
+      "message": "dynamic import_module with non-literal",
+      "rule": "B107",
+      "severity": "warn"
+    },
+    {
+      "file": "scripts/benchmark.py",
+      "line": 99,
+      "message": "dynamic import_module with non-literal",
+      "rule": "B107",
+      "severity": "warn"
+    }
+  ]
+}

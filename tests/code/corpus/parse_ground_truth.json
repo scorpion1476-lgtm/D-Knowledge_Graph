@@ -1,0 +1,86 @@
+{
+  "python": {
+    "file": "parse/python.py",
+    "language": "python",
+    "expected": [
+      ["class", "Animal"],
+      ["class", "Dog"],
+      ["method", "eat"],
+      ["method", "bark"],
+      ["function", "make_dog"],
+      ["function", "util_helper"]
+    ]
+  },
+  "javascript": {
+    "file": "parse/javascript.js",
+    "language": "javascript",
+    "expected": [
+      ["class", "Shape"],
+      ["class", "Circle"],
+      ["method", "perimeter"],
+      ["method", "radius"],
+      ["function", "makeCircle"],
+      ["function", "jsHelper"]
+    ]
+  },
+  "go": {
+    "file": "parse/go.go",
+    "language": "go",
+    "expected": [
+      ["type", "Point"],
+      ["method", "Norm"],
+      ["function", "makePoint"],
+      ["function", "goHelper"]
+    ]
+  },
+  "typescript": {
+    "file": "parse/typescript.ts",
+    "language": "typescript",
+    "expected": [
+      ["type", "Shape"],
+      ["class", "Rect"],
+      ["class", "Square"],
+      ["method", "area"],
+      ["method", "scale"],
+      ["method", "side"],
+      ["function", "makeRect"],
+      ["function", "tsHelper"]
+    ]
+  },
+  "java": {
+    "file": "parse/java.java",
+    "language": "java",
+    "expected": [
+      ["class", "Animal"],
+      ["class", "Dog"],
+      ["class", "Helpers"],
+      ["method", "eat"],
+      ["method", "bark"],
+      ["method", "makeDog"],
+      ["method", "javaHelper"]
+    ]
+  },
+  "ruby": {
+    "file": "parse/ruby.rb",
+    "language": "ruby",
+    "expected": [
+      ["class", "Animal"],
+      ["class", "Dog"],
+      ["method", "eat"],
+      ["method", "bark"],
+      ["function", "make_dog"],
+      ["function", "ruby_helper"]
+    ]
+  },
+  "rust": {
+    "file": "parse/rust.rs",
+    "language": "rust",
+    "_note": "norm is declared inside an inherent impl block, so the language truth is a method of Point, not a free function. The expectation states the language truth; the extractor is what had to change to meet it.",
+    "expected": [
+      ["type", "Point"],
+      ["method", "norm"],
+      ["function", "make_point"],
+      ["function", "rust_helper"]
+    ]
+  }
+}

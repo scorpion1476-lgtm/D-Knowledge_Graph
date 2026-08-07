@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: M-02
+# area: Media plane
+# requirement: Image OCR text extraction via the external tesseract binary
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/media/test_accuracy.py -q
+# generated_at: 2026-08-04T03:46:15.170543+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 1.93s

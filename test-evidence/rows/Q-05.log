@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-05
+# area: Advanced code analysis
+# requirement: Score each execution flow with a weighted criticality derived from its entry-point kind, depth, node and file span, and test coverage, and rank listed flows by it, with the weights and the derivation reported
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/graph/test_analysis_capabilities.py -q -k criticality
+# generated_at: 2026-08-06T09:23:01.460426+00:00
+# action_kind: executed
+# exit_code: 0
+
+..                                                                       [100%]
+2 passed, 21 deselected in 0.09s

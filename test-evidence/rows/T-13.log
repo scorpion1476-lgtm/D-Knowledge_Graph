@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-13
+# area: Graph analysis and review
+# requirement: Detect execution flows from entry points once during post-processing, persist them as a catalogue, and expose listing them in ranked order, retrieving one by name or identifier with its ordered steps, and asking which flows a changed file set touches
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_flow_catalogue.py -q
+# generated_at: 2026-08-06T16:25:00.008510+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_flow_catalogue.py
+# exit_code: 0
+...............                                                          [100%]
+15 passed in 0.37s

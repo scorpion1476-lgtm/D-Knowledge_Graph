@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-09
+# area: Cross platform
+# requirement: Upgrade test
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_admin.py -q
+# generated_at: 2026-08-04T03:46:13.384926+00:00
+# action_kind: pytest
+.....                                                                    [100%]
+5 passed in 0.15s

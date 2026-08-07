@@ -1,0 +1,554 @@
+{
+  "_about": {
+    "purpose": "Held-out corpus of constructs a line-shaped parser finds hard, labelled before it was ever run.",
+    "why_it_exists": [
+      "The main per-language corpus was written alongside the parser, so a perfect score on it is weak evidence.",
+      "These files were written and labelled before they were ever parsed, and the first measurement was taken before any change was made in response to them. That measurement is retained in test-evidence/held_out_first_measurement.json.",
+      "The parser WAS then changed in response to that measurement. Arrow-function bindings, abstract classes, namespaces, records, trait method signatures, and function-pointer typedefs were all added because this corpus exposed them. For those constructs the corpus is no longer held out, and the current figure is not independent evidence about them. The pre-fix figure is, which is why both are published.",
+      "A score below 1.0 here is the expected outcome and is published as measured, not tuned away.",
+      "This project squashes onto its published branch, so the commit history cannot independently corroborate the ordering above. The retained pre-fix measurement is the record; it is offered as a record, not as proof."
+    ],
+    "labelling_rules": [
+      "Same rules as the main corpus: one entry per definition the source writes, as [kind, name], compared as a multiset.",
+      "An anonymous definition (an anonymous class, a bare closure, a static initialiser block) is not labelled, because it has no name to extract.",
+      "A container that holds definitions is labelled 'class' (a namespace, a Rust module, a Swift extension); a type-level declaration is labelled 'type'.",
+      "Because kind conventions are debatable across languages, a name-only precision and recall is reported alongside the (kind, name) figures."
+    ],
+    "corrections_after_first_measurement": [
+      "swift/Advanced.swift: `associatedtype Output` was omitted. It is a protocol member declared without a body, which rule 3 of the main corpus (inherited here) says is a definition. An independent review found it; the label was added and the parser now extracts it.",
+      "php/Advanced.php: `$arrow = fn ($x) => $x * 2;` was omitted. A function-valued binding is one of the constructs this corpus exists to test, and the equivalent is labelled in JavaScript, TypeScript, and Go. An independent review found the inconsistency; the label was added and the parser now extracts it.",
+      "javascript/advanced.js: the private method was first labelled 'secret'. The source writes '#secret', and the hash is part of the name, so the label was wrong and was corrected. This is the only label changed after measurement; test-evidence/held_out_first_measurement.json holds the figures from before it."
+    ]
+  },
+  "python": {
+    "files": {
+      "python/advanced.py": [
+        [
+          "function",
+          "outer"
+        ],
+        [
+          "function",
+          "inner"
+        ],
+        [
+          "function",
+          "fetch"
+        ],
+        [
+          "function",
+          "cached"
+        ],
+        [
+          "class",
+          "Meta"
+        ],
+        [
+          "method",
+          "__call__"
+        ],
+        [
+          "class",
+          "Container"
+        ],
+        [
+          "class",
+          "Inner"
+        ],
+        [
+          "method",
+          "ping"
+        ],
+        [
+          "method",
+          "size"
+        ],
+        [
+          "method",
+          "build"
+        ],
+        [
+          "method",
+          "load"
+        ]
+      ]
+    }
+  },
+  "javascript": {
+    "files": {
+      "javascript/advanced.js": [
+        [
+          "function",
+          "add"
+        ],
+        [
+          "method",
+          "double"
+        ],
+        [
+          "method",
+          "triple"
+        ],
+        [
+          "function",
+          "loadAll"
+        ],
+        [
+          "function",
+          "counter"
+        ],
+        [
+          "function",
+          "main"
+        ],
+        [
+          "class",
+          "Store"
+        ],
+        [
+          "method",
+          "create"
+        ],
+        [
+          "method",
+          "size"
+        ],
+        [
+          "method",
+          "#secret"
+        ]
+      ]
+    }
+  },
+  "typescript": {
+    "files": {
+      "typescript/advanced.ts": [
+        [
+          "class",
+          "Shapes"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Base"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "method",
+          "helper"
+        ],
+        [
+          "function",
+          "identity"
+        ],
+        [
+          "function",
+          "arrowFn"
+        ],
+        [
+          "function",
+          "ambient"
+        ],
+        [
+          "class",
+          "Impl"
+        ],
+        [
+          "method",
+          "render"
+        ]
+      ]
+    }
+  },
+  "go": {
+    "files": {
+      "go/advanced.go": [
+        [
+          "type",
+          "Number"
+        ],
+        [
+          "function",
+          "Sum"
+        ],
+        [
+          "type",
+          "Counter"
+        ],
+        [
+          "method",
+          "Increment"
+        ],
+        [
+          "method",
+          "Value"
+        ],
+        [
+          "function",
+          "Printer"
+        ],
+        [
+          "function",
+          "init"
+        ]
+      ]
+    }
+  },
+  "java": {
+    "files": {
+      "java/Advanced.java": [
+        [
+          "class",
+          "Advanced"
+        ],
+        [
+          "class",
+          "Nested"
+        ],
+        [
+          "method",
+          "ping"
+        ],
+        [
+          "type",
+          "Callback"
+        ],
+        [
+          "method",
+          "run"
+        ],
+        [
+          "method",
+          "setup"
+        ],
+        [
+          "method",
+          "identity"
+        ],
+        [
+          "method",
+          "lazy"
+        ],
+        [
+          "class",
+          "Pair"
+        ]
+      ]
+    }
+  },
+  "php": {
+    "files": {
+      "php/Advanced.php": [
+        [
+          "type",
+          "Status"
+        ],
+        [
+          "method",
+          "label"
+        ],
+        [
+          "class",
+          "Base"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "method",
+          "create"
+        ],
+        [
+          "class",
+          "Impl"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "method",
+          "helper"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "function",
+          "arrow"
+        ]
+      ]
+    }
+  },
+  "ruby": {
+    "files": {
+      "ruby/advanced.rb": [
+        [
+          "class",
+          "Advanced"
+        ],
+        [
+          "class",
+          "ClassMethods"
+        ],
+        [
+          "method",
+          "build"
+        ],
+        [
+          "class",
+          "Store"
+        ],
+        [
+          "method",
+          "registry"
+        ],
+        [
+          "method",
+          "reset"
+        ],
+        [
+          "method",
+          "each_item"
+        ],
+        [
+          "method",
+          "secret"
+        ]
+      ]
+    }
+  },
+  "rust": {
+    "files": {
+      "rust/advanced.rs": [
+        [
+          "class",
+          "inner"
+        ],
+        [
+          "function",
+          "helper"
+        ],
+        [
+          "type",
+          "Render"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "type",
+          "Widget"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "method",
+          "new"
+        ],
+        [
+          "function",
+          "show"
+        ],
+        [
+          "function",
+          "load"
+        ]
+      ]
+    }
+  },
+  "c": {
+    "files": {
+      "c/advanced.c": [
+        [
+          "type",
+          "Comparator"
+        ],
+        [
+          "function",
+          "compare_ints"
+        ],
+        [
+          "type",
+          "Node"
+        ],
+        [
+          "function",
+          "doubled"
+        ],
+        [
+          "function",
+          "allocate"
+        ],
+        [
+          "function",
+          "sort_all"
+        ]
+      ]
+    }
+  },
+  "kotlin": {
+    "files": {
+      "kotlin/Advanced.kt": [
+        [
+          "class",
+          "Pair"
+        ],
+        [
+          "class",
+          "Result"
+        ],
+        [
+          "class",
+          "Ok"
+        ],
+        [
+          "class",
+          "Err"
+        ],
+        [
+          "function",
+          "doubled"
+        ],
+        [
+          "class",
+          "Holder"
+        ],
+        [
+          "method",
+          "create"
+        ],
+        [
+          "method",
+          "load"
+        ]
+      ]
+    }
+  },
+  "swift": {
+    "files": {
+      "swift/Advanced.swift": [
+        [
+          "class",
+          "Status"
+        ],
+        [
+          "method",
+          "label"
+        ],
+        [
+          "class",
+          "String"
+        ],
+        [
+          "method",
+          "shout"
+        ],
+        [
+          "class",
+          "Holder"
+        ],
+        [
+          "method",
+          "unwrap"
+        ],
+        [
+          "function",
+          "combine"
+        ],
+        [
+          "type",
+          "Renderable"
+        ],
+        [
+          "type",
+          "Output"
+        ],
+        [
+          "method",
+          "render"
+        ]
+      ]
+    }
+  },
+  "lua": {
+    "files": {
+      "lua/advanced.lua": [
+        [
+          "method",
+          "load"
+        ],
+        [
+          "function",
+          "makeCounter"
+        ],
+        [
+          "method",
+          "new"
+        ],
+        [
+          "method",
+          "deposit"
+        ]
+      ]
+    }
+  },
+  "xs": {
+    "files": {
+      "xs/advanced.xs": [
+        [
+          "function",
+          "build_result"
+        ],
+        [
+          "function",
+          "tag_for"
+        ],
+        [
+          "class",
+          "Hard::Ext"
+        ],
+        [
+          "method",
+          "build"
+        ],
+        [
+          "method",
+          "status"
+        ],
+        [
+          "class",
+          "Hard::Ext::Raw"
+        ],
+        [
+          "method",
+          "he_label"
+        ],
+        [
+          "method",
+          "state"
+        ],
+        [
+          "method",
+          "condition"
+        ]
+      ]
+    },
+    "labelling_note": "Labelled before the extractor was ever run on this file. The prototype for build_result declares and defines nothing, so only the definition is labelled. The XSUBs inside '#if 0' and inside the block comment are not definitions this file makes and are not labelled. he_build is labelled 'build' because PREFIX = he_ is in force; he_label is labelled 'he_label' because the second PACKAGE section declares no PREFIX, and getting those two the same way round would be the bug this file exists to catch. The two ALIAS entries, 'state' and 'condition', ARE labelled. An earlier version of this note excluded them on the reasoning that an alias gives an existing XSUB another name rather than defining something new. A review pointed out that this was also the choice that kept recall at 1.0, and it is wrong on the facts: xsubpp emits a newXS call for each alias, so Hard::Ext::state is a callable sub this file defines. Labelling them costs recall and is correct."
+  }
+}

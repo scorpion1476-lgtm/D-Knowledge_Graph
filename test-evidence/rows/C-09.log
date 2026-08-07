@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: C-09
+# area: Search
+# requirement: Date, source, entity, confidence, relationship, provenance filters
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_search.py -q
+# generated_at: 2026-08-04T03:42:34.270362+00:00
+# action_kind: pytest
+........                                                                 [100%]
+8 passed in 1.04s

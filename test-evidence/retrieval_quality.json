@@ -1,0 +1,39 @@
+{
+  "configurations": {
+    "A_keyword_only_baseline": {
+      "mean_latency_ms": 0.75,
+      "mrr": 0.9375,
+      "ndcg@10": 0.9473,
+      "recall@10": 0.975
+    },
+    "B_previous_stub_hybrid": {
+      "mean_latency_ms": 2.31,
+      "mrr": 0.7448,
+      "ndcg@10": 0.802,
+      "recall@10": 0.975
+    },
+    "C_new_embeddings_plus_rerank": {
+      "mean_latency_ms": 206.59,
+      "mrr": 1.0,
+      "ndcg@10": 1.0,
+      "recall@10": 1.0
+    },
+    "C_reranker_used": true
+  },
+  "corpus": {
+    "documents": 30,
+    "k": 10,
+    "queries": 40
+  },
+  "date": "2026-08-02",
+  "embedding_model": "minishlab/potion-base-8M (MIT) via model2vec",
+  "new_beats_keyword_baseline": {
+    "latency_overhead_ms": 205.84,
+    "mrr": true,
+    "mrr_delta": 0.0625,
+    "ndcg@10": true,
+    "ndcg@10_delta": 0.0527
+  },
+  "reranker_model": "Xenova/ms-marco-MiniLM-L-6-v2 (Apache-2.0) via fastembed",
+  "wave": "3a"
+}

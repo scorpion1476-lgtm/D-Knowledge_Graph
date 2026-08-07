@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-14
+# area: Token cost and context levers
+# requirement: Persist an answered question and its answer as a provenance-carrying document that can be re-ingested, so the graph accumulates from use, with every such document marked derived so it can never be mistaken for a primary source
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/graph/test_analysis_capabilities.py -q -k 'answer or memory or recorded'
+# generated_at: 2026-08-06T09:23:06.641482+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....                                                                    [100%]
+5 passed, 18 deselected in 0.09s

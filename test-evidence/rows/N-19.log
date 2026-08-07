@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-19
+# area: Source-code plane
+# requirement: Detect changed files in a non-git working copy (Subversion) through the same incremental path used for git, so a repository under another version-control system still gets incremental updates
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_svn_changes.py -q
+# generated_at: 2026-08-07T07:47:39.794964+00:00
+# action_kind: executed
+# exit_code: 0
+
+..................                                                       [100%]
+18 passed in 14.89s

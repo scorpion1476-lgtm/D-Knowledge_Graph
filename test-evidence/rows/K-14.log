@@ -1,0 +1,15 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-14
+# area: Supply chain
+# requirement: Configure automated dependency-update proposals for both the Python dependency set and the pinned continuous-integration actions, with a bounded schedule, grouped updates, and every proposal required to pass the full gate suite before it can merge
+# status: NOT IMPLEMENTED
+# acceptance_test: pytest tests/release/test_dependency_updates.py -q
+# generated_at: 2026-08-05T15:45:07.922914+00:00
+# action_kind: documentary
+
+This row records a parity gap found by comparing the platform against a
+public reference implementation of the same problem domain, and confirmed by
+an independent adversarial review of that comparison. The row is not
+implemented yet, so this file is a documentary record and not an executed
+acceptance run. It can never promote the row: the validator rejects a
+documentary log as support for a production-ready status.

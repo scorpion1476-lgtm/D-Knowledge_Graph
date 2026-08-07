@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-02
+# area: Token cost and context levers
+# requirement: Budgeted node-level context packing of ranked typed units, where a structurally required unit is never dropped to fit and the overspend is reported instead
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_context_levers.py -q
+# generated_at: 2026-08-05T03:57:46.719904+00:00
+# action_kind: pytest
+....................................                                     [100%]
+36 passed in 0.33s

@@ -1,0 +1,16 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-23
+# area: Source-code plane
+# requirement: Measure per-language parse accuracy on a held-out corpus written and labelled before it was ever parsed, publish it separately from the corpus authored alongside the parser, and keep the pre-fix measurement so the effect of any change made in response to it is visible
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_language_breadth.py -q
+# generated_at: 2026-08-05T19:22:59.404278+00:00
+# action_kind: pytest
+.................                                                        [100%]
+=============================== warnings summary ===============================
+tests/code/test_language_breadth.py::test_published_accuracy_covers_every_claimed_language_and_states_fidelity
+  /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/src/dkg/code/capability.py:123: DeprecationWarning: int argument support is deprecated
+    return tree_sitter.Language(fn())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 0.24s

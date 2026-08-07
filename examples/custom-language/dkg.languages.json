@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "languages": [
+    {
+      "name": "ruby",
+      "grammar_module": "tree_sitter_ruby",
+      "licence": "MIT",
+      "extensions": [".rb"],
+      "symbols": {
+        "class": ["class"],
+        "function": ["method", "singleton_method"]
+      },
+      "name_field": "name",
+      "calls": {"node_types": ["call"], "name_field": "method"},
+      "inherits": {"field": "superclass"}
+    }
+  ]
+}

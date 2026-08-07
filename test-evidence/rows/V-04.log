@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: V-04
+# area: Framework and configuration awareness
+# requirement: Parse externalised configuration keys out of application configuration files into configuration nodes that store the key only and never the value, linked to the code that binds them
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_config_properties.py -q
+# generated_at: 2026-08-06T16:24:45.383901+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_config_properties.py
+# exit_code: 0
+................                                                         [100%]
+16 passed in 0.48s

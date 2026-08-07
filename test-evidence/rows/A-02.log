@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: A-02
+# area: Knowledge graph foundation
+# requirement: SQLite local storage using parameterised queries
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/security/test_sql_injection.py -q
+# generated_at: 2026-08-04T03:42:11.279547+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.09s

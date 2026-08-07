@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-11
+# area: Graph analysis and review
+# requirement: Generate a browsable markdown knowledge base from the detected community structure, one page per community with its members, entry points, and cross-community edges, regenerated incrementally and carrying the same advisory labelling as the analysis it derives from
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_wiki.py -q
+# generated_at: 2026-08-06T16:24:57.391892+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_wiki.py
+# exit_code: 0
+.............                                                            [100%]
+13 passed in 0.37s

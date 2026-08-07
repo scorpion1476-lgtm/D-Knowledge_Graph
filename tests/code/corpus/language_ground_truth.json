@@ -1,0 +1,2162 @@
+{
+  "_about": {
+    "purpose": "Hand-labelled symbol ground truth for the expanded per-language parsing corpus.",
+    "labelling_rules": [
+      "One entry per definition the source file actually writes, as [kind, name].",
+      "Entries are a multiset: two methods named 'area' in two classes are two entries.",
+      "A declaration without a body (an interface or protocol member) is a definition of that member and is labelled.",
+      "A constructor is labelled as a method under the name the language writes it with.",
+      "In a file whose name marks it as a test file, every function-like symbol is labelled 'test'. A class in a test file keeps kind 'class': it is the container, not the test. This is the project's stated convention and the labels follow it.",
+      "A struct, record, or enum is labelled by what its own grammar makes it, not by a rule imposed across languages. Where a grammar folds struct, class, and enum into one node type it is labelled 'class' (Swift struct Point, C++ struct Point, Java enum Kind); where a grammar gives it a distinct node type it is labelled 'type' (C struct, Zig struct, VB.NET Structure, Go type). This is deliberately not uniform, because the parse is not uniform, and pretending otherwise would mean labelling something the parser cannot know.",
+      "Module symbols are excluded from scoring: every file has exactly one and scoring it would inflate every language equally."
+    ],
+    "label_corrections": [
+      "typescript/shapes.ts: the interface member `draw(): void` was omitted, while the Java, C#, Kotlin, Swift, Solidity, and Rust equivalents in this same corpus were all labelled. An independent review found the inconsistency; the label was added and the parser now walks interface bodies.",
+      "rust/shapes.rs: the trait method declaration `fn draw(&self);` was omitted from the labels. The rules above say a declaration without a body is a definition of that member, and the Java and C# interface members in this same corpus are labelled, so the omission was a labelling error and was corrected."
+    ],
+    "fidelity_values": [
+      "grammar: a real Tree-sitter parse of the whole file.",
+      "composite: the file is unwrapped (a notebook's code cells, a component's script block, an infrastructure file's block structure) and then parsed with another language's grammar. The parse itself is real; the unwrapping is this project's own code.",
+      "fallback: the documented pattern extractor, used where no permissive grammar is installable. Never presented as a parse."
+    ],
+    "known_metric_limits": [
+      "The (kind, name) pair cannot distinguish two definitions that share both, so a companion object named after its class collapses into one entry. The corpus avoids that case rather than hiding it."
+    ]
+  },
+  "ansible": {
+    "fidelity": "composite",
+    "grammar": "tree-sitter-yaml",
+    "licence": "MIT",
+    "files": {
+      "ansible/site.yml": [
+        [
+          "class",
+          "Configure_web_servers"
+        ],
+        [
+          "method",
+          "Install_nginx"
+        ],
+        [
+          "method",
+          "Start_nginx"
+        ],
+        [
+          "method",
+          "Include_extra_tasks"
+        ],
+        [
+          "class",
+          "Configure_database_servers"
+        ],
+        [
+          "method",
+          "Install_postgres"
+        ]
+      ],
+      "ansible/tasks.yml": [
+        [
+          "function",
+          "Create_directory"
+        ],
+        [
+          "function",
+          "Copy_config"
+        ],
+        [
+          "function",
+          "Import_handlers"
+        ]
+      ]
+    }
+  },
+  "astro": {
+    "fidelity": "composite",
+    "grammar": "frontmatter extraction plus the TypeScript grammar",
+    "licence": "MIT",
+    "files": {
+      "astro/Page.astro": [
+        [
+          "type",
+          "Props"
+        ],
+        [
+          "function",
+          "heading"
+        ],
+        [
+          "function",
+          "decorate"
+        ]
+      ],
+      "astro/Card.astro": [
+        [
+          "type",
+          "CardKind"
+        ],
+        [
+          "function",
+          "cardClass"
+        ]
+      ]
+    }
+  },
+  "bash": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-bash",
+    "licence": "MIT",
+    "files": {
+      "bash/build.sh": [
+        [
+          "function",
+          "build"
+        ],
+        [
+          "function",
+          "package"
+        ],
+        [
+          "function",
+          "deploy"
+        ],
+        [
+          "test",
+          "test_smoke"
+        ]
+      ],
+      "bash/lib.ksh": [
+        [
+          "function",
+          "configure"
+        ],
+        [
+          "function",
+          "start"
+        ]
+      ]
+    }
+  },
+  "c": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-c",
+    "licence": "MIT",
+    "files": {
+      "c/shapes.c": [
+        [
+          "type",
+          "Circle"
+        ],
+        [
+          "type",
+          "Value"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "type",
+          "CircleAlias"
+        ],
+        [
+          "function",
+          "circle_area"
+        ],
+        [
+          "function",
+          "total_area"
+        ],
+        [
+          "function",
+          "report"
+        ]
+      ],
+      "c/registry.c": [
+        [
+          "type",
+          "Registry"
+        ],
+        [
+          "function",
+          "registry_add"
+        ],
+        [
+          "function",
+          "registry_seed"
+        ]
+      ]
+    }
+  },
+  "cpp": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-cpp",
+    "licence": "MIT",
+    "files": {
+      "cpp/shapes.cpp": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Point"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "cpp/registry.cpp": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "makeRegistry"
+        ]
+      ]
+    }
+  },
+  "csharp": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-c-sharp",
+    "licence": "MIT",
+    "files": {
+      "csharp/Shapes.cs": [
+        [
+          "type",
+          "IDrawable"
+        ],
+        [
+          "method",
+          "Draw"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "Draw"
+        ],
+        [
+          "method",
+          "Area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "Circle"
+        ],
+        [
+          "method",
+          "Area"
+        ],
+        [
+          "class",
+          "Point"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "class",
+          "Factory"
+        ],
+        [
+          "method",
+          "MakeCircle"
+        ],
+        [
+          "method",
+          "TotalArea"
+        ]
+      ],
+      "csharp/Registry.cs": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "Registry"
+        ],
+        [
+          "method",
+          "Add"
+        ],
+        [
+          "method",
+          "Seed"
+        ]
+      ]
+    }
+  },
+  "dart": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-dart",
+    "licence": "MIT",
+    "files": {
+      "dart/shapes.dart": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Loggable"
+        ],
+        [
+          "method",
+          "log"
+        ],
+        [
+          "function",
+          "totalArea"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ]
+      ],
+      "dart/registry.dart": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ]
+      ]
+    }
+  },
+  "databricks": {
+    "fidelity": "composite",
+    "grammar": "notebook cell extraction plus the cell language grammar",
+    "licence": "MIT",
+    "files": {
+      "databricks/etl.py": [
+        [
+          "function",
+          "clean"
+        ],
+        [
+          "class",
+          "Pipeline"
+        ],
+        [
+          "method",
+          "run"
+        ],
+        [
+          "function",
+          "build_pipeline"
+        ]
+      ],
+      "databricks/report.py": [
+        [
+          "function",
+          "load"
+        ],
+        [
+          "function",
+          "summarise"
+        ]
+      ]
+    }
+  },
+  "elixir": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-elixir",
+    "licence": "Apache-2.0",
+    "files": {
+      "elixir/shapes.ex": [
+        [
+          "class",
+          "Shapes"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "total_area"
+        ],
+        [
+          "method",
+          "normalise"
+        ]
+      ],
+      "elixir/registry.ex": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ]
+      ]
+    }
+  },
+  "gdscript": {
+    "fidelity": "grammar",
+    "grammar": "bundled grammar from https://github.com/PrestonKnopp/tree-sitter-gdscript, served by the 'code-bundle' extra",
+    "licence": "MIT",
+    "files": {
+      "gdscript/player.gd": [
+        [
+          "type",
+          "Player"
+        ],
+        [
+          "function",
+          "_ready"
+        ],
+        [
+          "function",
+          "setup"
+        ],
+        [
+          "function",
+          "reset_state"
+        ],
+        [
+          "class",
+          "Inventory"
+        ],
+        [
+          "method",
+          "add_item"
+        ]
+      ],
+      "gdscript/enemy.gd": [
+        [
+          "type",
+          "Enemy"
+        ],
+        [
+          "function",
+          "_process"
+        ],
+        [
+          "function",
+          "move"
+        ],
+        [
+          "function",
+          "spawn"
+        ]
+      ]
+    },
+    "fidelity_without_bundle": "fallback"
+  },
+  "go": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-go",
+    "licence": "MIT",
+    "files": {
+      "go/shapes.go": [
+        [
+          "type",
+          "Shape"
+        ],
+        [
+          "type",
+          "Circle"
+        ],
+        [
+          "method",
+          "Area"
+        ],
+        [
+          "method",
+          "Describe"
+        ],
+        [
+          "function",
+          "MakeCircle"
+        ],
+        [
+          "function",
+          "TotalArea"
+        ]
+      ],
+      "go/shapes_test.go": [
+        [
+          "test",
+          "TestMakeCircle"
+        ],
+        [
+          "test",
+          "TestTotalArea"
+        ],
+        [
+          "test",
+          "buildShapes"
+        ]
+      ]
+    }
+  },
+  "hcl": {
+    "fidelity": "composite",
+    "grammar": "tree-sitter-hcl",
+    "licence": "Apache-2.0",
+    "files": {
+      "hcl/main.tf": [
+        [
+          "type",
+          "terraform"
+        ],
+        [
+          "type",
+          "provider.aws"
+        ],
+        [
+          "type",
+          "var.bucket_name"
+        ],
+        [
+          "type",
+          "aws_s3_bucket.data"
+        ],
+        [
+          "type",
+          "aws_s3_bucket_policy.data_policy"
+        ],
+        [
+          "type",
+          "data.aws_caller_identity.current"
+        ],
+        [
+          "class",
+          "module.network"
+        ],
+        [
+          "type",
+          "output.bucket_arn"
+        ]
+      ],
+      "hcl/nomad.hcl": [
+        [
+          "type",
+          "job.web"
+        ],
+        [
+          "type",
+          "var.image"
+        ],
+        [
+          "type",
+          "docker_container.web"
+        ]
+      ]
+    }
+  },
+  "java": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-java",
+    "licence": "MIT",
+    "files": {
+      "java/Shapes.java": [
+        [
+          "type",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Kind"
+        ],
+        [
+          "class",
+          "Factory"
+        ],
+        [
+          "method",
+          "makeCircle"
+        ],
+        [
+          "method",
+          "totalArea"
+        ]
+      ],
+      "java/Registry.java": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ]
+      ]
+    }
+  },
+  "javascript": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-javascript",
+    "licence": "MIT",
+    "files": {
+      "javascript/shapes.js": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "constructor"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "javascript/registry.js": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "constructor"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ]
+      ]
+    }
+  },
+  "julia": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-julia",
+    "licence": "MIT",
+    "files": {
+      "julia/shapes.jl": [
+        [
+          "type",
+          "Shape"
+        ],
+        [
+          "type",
+          "Circle"
+        ],
+        [
+          "type",
+          "Point"
+        ],
+        [
+          "function",
+          "area"
+        ],
+        [
+          "function",
+          "total_area"
+        ],
+        [
+          "function",
+          "make_circle"
+        ]
+      ],
+      "julia/registry.jl": [
+        [
+          "type",
+          "Registry"
+        ],
+        [
+          "type",
+          "Store"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "empty_store"
+        ]
+      ]
+    }
+  },
+  "jupyter": {
+    "fidelity": "composite",
+    "grammar": "notebook cell extraction plus the cell language grammar",
+    "licence": "MIT",
+    "files": {
+      "jupyter/analysis.ipynb": [
+        [
+          "function",
+          "circle_area"
+        ],
+        [
+          "class",
+          "Report"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "function",
+          "total_area"
+        ]
+      ],
+      "jupyter/loader.ipynb": [
+        [
+          "function",
+          "load_frame"
+        ],
+        [
+          "function",
+          "summarise"
+        ]
+      ]
+    }
+  },
+  "kotlin": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-kotlin",
+    "licence": "MIT",
+    "files": {
+      "kotlin/Shapes.kt": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Factory"
+        ],
+        [
+          "method",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "kotlin/Drawable.kt": [
+        [
+          "class",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "class",
+          "Marker"
+        ],
+        [
+          "method",
+          "draw"
+        ]
+      ]
+    }
+  },
+  "lua": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-lua",
+    "licence": "MIT",
+    "files": {
+      "lua/shapes.lua": [
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "lua/registry.lua": [
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ]
+      ]
+    }
+  },
+  "luau": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-luau",
+    "licence": "MIT",
+    "files": {
+      "luau/shapes.luau": [
+        [
+          "type",
+          "Circle"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "area"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "luau/registry.luau": [
+        [
+          "type",
+          "Registry"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ],
+        [
+          "function",
+          "seed"
+        ]
+      ]
+    }
+  },
+  "nix": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-nix",
+    "licence": "MIT",
+    "files": {
+      "nix/default.nix": [
+        [
+          "function",
+          "toUpper"
+        ],
+        [
+          "function",
+          "mkApp"
+        ],
+        [
+          "type",
+          "buildInputs"
+        ]
+      ],
+      "nix/shell.nix": [
+        [
+          "function",
+          "shellHook"
+        ],
+        [
+          "type",
+          "packages"
+        ]
+      ]
+    }
+  },
+  "objc": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-objc",
+    "licence": "MIT",
+    "files": {
+      "objc/Shape.m": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ]
+      ],
+      "objc/Registry.m": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ]
+      ]
+    }
+  },
+  "perl": {
+    "fidelity": "grammar",
+    "grammar": "bundled grammar from https://github.com/tree-sitter-perl/tree-sitter-perl, served by the 'code-bundle' extra",
+    "licence": "MIT",
+    "files": {
+      "perl/Shapes.pm": [
+        [
+          "class",
+          "Geometry::Shapes"
+        ],
+        [
+          "method",
+          "new"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ]
+      ],
+      "perl/registry.pl": [
+        [
+          "class",
+          "Geometry::Registry"
+        ],
+        [
+          "method",
+          "new"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ]
+      ]
+    },
+    "fidelity_without_bundle": "fallback"
+  },
+  "php": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-php",
+    "licence": "MIT",
+    "files": {
+      "php/Shapes.php": [
+        [
+          "type",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "class",
+          "Loggable"
+        ],
+        [
+          "method",
+          "log"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "__construct"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "php/Registry.php": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ]
+      ]
+    }
+  },
+  "powershell": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-powershell",
+    "licence": "MIT",
+    "files": {
+      "powershell/Shapes.ps1": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "Area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "Area"
+        ],
+        [
+          "function",
+          "New-Circle"
+        ],
+        [
+          "function",
+          "Get-TotalArea"
+        ]
+      ],
+      "powershell/Registry.psm1": [
+        [
+          "function",
+          "Add-Item"
+        ],
+        [
+          "function",
+          "Initialize-Registry"
+        ]
+      ]
+    }
+  },
+  "python": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-python",
+    "licence": "MIT",
+    "files": {
+      "python/shapes.py": [
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "__init__"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Point"
+        ],
+        [
+          "function",
+          "make_circle"
+        ],
+        [
+          "function",
+          "total_area"
+        ]
+      ],
+      "python/test_shapes.py": [
+        [
+          "test",
+          "build_fixture"
+        ],
+        [
+          "class",
+          "ShapeTests"
+        ],
+        [
+          "test",
+          "test_area_is_positive"
+        ],
+        [
+          "test",
+          "test_circle_is_built"
+        ]
+      ]
+    }
+  },
+  "r": {
+    "fidelity": "grammar",
+    "grammar": "bundled grammar from https://github.com/r-lib/tree-sitter-r, served by the 'code-bundle' extra",
+    "licence": "MIT",
+    "files": {
+      "r/model.R": [
+        [
+          "function",
+          "fit_model"
+        ],
+        [
+          "function",
+          "predict_values"
+        ],
+        [
+          "class",
+          "Account"
+        ],
+        [
+          "method",
+          "show"
+        ]
+      ],
+      "r/plots.R": [
+        [
+          "function",
+          "make_plot"
+        ],
+        [
+          "function",
+          "save_plot"
+        ]
+      ]
+    },
+    "fidelity_without_bundle": "fallback"
+  },
+  "rescript": {
+    "fidelity": "grammar",
+    "grammar": "bundled grammar from https://github.com/rescript-lang/tree-sitter-rescript, served by the 'code-bundle' extra",
+    "licence": "MIT",
+    "files": {
+      "rescript/App.res": [
+        [
+          "type",
+          "user"
+        ],
+        [
+          "type",
+          "role"
+        ],
+        [
+          "function",
+          "render"
+        ],
+        [
+          "function",
+          "make"
+        ],
+        [
+          "class",
+          "Inner"
+        ],
+        [
+          "method",
+          "go"
+        ]
+      ],
+      "rescript/Utils.res": [
+        [
+          "type",
+          "config"
+        ],
+        [
+          "function",
+          "normalise"
+        ],
+        [
+          "function",
+          "load"
+        ]
+      ]
+    },
+    "fidelity_without_bundle": "fallback"
+  },
+  "ruby": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-ruby",
+    "licence": "MIT",
+    "files": {
+      "ruby/shapes.rb": [
+        [
+          "class",
+          "Geometry"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "initialize"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "function",
+          "make_circle"
+        ],
+        [
+          "function",
+          "total_area"
+        ]
+      ],
+      "ruby/registry.rb": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "initialize"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "empty_registry"
+        ]
+      ]
+    }
+  },
+  "rust": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-rust",
+    "licence": "MIT",
+    "files": {
+      "rust/shapes.rs": [
+        [
+          "type",
+          "Circle"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "type",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "function",
+          "make_circle"
+        ],
+        [
+          "function",
+          "total_area"
+        ]
+      ],
+      "rust/registry.rs": [
+        [
+          "type",
+          "Registry"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "empty_registry"
+        ]
+      ]
+    }
+  },
+  "scala": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-scala",
+    "licence": "MIT",
+    "files": {
+      "scala/Shapes.scala": [
+        [
+          "class",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Factory"
+        ],
+        [
+          "method",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "scala/Registry.scala": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "class",
+          "RegistryFactory"
+        ],
+        [
+          "method",
+          "empty"
+        ]
+      ]
+    }
+  },
+  "solidity": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-solidity",
+    "licence": "MIT",
+    "files": {
+      "solidity/Token.sol": [
+        [
+          "type",
+          "IToken"
+        ],
+        [
+          "method",
+          "total"
+        ],
+        [
+          "class",
+          "MathLib"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "class",
+          "Base"
+        ],
+        [
+          "method",
+          "helper"
+        ],
+        [
+          "class",
+          "Token"
+        ],
+        [
+          "type",
+          "Holder"
+        ],
+        [
+          "type",
+          "State"
+        ],
+        [
+          "method",
+          "constructor"
+        ],
+        [
+          "method",
+          "onlyActive"
+        ],
+        [
+          "method",
+          "total"
+        ]
+      ],
+      "solidity/Vault.sol": [
+        [
+          "class",
+          "Vault"
+        ],
+        [
+          "method",
+          "deposit"
+        ],
+        [
+          "method",
+          "withdraw"
+        ]
+      ]
+    }
+  },
+  "sql": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-sql",
+    "licence": "MIT",
+    "files": {
+      "sql/schema.sql": [
+        [
+          "type",
+          "users"
+        ],
+        [
+          "type",
+          "orders"
+        ],
+        [
+          "type",
+          "active_users"
+        ],
+        [
+          "type",
+          "users_name_idx"
+        ]
+      ],
+      "sql/functions.sql": [
+        [
+          "function",
+          "user_count"
+        ],
+        [
+          "type",
+          "order_totals"
+        ]
+      ]
+    }
+  },
+  "svelte": {
+    "fidelity": "composite",
+    "grammar": "script-block extraction plus the TypeScript grammar",
+    "licence": "MIT",
+    "files": {
+      "svelte/Counter.svelte": [
+        [
+          "type",
+          "Props"
+        ],
+        [
+          "function",
+          "reset"
+        ],
+        [
+          "function",
+          "seed"
+        ]
+      ],
+      "svelte/Panel.svelte": [
+        [
+          "function",
+          "panelClass"
+        ],
+        [
+          "function",
+          "apply"
+        ]
+      ]
+    }
+  },
+  "swift": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-swift",
+    "licence": "MIT",
+    "files": {
+      "swift/Shapes.swift": [
+        [
+          "type",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "init"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Point"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "swift/Registry.swift": [
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ]
+      ]
+    }
+  },
+  "tsx": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-typescript (TSX grammar)",
+    "licence": "MIT",
+    "files": {
+      "tsx/Widget.tsx": [
+        [
+          "type",
+          "Props"
+        ],
+        [
+          "type",
+          "Theme"
+        ],
+        [
+          "class",
+          "Widget"
+        ],
+        [
+          "method",
+          "render"
+        ],
+        [
+          "function",
+          "badgeClass"
+        ],
+        [
+          "function",
+          "Badge"
+        ]
+      ],
+      "tsx/Panel.tsx": [
+        [
+          "type",
+          "PanelProps"
+        ],
+        [
+          "function",
+          "Panel"
+        ],
+        [
+          "function",
+          "renderTitle"
+        ]
+      ]
+    }
+  },
+  "typescript": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-typescript",
+    "licence": "MIT",
+    "files": {
+      "typescript/shapes.ts": [
+        [
+          "type",
+          "Drawable"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "type",
+          "Radius"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "class",
+          "Shape"
+        ],
+        [
+          "method",
+          "draw"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "class",
+          "Circle"
+        ],
+        [
+          "method",
+          "constructor"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ]
+      ],
+      "typescript/registry.ts": [
+        [
+          "type",
+          "Slot"
+        ],
+        [
+          "class",
+          "Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ]
+      ]
+    }
+  },
+  "vbnet": {
+    "fidelity": "grammar",
+    "grammar": "bundled grammar from https://github.com/CodeAnt-AI/tree-sitter-vb-dotnet, served by the 'code-bundle' extra",
+    "licence": "MIT",
+    "files": {
+      "vbnet/Account.vb": [
+        [
+          "class",
+          "Account"
+        ],
+        [
+          "method",
+          "Balance"
+        ],
+        [
+          "method",
+          "Compute"
+        ],
+        [
+          "method",
+          "Deposit"
+        ],
+        [
+          "type",
+          "IShape"
+        ],
+        [
+          "type",
+          "Point"
+        ],
+        [
+          "type",
+          "Kind"
+        ]
+      ],
+      "vbnet/Registry.vb": [
+        [
+          "type",
+          "Registry"
+        ],
+        [
+          "method",
+          "Add"
+        ],
+        [
+          "method",
+          "Seed"
+        ]
+      ]
+    },
+    "fidelity_without_bundle": "fallback"
+  },
+  "verilog": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-verilog",
+    "licence": "MIT",
+    "files": {
+      "verilog/counter.v": [
+        [
+          "class",
+          "counter"
+        ],
+        [
+          "method",
+          "double_it"
+        ],
+        [
+          "method",
+          "reset_all"
+        ],
+        [
+          "class",
+          "top"
+        ]
+      ],
+      "verilog/adder.v": [
+        [
+          "class",
+          "adder"
+        ],
+        [
+          "method",
+          "widen"
+        ]
+      ]
+    }
+  },
+  "vue": {
+    "fidelity": "composite",
+    "grammar": "script-block extraction plus the TypeScript grammar",
+    "licence": "MIT",
+    "files": {
+      "vue/Counter.vue": [
+        [
+          "type",
+          "Props"
+        ],
+        [
+          "function",
+          "bump"
+        ],
+        [
+          "function",
+          "increment"
+        ]
+      ],
+      "vue/Panel.vue": [
+        [
+          "type",
+          "PanelKind"
+        ],
+        [
+          "function",
+          "panelClass"
+        ]
+      ]
+    }
+  },
+  "xs": {
+    "fidelity": "fallback",
+    "grammar": "none: no permissive Tree-sitter grammar for .xs exists in any source available to this project, including the multi-grammar bundle. Read by the documented pattern extractor in src/dkg/code/xs.py",
+    "licence": "not applicable",
+    "files": {
+      "xs/Shapes.xs": [
+        [
+          "function",
+          "circle_area"
+        ],
+        [
+          "function",
+          "rect_area"
+        ],
+        [
+          "class",
+          "Geometry::Shapes"
+        ],
+        [
+          "method",
+          "area_of_circle"
+        ],
+        [
+          "method",
+          "area_of_rect"
+        ],
+        [
+          "method",
+          "describe"
+        ],
+        [
+          "class",
+          "Geometry::Shapes::Util"
+        ],
+        [
+          "method",
+          "clamp"
+        ]
+      ],
+      "xs/Registry.xs": [
+        [
+          "function",
+          "bump_count"
+        ],
+        [
+          "class",
+          "Geometry::Registry"
+        ],
+        [
+          "method",
+          "add"
+        ],
+        [
+          "method",
+          "total"
+        ],
+        [
+          "method",
+          "reset"
+        ]
+      ]
+    },
+    "labelling_note": "The XSUB names are labelled as Perl sees them, which is the name with PREFIX removed: Shapes.xs declares PREFIX = gs_ so gs_area_of_circle is registered as Geometry::Shapes::area_of_circle and is labelled area_of_circle. Registry.xs declares no PREFIX, so its XSUB names are labelled exactly as written. That asymmetry is the point of having both files."
+  },
+  "zig": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-zig",
+    "licence": "MIT",
+    "files": {
+      "zig/shapes.zig": [
+        [
+          "type",
+          "Circle"
+        ],
+        [
+          "method",
+          "area"
+        ],
+        [
+          "type",
+          "Kind"
+        ],
+        [
+          "function",
+          "makeCircle"
+        ],
+        [
+          "function",
+          "totalArea"
+        ],
+        [
+          "test",
+          "circle has area"
+        ]
+      ],
+      "zig/registry.zig": [
+        [
+          "type",
+          "Registry"
+        ],
+        [
+          "method",
+          "seed"
+        ],
+        [
+          "function",
+          "emptyRegistry"
+        ],
+        [
+          "test",
+          "registry starts empty"
+        ]
+      ]
+    }
+  },
+  "zsh": {
+    "fidelity": "grammar",
+    "grammar": "tree-sitter-zsh",
+    "licence": "MIT",
+    "files": {
+      "zsh/tools.zsh": [
+        [
+          "function",
+          "reload"
+        ],
+        [
+          "function",
+          "configure"
+        ],
+        [
+          "function",
+          "deploy"
+        ]
+      ],
+      "zsh/prompt.zsh": [
+        [
+          "function",
+          "render_prompt"
+        ],
+        [
+          "function",
+          "colourise"
+        ]
+      ]
+    }
+  }
+}

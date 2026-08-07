@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-06
+# area: Token cost and context levers
+# requirement: Token-budget parameter on the CLI and on the read-only MCP analysis tools, trimming ranked lists from the tail without rewriting totals so a trimmed payload stays visibly incomplete
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_analysis_surfaces.py -q
+# generated_at: 2026-08-05T03:57:49.948984+00:00
+# action_kind: pytest
+....................                                                     [100%]
+20 passed in 0.68s

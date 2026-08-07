@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: I-09
+# area: Identity and tenancy
+# requirement: Encrypted secret reference design
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_secret_reference_design.py -q
+# generated_at: 2026-08-07T01:09:04.314792+00:00
+# action_kind: executed
+# exit_code: 0
+
+.................                                                        [100%]
+17 passed in 0.04s

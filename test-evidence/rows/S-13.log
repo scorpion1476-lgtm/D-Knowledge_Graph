@@ -1,0 +1,15 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-13
+# area: Evidence and reproducibility
+# requirement: Run a bounded, report-only benchmark on a schedule in continuous integration over the smallest pinned configurations, publishing the result as an artifact and a job summary, and never failing the build, so a quality regression is noticed without turning a measurement into a gate
+# status: NOT IMPLEMENTED
+# acceptance_test: pytest tests/benchmark/test_scheduled_run.py -q
+# generated_at: 2026-08-05T16:17:24.978712+00:00
+# action_kind: documentary
+
+This row records a parity gap found by comparing the platform against a
+public reference implementation of the same problem domain, and confirmed by
+independent adversarial review of that comparison. The row is not implemented
+yet, so this file is a documentary record and not an executed acceptance run.
+It can never promote the row: the validator rejects a documentary log as
+support for a production-ready status.

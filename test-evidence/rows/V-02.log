@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: V-02
+# area: Framework and configuration awareness
+# requirement: Emit template-reference edges from server-rendered view templates to the code that renders them, ignoring commented and escaped directives so a commented reference never becomes an edge
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_frameworks.py -q
+# generated_at: 2026-08-05T19:23:01.912441+00:00
+# action_kind: pytest
+..............                                                           [100%]
+14 passed in 0.07s

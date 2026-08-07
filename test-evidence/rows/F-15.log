@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-15
+# area: MCP
+# requirement: Allow the served MCP tool set to be restricted to a caller-supplied allowlist, by command-line flag and by environment variable with the flag taking precedence, so a token-constrained client can register a subset
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k allowlist
+# generated_at: 2026-08-06T09:23:03.947305+00:00
+# action_kind: executed
+# exit_code: 0
+
+..                                                                       [100%]
+2 passed, 27 deselected in 0.08s

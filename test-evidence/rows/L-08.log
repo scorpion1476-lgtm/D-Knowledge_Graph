@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-08
+# area: Cross platform
+# requirement: Clean machine install test
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/e2e/test_clean_install.py -q
+# generated_at: 2026-08-07T00:17:57.975044+00:00
+# action_kind: executed
+# exit_code: 0
+
+.............                                                            [100%]
+13 passed in 5.25s

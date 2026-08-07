@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-04
+# area: Delivery and distribution
+# requirement: Interoperability graph exports (Graphviz DOT, Neo4j Cypher, standalone SVG, Obsidian vault)
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_exports.py -q
+# generated_at: 2026-08-04T03:46:50.799021+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.10s

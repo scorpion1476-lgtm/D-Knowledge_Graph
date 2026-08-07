@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: V-03
+# area: Framework and configuration awareness
+# requirement: Emit routing-to-handler and object-relational-mapping relationship edges only when the source carries explicit evidence (a framework import, a model base class, and a receiver that resolves), so an inferred framework edge is never produced from a name alone
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_frameworks.py -q
+# generated_at: 2026-08-05T19:23:02.371209+00:00
+# action_kind: pytest
+..............                                                           [100%]
+14 passed in 0.06s

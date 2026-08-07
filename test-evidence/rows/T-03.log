@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-03
+# area: Graph analysis and review
+# requirement: Unexpected-coupling scoring: flag edges crossing a community, crossing a language, or linking a peripheral symbol to a hub, with documented additive weights and thresholds derived from the graph's own degree distribution
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_coupling.py -q
+# generated_at: 2026-08-05T03:45:55.353251+00:00
+# action_kind: pytest
+.................                                                        [100%]
+17 passed in 0.61s

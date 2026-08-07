@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-18
+# area: Delivery and distribution
+# requirement: Cache the built graph between continuous-integration runs, keyed by the runner platform, the database schema version, and the dependency lockfiles, restoring incrementally on a hit and falling back to a full build when the restored database is unusable
+# status: IMPLEMENTED BUT NOT FULLY VERIFIED
+# acceptance_test: pytest tests/delivery/test_action_cache.py -q
+# generated_at: 2026-08-06T21:31:11.881853+00:00
+# action_kind: executed
+# exit_code: 0
+
+...............                                                          [100%]
+15 passed in 0.33s

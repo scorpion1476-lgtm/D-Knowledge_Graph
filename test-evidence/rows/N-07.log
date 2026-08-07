@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-07
+# area: Source-code plane
+# requirement: Read-only MCP tools for code (symbols, search, impact), taking the read-only registry to 18 tools in total
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_mcp_code.py -q
+# generated_at: 2026-08-05T10:01:40.738578+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.50s

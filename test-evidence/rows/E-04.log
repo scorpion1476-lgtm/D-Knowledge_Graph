@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: E-04
+# area: Evidence and safety
+# requirement: Contradiction detection with explicit reasons
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/evidence/test_contradiction_quality.py -q
+# generated_at: 2026-08-07T07:47:46.808300+00:00
+# action_kind: executed
+# exit_code: 0
+
+.........                                                                [100%]
+9 passed in 0.19s

@@ -1,0 +1,15 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-10
+# area: Evidence and reproducibility
+# requirement: Add an evaluation corpus of at least six real third-party repositories, each pinned to an explicit upstream commit, run by the existing seeded harness, with the per-repository results and the pinned commits published and a run whose clone is unavailable reported not run rather than failed
+# status: PARTIAL
+# acceptance_test: pytest tests/benchmark/test_real_repo_corpus.py -q
+# generated_at: 2026-08-05T15:20:14.251344+00:00
+# action_kind: documentary
+
+This row records a parity gap found by comparing the platform against a
+public reference implementation of the same problem domain. Part of the
+requirement is implemented and covered by the tests named in the row; the
+shortfall is stated in the row's remaining limitation. This file is a
+documentary record and not an executed acceptance run for the full
+requirement, so it can never promote the row.

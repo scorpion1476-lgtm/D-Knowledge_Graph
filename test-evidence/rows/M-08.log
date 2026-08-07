@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: M-08
+# area: Media plane
+# requirement: Video audio transcription (ASR) with per-segment timecodes, pre-staged model
+# status: IMPLEMENTED BUT NOT FULLY VERIFIED
+# acceptance_test: pytest tests/media/test_video.py -q
+# generated_at: 2026-08-04T03:46:20.191322+00:00
+# action_kind: pytest
+..                                                                       [100%]
+2 passed in 0.51s

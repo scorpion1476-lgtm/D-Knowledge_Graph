@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-11
+# area: Token cost and context levers
+# requirement: Evidence-and-contradiction token-cost task over a corpus with six planted, machine-checkable contradictory document pairs
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/benchmark/test_token_cost.py -q -m 'not slow'
+# generated_at: 2026-08-05T08:58:36.428386+00:00
+# action_kind: pytest
+.............                                                            [100%]
+13 passed in 28.21s

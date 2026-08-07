@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-23
+# area: Delivery and distribution
+# requirement: Serve the generated offline viewer from a bounded local server bound to loopback on an explicit port, refusing any non-loopback bind, so a viewer produced on a headless machine can be opened without copying the file
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_viz_serve.py -q
+# generated_at: 2026-08-06T21:31:19.207917+00:00
+# action_kind: executed
+# exit_code: 0
+
+.........................................                                [100%]
+41 passed in 3.36s

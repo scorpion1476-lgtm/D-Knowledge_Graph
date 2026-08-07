@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+"""Measure blast-radius and execution-flow precision and recall, structural vs resolved.
+
+For each resolved language the ambiguity corpus is ingested twice into a fresh
+code graph: structurally (name-based, the Wave 2 and Wave 3b baseline) and
+resolved (type-aware language server plus dataflow). For every method or function
+symbol the real blast-radius (reverse) and execution-flow (forward) are computed
+on each graph and compared to the hand-specified ground truth. The comparison is
+restricted to method and function nodes so it isolates the disambiguation lever
+(constructor edges are not counted).
+
+Writes test-evidence/resolution_accuracy.json with the before-and-after numbers,
+the corpus size, and the per-language resolution status. Go is reported as
+structural only. No forced green.
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+import tempfile
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+CORPUS = ROOT / "tests" / "code" / "corpus" / "ambiguity"
+OUT = ROOT / "test-evidence" / "resolution_accuracy.json"
+
+
+def _reachable(edges: set[tuple[str, str]], start: str, reverse: bool) -> set[str]:
+    adj: dict[str, set[str]] = {}
+    for a, b in edges:
+        u, v = (b, a) if reverse else (a, b)
+        adj.setdefault(u, set()).add(v)
+    seen: set[str] = set()
+    stack = [start]
+    while stack:
+        n = stack.pop()
+        for m in adj.get(n, set()):
+            if m not in seen:
+                seen.add(m)
+                stack.append(m)
+    return seen
+
+
+def _prf(tp: int, fp: int, fn: int) -> dict:
+    precision = tp / (tp + fp) if (tp + fp) else 1.0
+    recall = tp / (tp + fn) if (tp + fn) else 1.0
+    f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+    return {"precision": round(precision, 4), "recall": round(recall, 4), "f1": round(f1, 4)}
+
+
+def _measure_language(lang: str, spec: dict) -> dict:
+    import shutil
+
+    from dkg.code.flow import execution_flow
+    from dkg.code.impact import blast_radius
+    from dkg.code.ingest import ingest_repo
+    from dkg.core.db import open_database
+
+    true_edges = {(a, b) for a, b in spec["true_call_edges"]}
+    src_dir = CORPUS / lang
+
+    def build(resolve: bool) -> tuple[Any, set[str]]:
+        work = tempfile.mkdtemp()
+        # Copy out of the tracked git tree so ingestion uses the walk path and
+        # parses every corpus file (not the git-incremental path).
+        repo_dir = Path(work) / "repo"
+        shutil.copytree(src_dir, repo_dir)
+        db = open_database(Path(work) / "g.sqlite")
+        ingest_repo(db, str(repo_dir), resolve=resolve)
+        # Method and function symbols are the evaluation nodes.
+        rows = db.fetchall(
+            "SELECT canonical FROM entities WHERE kind IN ('code:function','code:method','code:test');"
+        )
+        nodes = {r["canonical"] for r in rows}
+        return db, nodes
+
+    struct_db, nodes = build(resolve=False)
+    resolved_db, _ = build(resolve=True)
+    eval_nodes = nodes
+
+    def score(db, direction: str) -> dict:
+        tp = fp = fn = 0
+        for node in sorted(eval_nodes):
+            if direction == "impact":
+                truth = _reachable(true_edges, node, reverse=True) & eval_nodes
+                got = {i["canonical"] for i in blast_radius(db, node)["impacted"]} & eval_nodes
+            else:
+                truth = _reachable(true_edges, node, reverse=False) & eval_nodes
+                got = {r["canonical"] for r in execution_flow(db, node)["reached"]} & eval_nodes
+            tp += len(got & truth)
+            fp += len(got - truth)
+            fn += len(truth - got)
+        return _prf(tp, fp, fn)
+
+    result = {
+        "resolution_status": spec["resolution_status"],
+        "corpus_files": len(spec["paths"]),
+        "eval_nodes": len(eval_nodes),
+        "true_call_edges": len(true_edges),
+        "blast_radius": {"structural": score(struct_db, "impact"), "resolved": score(resolved_db, "impact")},
+        "execution_flow": {"structural": score(struct_db, "flow"), "resolved": score(resolved_db, "flow")},
+    }
+    struct_db.close()
+    resolved_db.close()
+    return result
+
+
+def run() -> dict:
+    spec = json.loads((CORPUS / "ground_truth.json").read_text(encoding="utf-8"))["languages"]
+    per_language: dict = {}
+    for lang, s in spec.items():
+        if "true_call_edges" in s:
+            per_language[lang] = _measure_language(lang, s)
+        else:
+            per_language[lang] = {"resolution_status": s["resolution_status"], "reason": s.get("reason", "")}
+    return {
+        "date": "2026-08-04",
+        "wave": "4a",
+        "corpus": "tests/code/corpus/ambiguity",
+        "note": (
+            "Systematically ambiguous corpus (many same-named methods; direct, "
+            "polymorphic-reassignment, and unique-name callers) generated by "
+            "generate_corpus.py. Numbers are on this retained corpus only; "
+            "structural over-approximation grows with the degree of name "
+            "collision and is advisory. Resolved is type-aware (language server "
+            "plus flow-sensitive dataflow)."
+        ),
+        "per_language": per_language,
+    }
+
+
+def main() -> int:
+    summary = run()
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(json.dumps(summary, indent=2, sort_keys=True), encoding="utf-8")
+    print(f"wrote {OUT.relative_to(ROOT)}")
+    for lang, m in summary["per_language"].items():
+        if "blast_radius" in m:
+            br = m["blast_radius"]
+            print(f"  {lang}: blast-radius precision structural={br['structural']['precision']} "
+                  f"resolved={br['resolved']['precision']}")
+        else:
+            print(f"  {lang}: {m['resolution_status']}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

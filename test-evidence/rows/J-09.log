@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-09
+# area: UX and docs
+# requirement: Publish a roadmap separating what has shipped from what is planned and what is ongoing, with no shipped claim that is not already backed by a matrix row
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_roadmap.py -q
+# generated_at: 2026-08-06T21:31:20.445247+00:00
+# action_kind: executed
+# exit_code: 0
+
+............                                                             [100%]
+12 passed in 0.04s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-15
+# area: Supply chain
+# requirement: Audit every grammar inside a multi-grammar bundle dependency from its own upstream repository at the exact revision the bundle pins, publish the result as a regenerable committed manifest, and fail rather than assume when a licence cannot be resolved
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_grammar_bundle_licences.py -q
+# generated_at: 2026-08-06T09:22:58.754097+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+21 passed in 0.06s

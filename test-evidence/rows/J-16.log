@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-16
+# area: UX and docs
+# requirement: Publish translated README versions in at least four further languages, each carrying the same claims and the same measured numbers as the English original, with a test that fails when a translation's stated numbers drift from it
+# status: PARTIAL
+# acceptance_test: pytest tests/unit/test_readme_translations.py -q
+# generated_at: 2026-08-06T21:31:23.951064+00:00
+# action_kind: executed
+# exit_code: 0
+
+......................................................                   [100%]
+54 passed in 0.15s

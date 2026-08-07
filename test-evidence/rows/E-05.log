@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: E-05
+# area: Evidence and safety
+# requirement: Conflict resolution workflow preserving both sides
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_contradiction_flow.py -q
+# generated_at: 2026-08-04T03:42:59.767854+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.21s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-06
+# area: Delivery and distribution
+# requirement: Multi-tool MCP configuration helper that writes the read-only server entry for Claude Code, Cursor, and Windsurf, with a true dry run that touches no filesystem, an ownership marker so uninstall removes only what it wrote, atomic replacement, and refusal to overwrite malformed configuration
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_mcp_configure.py -q
+# generated_at: 2026-08-07T00:18:13.562155+00:00
+# action_kind: executed
+# exit_code: 0
+
+...........................                                              [100%]
+27 passed in 0.54s

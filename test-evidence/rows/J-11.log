@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-11
+# area: UX and docs
+# requirement: Ship a diagnostic script that reports the interpreter, the installed extras, the external binaries and staged models found, and whether the package index is reachable from this shell, so an install failure can be told apart from an environment failure without guessing
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_diagnostics.py -q
+# generated_at: 2026-08-06T21:31:21.906116+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+21 passed in 0.53s

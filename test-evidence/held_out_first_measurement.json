@@ -1,0 +1,201 @@
+{
+  "_about": "First measurement of the held-out hard-construct corpus, recorded before any parser change was made in response to it. Kept so the effect of those changes is visible rather than asserted. The current measurement is in language_accuracy.json. Every later measurement point is listed under subsequent_measurements below, so the sequence is a record rather than a single number that could have been arrived at any way.",
+  "languages": {
+    "c": {
+      "correct": 5,
+      "expected": 6,
+      "extracted": 6,
+      "missed": [
+        "type:Comparator"
+      ],
+      "name_precision": 0.8333,
+      "name_recall": 0.8333,
+      "precision": 0.8333,
+      "recall": 0.8333,
+      "spurious": [
+        "type:(*Comparator)(const void *, const void *)"
+      ],
+      "status": "measured"
+    },
+    "go": {
+      "correct": 6,
+      "expected": 7,
+      "extracted": 6,
+      "missed": [
+        "function:Printer"
+      ],
+      "name_precision": 1.0,
+      "name_recall": 0.8571,
+      "precision": 1.0,
+      "recall": 0.8571,
+      "status": "measured"
+    },
+    "java": {
+      "correct": 8,
+      "expected": 9,
+      "extracted": 8,
+      "missed": [
+        "class:Pair"
+      ],
+      "name_precision": 1.0,
+      "name_recall": 0.8889,
+      "precision": 1.0,
+      "recall": 0.8889,
+      "status": "measured"
+    },
+    "javascript": {
+      "correct": 7,
+      "expected": 10,
+      "extracted": 8,
+      "missed": [
+        "function:add",
+        "method:secret",
+        "method:triple"
+      ],
+      "name_precision": 0.875,
+      "name_recall": 0.7,
+      "precision": 0.875,
+      "recall": 0.7,
+      "spurious": [
+        "method:#secret"
+      ],
+      "status": "measured"
+    },
+    "kotlin": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "name_precision": 1.0,
+      "name_recall": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "lua": {
+      "correct": 4,
+      "expected": 4,
+      "extracted": 4,
+      "name_precision": 1.0,
+      "name_recall": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "php": {
+      "correct": 8,
+      "expected": 9,
+      "extracted": 9,
+      "missed": [
+        "method:render"
+      ],
+      "name_precision": 1.0,
+      "name_recall": 1.0,
+      "precision": 0.8889,
+      "recall": 0.8889,
+      "spurious": [
+        "function:render"
+      ],
+      "status": "measured"
+    },
+    "python": {
+      "correct": 12,
+      "expected": 12,
+      "extracted": 12,
+      "name_precision": 1.0,
+      "name_recall": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "ruby": {
+      "correct": 8,
+      "expected": 8,
+      "extracted": 8,
+      "name_precision": 1.0,
+      "name_recall": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "rust": {
+      "correct": 8,
+      "expected": 10,
+      "extracted": 8,
+      "missed": [
+        "class:inner",
+        "method:render"
+      ],
+      "name_precision": 1.0,
+      "name_recall": 0.8,
+      "precision": 1.0,
+      "recall": 0.8,
+      "status": "measured"
+    },
+    "swift": {
+      "correct": 9,
+      "expected": 9,
+      "extracted": 9,
+      "name_precision": 1.0,
+      "name_recall": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "status": "measured"
+    },
+    "typescript": {
+      "correct": 4,
+      "expected": 10,
+      "extracted": 5,
+      "missed": [
+        "class:Base",
+        "class:Shapes",
+        "function:ambient",
+        "function:arrowFn",
+        "method:area",
+        "method:render"
+      ],
+      "name_precision": 1.0,
+      "name_recall": 0.5,
+      "precision": 0.8,
+      "recall": 0.4,
+      "spurious": [
+        "function:area"
+      ],
+      "status": "measured"
+    }
+  },
+  "measured_before_any_fix": true,
+  "remaining_misses": [
+    "php method:render, a method of an anonymous class, reported as a function because an anonymous class is no naming context. Name-only precision and recall stay 1.0.",
+    "rust class:inner, a module, not emitted as a container symbol. Making a module a container would reclassify every function inside it as a method."
+  ],
+  "subsequent_measurements": [
+    {
+      "label": "after the gaps this corpus exposed were closed",
+      "micro_precision": 0.9901,
+      "micro_recall": 0.9804,
+      "what_changed": "Function-valued lexical bindings and object-literal function properties (JavaScript), namespaces, abstract classes, method signatures and declared functions (TypeScript), function-literal variable bindings (Go), records (Java), trait method signatures (Rust), and function-pointer typedefs (C) became definitions. One ground-truth label was corrected: the JavaScript private method is named '#secret', not 'secret'."
+    },
+    {
+      "label": "after an independent adversarial review",
+      "micro_precision": 0.9903,
+      "micro_recall": 0.9808,
+      "what_changed": "The review found two definitions this corpus had failed to label: a Swift 'associatedtype' protocol member and a PHP arrow-function binding. Both labels were added and the parser was changed to extract both, so the corpus grew from 102 to 104 labelled symbols. The review also found that a C struct named without a body was being counted as a second definition of that type; a definition now requires a body."
+    },
+    {
+      "label": "after Perl XS joined the corpus",
+      "micro_precision": 0.982,
+      "micro_recall": 0.9646,
+      "what_changed": "Perl XS moved from unsupported to a documented pattern extractor (src/dkg/code/xs.py) and one held-out XS file was added, labelled before it was ever parsed. It scores precision 0.875 and recall 0.7778. Two failures, both published rather than tuned away: a false positive, an XSUB inside an '#if 0' block, which is the extractor's documented limit because it does not evaluate the C preprocessor; and two misses, the ALIAS entries 'state' and 'condition', which the extractor does not emit. Those two labels were added after an adversarial review pointed out that omitting them was also the choice that kept recall at 1.0, and that it was wrong on the facts: xsubpp emits a newXS call per alias, so each is a callable sub the file defines. The corpus grew from 104 to 113 labelled symbols and the micro figures moved from 0.9903/0.9808 to 0.982/0.9646. The fall is entirely the new language; no language already measured regressed."
+    }
+  ],
+  "summary": {
+    "labelled_symbols": 102,
+    "languages_measured": 12,
+    "macro_name_precision": 0.9757,
+    "macro_name_recall": 0.8816,
+    "macro_precision": 0.9498,
+    "macro_recall": 0.864,
+    "micro_precision": 0.956,
+    "micro_recall": 0.8529
+  }
+}

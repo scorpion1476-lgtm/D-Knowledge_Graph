@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-03
+# area: Evidence and reproducibility
+# requirement: Reproducible (byte-identical) platform wheel build including Ariadne
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/release/test_release.py::test_wheel_builds_reproducibly_and_includes_ariadne -q
+# generated_at: 2026-08-05T09:44:46.655441+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 5.38s

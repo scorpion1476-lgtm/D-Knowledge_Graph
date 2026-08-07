@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: G-02
+# area: Skills and hooks
+# requirement: Local plugin manifest validation
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_skills_and_hooks.py -q
+# generated_at: 2026-08-04T03:43:19.033798+00:00
+# action_kind: pytest
+.............                                                            [100%]
+13 passed in 2.60s

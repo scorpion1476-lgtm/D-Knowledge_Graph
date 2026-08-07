@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: P-03
+# area: Perception and flow enrichment
+# requirement: Image object and content detection (local model)
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/media/test_detect.py -q
+# generated_at: 2026-08-07T00:18:07.492227+00:00
+# action_kind: executed
+# exit_code: 0
+
+....                                                                     [100%]
+4 passed in 5.95s

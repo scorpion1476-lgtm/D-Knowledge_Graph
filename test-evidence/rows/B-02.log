@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: B-02
+# area: Ingestion
+# requirement: Safe archive inspection with decompression and size caps
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/security/test_archive_bomb.py -q
+# generated_at: 2026-08-04T03:42:18.492401+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.05s

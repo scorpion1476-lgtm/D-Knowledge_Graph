@@ -1,0 +1,315 @@
+name: ci
+
+on:
+  push:
+    branches: [ main, "feature/**" ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python: [ "3.10", "3.11", "3.12" ]
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,html,pdf,rss,web]"
+      - name: Lint
+        run: |
+          python -m ruff check src tests
+      - name: Type check (blocking, decreasing baseline)
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.10'
+        run: |
+          python scripts/mypy_gate.py
+      - name: Test
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python -m pytest -q
+      - name: Code plane (code extra lane, continuous verification)
+        # The base matrix installs WITHOUT the code extra, so every cell's Test
+        # step is the no-code-extra lane that proves the core passes and code
+        # tests skip gracefully. This lane installs the code extra and runs the
+        # code tests, and (because it installs before the row-evidence rebuild)
+        # the code rows are re-verified with fresh evidence on every CI run,
+        # not held on pre-staged evidence.
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.10'
+        # code-extended is installed alongside code so the wider language set
+        # (TypeScript, Java, Ruby, Rust) is actually exercised here. Without it
+        # those tests would skip honestly and CI would never parse those
+        # languages at all, which is coverage lost to a correct skip.
+        run: |
+          python -m pip install -e ".[code,code-extended]"
+          python -m pytest tests/code -q
+      - name: Dependency audit (gating)
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.10'
+        run: |
+          python -m pip install --upgrade pip setuptools
+          python -m pip install pip-audit
+          pip-audit --skip-editable
+      - name: SBOM
+        run: |
+          python scripts/sbom.py
+      - name: Secret scan
+        run: |
+          python scripts/secret_scan.py
+      - name: SAST
+        run: |
+          python scripts/sast.py --out test-evidence/sast.json
+      - name: Row evidence rebuild
+        run: |
+          python scripts/build_row_evidence.py
+      - name: Traceability validator
+        run: |
+          python scripts/validate_traceability.py
+      - name: Clean install smoke
+        run: |
+          python scripts/clean_install_check.py
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-evidence-${{ matrix.os }}-py${{ matrix.python }}
+          path: test-evidence/
+
+  # Models-present lane: pre-stage the local embedding and reranker models and
+  # run the retrieval-quality and community tests with them. The base 'test'
+  # matrix installs WITHOUT these extras, so every cell there is the model-absent
+  # lane that proves the core passes and the retrieval tests skip gracefully.
+  retrieval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install with embeddings and reranker extras
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,embeddings,reranker]"
+      - name: Pre-stage local models (build-time download; no runtime download in the product)
+        run: |
+          python scripts/prestage_models.py
+      - name: Retrieval and community tests (models present)
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python -m pytest tests/retrieval tests/graph -q
+      - name: Measure and publish retrieval and community quality
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python scripts/retrieval_quality.py
+          python scripts/community_quality.py
+      - name: Upload retrieval evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-retrieval-evidence
+          path: test-evidence/
+
+  # Tools-present lane for media perception and code flow: ffmpeg and tesseract
+  # (external binaries), the media-detect extra, and pre-staged CLIP models. The
+  # base 'test' matrix installs none of these, so it is the tool-absent lane that
+  # proves the core passes and the enrichment tests skip gracefully.
+  perception:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install external media binaries (ffmpeg, tesseract)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg tesseract-ocr
+      - name: Install with code and media-detect extras
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,code,media-image,media-detect]"
+      - name: Pre-stage local models (build-time download; no runtime download in the product)
+        run: |
+          python scripts/prestage_models.py
+      - name: Perception and flow tests (tools and models present)
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python -m pytest tests/media/test_keyframes.py tests/media/test_detect.py tests/code/test_flow.py -q
+      - name: Measure and publish enrichment accuracy
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python scripts/media_enrichment_accuracy.py
+          python scripts/flow_accuracy.py
+      - name: Upload perception evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-perception-evidence
+          path: test-evidence/
+
+  # Server-present lane for type-aware code resolution: the code extra plus the
+  # language servers staged as external Node processes over stdio. The ubuntu
+  # runner ships Node, so no new action is added. The base 'test' matrix installs
+  # none of these, so it is the server-absent lane that proves the code analysis
+  # falls back to structural.
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install with the code extra
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,code]"
+      - name: Stage language servers (external Node processes; build-time only)
+        run: |
+          cd tools/lsp
+          npm init -y
+          npm install --no-fund --no-audit pyright typescript@5.7.3 typescript-language-server
+      - name: Type-aware resolution tests (servers present)
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python -m pytest tests/code/test_resolve.py -q
+      - name: Measure and publish resolved-versus-structural precision
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python scripts/resolution_accuracy.py
+      - name: Upload resolution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-resolution-evidence
+          path: test-evidence/
+
+  # Delivery lane for Wave 4b: the watch extra plus a user-provided grammar
+  # (tree-sitter-ruby, MIT) for the custom-language worked example. The base
+  # 'test' matrix installs none of these, so it is the extra-absent lane that
+  # proves the core passes, the daemon re-ingest tests skip gracefully without
+  # the code extra, and the custom-language config tests still run. This lane
+  # exercises the delivery paths that can be run locally and validates the
+  # consumer action definition. The action itself runs on push in a consumer
+  # repository; a live hosted run is not performed here.
+  delivery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install with code and watch extras plus the demo grammar
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,code,watch]"
+          # tree-sitter-ruby is a user-provided grammar for the custom-language
+          # worked example, not a product dependency; installed only in this lane.
+          python -m pip install tree-sitter-ruby
+      - name: Delivery and custom-language tests
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python -m pytest tests/delivery tests/code/test_custom_language.py -q
+      - name: Consumer action dry run (underlying command on this repository)
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          python -m dkg --home "$RUNNER_TEMP/dkg-home" code-report . --format markdown --out "$RUNNER_TEMP/report.md"
+          test -s "$RUNNER_TEMP/report.md"
+      - name: Upload delivery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-delivery-evidence
+          path: test-evidence/
+
+  # Benchmark lane (Wave 5): stage every model, language server, and media binary
+  # and run the one-command reproducible harness, then check the wheel builds
+  # reproducibly. The base 'test' matrix stages none of these, so it is the
+  # not-staged lane that proves the harness marks absent benchmarks not run. CI
+  # runs on push and has not yet run; the harness is proven by local simulation.
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install external media binaries (ffmpeg, tesseract)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg tesseract-ocr
+      - name: Install with the benchmark extras
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,code,embeddings,reranker,media-image,media-detect]"
+      - name: Stage language servers (external Node processes; build-time only)
+        run: |
+          cd tools/lsp
+          npm init -y
+          npm install --no-fund --no-audit pyright typescript@5.7.3 typescript-language-server
+      - name: Pre-stage local models (build-time download; no runtime download in the product)
+        run: |
+          python scripts/prestage_models.py
+      - name: Run the reproducible benchmark harness
+        env:
+          DKG_ALLOW_OUTBOUND: "0"
+          DKG_TELEMETRY: "0"
+        run: |
+          export PATH="$PWD/tools/lsp/node_modules/.bin:$PATH"
+          python scripts/benchmark.py
+      - name: Verify the wheel builds reproducibly
+        run: |
+          python -m pip install -e ".[release]"
+          python scripts/reproducible_build.py
+      - name: Upload benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-benchmark-evidence
+          path: |
+            test-evidence/benchmarks.json
+            test-evidence/reproducible_build.json
+            docs/BENCHMARKS.md

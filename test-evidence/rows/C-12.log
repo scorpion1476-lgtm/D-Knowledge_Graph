@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: C-12
+# area: Search
+# requirement: Explain why a result was returned
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_search.py -q
+# generated_at: 2026-08-04T03:42:36.950854+00:00
+# action_kind: pytest
+........                                                                 [100%]
+8 passed in 1.03s

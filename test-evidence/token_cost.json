@@ -1,0 +1,2632 @@
+{
+  "aggregate": {
+    "graph": {
+      "cost_usd": 0.213264,
+      "mean_correctness": 1.0,
+      "tasks_counted": [
+        "code_review",
+        "evidence_contradiction",
+        "impact_analysis",
+        "knowledge_base_qa"
+      ],
+      "tokens": 71088
+    },
+    "naive": {
+      "cost_usd": 5.783304,
+      "mean_correctness": 1.0,
+      "tasks_counted": [
+        "code_review",
+        "evidence_contradiction",
+        "impact_analysis",
+        "knowledge_base_qa"
+      ],
+      "tokens": 1927768
+    },
+    "strong": {
+      "cost_usd": 0.104232,
+      "mean_correctness": 0.6206,
+      "tasks_counted": [
+        "code_review",
+        "evidence_contradiction",
+        "impact_analysis",
+        "knowledge_base_qa"
+      ],
+      "tokens": 34744
+    }
+  },
+  "flags": {
+    "budgeted_slices": true,
+    "default_token_budget": null,
+    "delta_session": true,
+    "exact_answers": true,
+    "provenance_bounded": true
+  },
+  "generated_at_note": "regenerate with python scripts/token_cost.py",
+  "graph_vs_strong": {
+    "did_not_win": [
+      {
+        "correctness_baseline": 0.2425,
+        "correctness_candidate": 1.0,
+        "correctness_held": true,
+        "task": "code_review",
+        "tokens_saved": -11406,
+        "tokens_saved_pct": -465.93
+      },
+      {
+        "correctness_baseline": 0.24,
+        "correctness_candidate": 1.0,
+        "correctness_held": true,
+        "task": "impact_analysis",
+        "tokens_saved": -33238,
+        "tokens_saved_pct": -171.19
+      }
+    ],
+    "task_count": 4,
+    "won_count": 2,
+    "won_on_tokens_with_correctness_held": [
+      {
+        "correctness_baseline": 1.0,
+        "correctness_candidate": 1.0,
+        "correctness_held": true,
+        "task": "evidence_contradiction",
+        "tokens_saved": 2244,
+        "tokens_saved_pct": 82.02
+      },
+      {
+        "correctness_baseline": 1.0,
+        "correctness_candidate": 1.0,
+        "correctness_held": true,
+        "task": "knowledge_base_qa",
+        "tokens_saved": 6056,
+        "tokens_saved_pct": 59.7
+      }
+    ]
+  },
+  "pricing": {
+    "input_usd_per_mtok": 3.0,
+    "model_class": "mid-class",
+    "note": "Costs are input-token costs at these rates on this date. The price table is configuration, not a measurement: rates change and vary by tier and provider. The measurement is the token count; substitute your own rate and redo the multiplication.",
+    "output_usd_per_mtok": 15.0,
+    "rates_recorded_on": "2026-08-05",
+    "tier": "mid"
+  },
+  "tasks": {
+    "code_review": {
+      "module": "tokentasks/task_review.py",
+      "result": {
+        "changed_symbols": [
+          "layer_0.py::layer_0_gateway",
+          "mod_000.py::mod_000_op_0",
+          "mod_008.py::mod_008_op_1"
+        ],
+        "corpus": {
+          "code_bytes": 248560,
+          "code_files": 414,
+          "doc_bytes": 3497,
+          "doc_files": 20,
+          "ingested_edges": 7431,
+          "ingested_nodes": 2927,
+          "path": "tests/code/corpus/large",
+          "total_files": 434
+        },
+        "delta_session": {
+          "saved_pct": 40.98,
+          "tokens_saved": 9411,
+          "tokens_with_delta": 13553,
+          "tokens_without_delta": 22964,
+          "turns": 4,
+          "turns_with_delta": [
+            {
+              "question": "what changed",
+              "tokens_sent": 133,
+              "turn": 1,
+              "units_offered": 3,
+              "units_resent_because_changed": 0,
+              "units_sent": 3,
+              "units_suppressed_already_seen": 0
+            },
+            {
+              "question": "what calls it",
+              "tokens_sent": 8894,
+              "turn": 2,
+              "units_offered": 254,
+              "units_resent_because_changed": 0,
+              "units_sent": 251,
+              "units_suppressed_already_seen": 3
+            },
+            {
+              "question": "what tests cover it",
+              "tokens_sent": 34,
+              "turn": 3,
+              "units_offered": 5,
+              "units_resent_because_changed": 0,
+              "units_sent": 1,
+              "units_suppressed_already_seen": 4
+            },
+            {
+              "question": "what else is affected",
+              "tokens_sent": 4492,
+              "turn": 4,
+              "units_offered": 354,
+              "units_resent_because_changed": 0,
+              "units_sent": 99,
+              "units_suppressed_already_seen": 255
+            }
+          ],
+          "turns_without_delta": [
+            {
+              "question": "what changed",
+              "tokens_sent": 133,
+              "turn": 1,
+              "units_offered": 3,
+              "units_resent_because_changed": 0,
+              "units_sent": 3,
+              "units_suppressed_already_seen": 0
+            },
+            {
+              "question": "what calls it",
+              "tokens_sent": 9027,
+              "turn": 2,
+              "units_offered": 254,
+              "units_resent_because_changed": 0,
+              "units_sent": 254,
+              "units_suppressed_already_seen": 0
+            },
+            {
+              "question": "what tests cover it",
+              "tokens_sent": 251,
+              "turn": 3,
+              "units_offered": 5,
+              "units_resent_because_changed": 0,
+              "units_sent": 5,
+              "units_suppressed_already_seen": 0
+            },
+            {
+              "question": "what else is affected",
+              "tokens_sent": 13553,
+              "turn": 4,
+              "units_offered": 354,
+              "units_resent_because_changed": 0,
+              "units_sent": 354,
+              "units_suppressed_already_seen": 0
+            }
+          ],
+          "why": "The same four turns are replayed twice through SessionContext over identical units. Delta off is the same code path with full_resend, so the only difference measured is the lever. No content changed between turns, so nothing was re-sent as stale; a unit whose text changed would be re-sent even with delta on."
+        },
+        "required_count": 301,
+        "routes": {
+          "graph": {
+            "budget_exceeded": false,
+            "characters": 40847,
+            "correctness": 1.0,
+            "cost_usd": 0.041562,
+            "key_level_required_recall": 1.0,
+            "max_lines_per_unit": 12,
+            "nodes_reached": 354,
+            "over_approximation": {
+              "extra_nodes": [
+                "layer_0.py::Layer0Service.handle",
+                "mod_000.py",
+                "mod_008.py",
+                "mod_016.py",
+                "mod_024.py",
+                "mod_032.py",
+                "mod_040.py",
+                "mod_048.py",
+                "mod_056.py",
+                "mod_064.py",
+                "mod_072.py",
+                "mod_080.py",
+                "mod_088.py",
+                "mod_096.py",
+                "mod_104.py",
+                "mod_112.py",
+                "mod_120.py",
+                "mod_128.py",
+                "mod_136.py",
+                "mod_144.py",
+                "mod_152.py",
+                "mod_160.py",
+                "mod_168.py",
+                "mod_176.py",
+                "mod_184.py",
+                "mod_192.py",
+                "mod_200.py",
+                "mod_208.py",
+                "mod_216.py",
+                "mod_224.py",
+                "mod_232.py",
+                "mod_240.py",
+                "mod_248.py",
+                "mod_256.py",
+                "mod_264.py",
+                "mod_272.py",
+                "mod_280.py",
+                "mod_288.py",
+                "mod_296.py",
+                "mod_304.py",
+                "mod_312.py",
+                "mod_320.py",
+                "mod_328.py",
+                "mod_336.py",
+                "mod_344.py",
+                "mod_352.py",
+                "mod_360.py",
+                "mod_368.py",
+                "mod_376.py",
+                "mod_384.py",
+                "mod_392.py",
+                "test_mod_000.py",
+                "test_mod_000.py::test_mod_000_run"
+              ],
+              "note": "Reverse reachability is structural and over-approximate. The extra nodes are module nodes and a class method that reach a changed symbol but are not in the recorded impact set; they are paid for, not free.",
+              "reached": 354,
+              "required": 301
+            },
+            "required_units_kept": 3,
+            "route": "graph",
+            "seeds": [
+              "layer_0.py::layer_0_gateway",
+              "mod_000.py::mod_000_op_0",
+              "mod_008.py::mod_008_op_1"
+            ],
+            "strategy": "provenance_bounded",
+            "tight_budget_variant": {
+              "correctness": 0.2924,
+              "note": "What a tight budget actually buys. Only the three changed symbols are structurally required, so a tight budget drops impacted symbols and correctness falls below 1.0. Recorded so the cheap number cannot be quoted as if it were correct.",
+              "token_budget": 4000,
+              "tokens": 4081,
+              "units_omitted": 248,
+              "units_packed": 106
+            },
+            "token_budget": 16000,
+            "tokens": 13854,
+            "unit_header_share_pct": 36.17,
+            "unit_header_tokens": 4902,
+            "units_omitted": 0,
+            "units_packed": 354
+          },
+          "naive": {
+            "characters": 260852,
+            "correctness": 1.0,
+            "cost_usd": 0.251448,
+            "route": "naive",
+            "tokens": 83816
+          },
+          "strong": {
+            "characters": 7586,
+            "correctness": 0.2425,
+            "cost_usd": 0.007344,
+            "file_budget": 12,
+            "files": [
+              "mod_000.py",
+              "mod_008.py",
+              "mod_016.py",
+              "mod_024.py",
+              "mod_032.py",
+              "mod_040.py",
+              "mod_048.py",
+              "mod_056.py",
+              "mod_064.py",
+              "mod_072.py",
+              "mod_080.py",
+              "mod_088.py"
+            ],
+            "files_read": 12,
+            "query_terms": [
+              "Review",
+              "pull",
+              "request",
+              "changing",
+              "layer_0_gateway",
+              "mod_000_op_0",
+              "mod_008_op_1",
+              "else",
+              "can",
+              "break",
+              "because"
+            ],
+            "route": "strong",
+            "tokens": 2448
+          }
+        },
+        "savings_vs_naive": {
+          "correctness_baseline": 1.0,
+          "correctness_candidate": 1.0,
+          "correctness_held": true,
+          "cost_saved_usd": 0.209886,
+          "ratio": 6.0499,
+          "tokens_saved": 69962,
+          "tokens_saved_pct": 83.47
+        },
+        "savings_vs_strong": {
+          "correctness_baseline": 0.2425,
+          "correctness_candidate": 1.0,
+          "correctness_held": true,
+          "cost_saved_usd": -0.034218,
+          "ratio": 0.1767,
+          "tokens_saved": -11406,
+          "tokens_saved_pct": -465.93
+        },
+        "task": "code_review",
+        "why": {
+          "baseline_definition": "strong = grep the corpus for the query terms, rank files by match count, read the top 12 whole. Same question, same corpus, same tokenizer as the graph route. The budget is the shared default in common.py and was not changed for this task.",
+          "determinism": "Changed symbols are hard-coded, every key list is sorted, the packer orders by (required, score, key), and no sampling is used.",
+          "graph_beat_strong_at_equal_correctness": false,
+          "graph_beat_strong_on_tokens": false,
+          "limitations": [
+            "This corpus is close to the worst case for node-level slicing. Every impacted symbol is two lines long and every impacted file contains nothing but impacted symbols, so a whole-file read wastes almost no tokens and the per-unit label the graph must emit (# kind canonical) is a large fraction of each unit's cost.",
+            "The recorded impact set is exactly the set of textual callers of the gateway, and those callers all name it literally. Grep is therefore near-optimal at finding them, which is not true of real codebases with indirect dispatch, re-exports, or renamed imports.",
+            "Reverse reachability is structural and over-approximate. It returns more nodes than the recorded impact set, and the extras are paid for in tokens.",
+            "Correctness is containment of required symbol names, not an assessment of whether a review written from the context would be any good. A route can contain a name without the reviewer being able to reason about it.",
+            "Costs are input-token costs at a configured list rate, not a measurement of what any provider charged."
+          ],
+          "pricing": {
+            "input_usd_per_mtok": 3.0,
+            "model_class": "mid-class",
+            "note": "Costs are input-token costs at these rates on this date. The price table is configuration, not a measurement: rates change and vary by tier and provider. The measurement is the token count; substitute your own rate and redo the multiplication.",
+            "output_usd_per_mtok": 15.0,
+            "rates_recorded_on": "2026-08-05",
+            "tier": "mid"
+          },
+          "question": "Review the pull request changing layer_0_gateway, mod_000_op_0 and mod_008_op_1: what else can break because of it?",
+          "required_set": {
+            "cap_applied": false,
+            "cap_note": "The cap is a declared upper bound so the benchmark cannot run away on a larger corpus. It did not bite here, so the full recorded impact set was used and nothing was dropped to make a route look better.",
+            "declared_cap": 400,
+            "definition": "the changed symbols plus ground_truth['impact'] for layer_0.py::layer_0_gateway, which the corpus generator records by construction",
+            "scored_on": "bare symbol names, not canonical file.py::symbol keys. The canonical form appears only in graph output, so scoring on it would hand the graph route a win the file-reading routes could never earn. The bare name appears in both the file text and the graph unit header, so both sides are scored the same way.",
+            "size": 301
+          },
+          "strong_baseline_at_full_recall": {
+            "correctness": 1.0,
+            "file_budget": 56,
+            "files_read": 56,
+            "note": "Smallest whole-file grep budget at which the baseline contains every required symbol. This is the fair equal-correctness comparison for the graph route, and it is reported whether or not it favours the graph.",
+            "reached_full_recall": true,
+            "tokens": 10590
+          },
+          "task_definition": "Simulated pull request touching one layer gateway and two leaf ops. The reviewer must see the changed symbols plus everything that could break because of them.",
+          "tokenizer": {
+            "note": "Both sides of every comparison are counted by the same function, so a ratio never mixes a tokenizer count with an estimate. When the real tokenizer is absent the fallback estimator is used and this field says so.",
+            "real_tokenizer": true,
+            "tokenizer": "cl100k_base"
+          },
+          "verdict": "The graph route did not beat the strong baseline on tokens. It is more correct and it beats the naive upper bound, but on this corpus reading grep-ranked whole files is cheaper per required symbol."
+        }
+      },
+      "status": "ran",
+      "title": "Code review of a pull request"
+    },
+    "evidence_contradiction": {
+      "module": "tokentasks/task_evidence.py",
+      "result": {
+        "aggregate": {
+          "graph": {
+            "characters": 1848,
+            "correctness": 1.0,
+            "cost_usd": 0.001476,
+            "pairs": 6,
+            "pairs_fully_correct": 6,
+            "route": "graph",
+            "tokens": 492
+          },
+          "graph_evidence_oracle": {
+            "characters": 1848,
+            "correctness": 1.0,
+            "cost_usd": 0.001476,
+            "pairs": 6,
+            "pairs_fully_correct": 6,
+            "route": "graph_evidence_oracle",
+            "tokens": 492
+          },
+          "naive": {
+            "characters": 1565112,
+            "correctness": 1.0,
+            "cost_usd": 1.508688,
+            "pairs": 6,
+            "pairs_fully_correct": 6,
+            "route": "naive",
+            "tokens": 502896
+          },
+          "savings_vs_naive": {
+            "correctness_baseline": 1.0,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": 1.507212,
+            "ratio": 1022.1463,
+            "tokens_saved": 502404,
+            "tokens_saved_pct": 99.9
+          },
+          "savings_vs_strong": {
+            "correctness_baseline": 1.0,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": 0.006732,
+            "ratio": 5.561,
+            "tokens_saved": 2244,
+            "tokens_saved_pct": 82.02
+          },
+          "single_pass_tokens": {
+            "graph": 492,
+            "graph_evidence_oracle": 492,
+            "naive": 83816,
+            "note": "Every route is charged once per question in the aggregate above. All three could batch the six pairs into one retrieval, and these are those one-pass costs. On this corpus the strong baseline's grep ranking returns the same file set for every pair, so one twelve-file read answers all six.",
+            "strong": 456
+          },
+          "strong": {
+            "characters": 10398,
+            "correctness": 1.0,
+            "cost_usd": 0.008208,
+            "pairs": 6,
+            "pairs_fully_correct": 6,
+            "route": "strong",
+            "tokens": 2736
+          },
+          "strong_pairs_with_both_sides_retrieved": 6
+        },
+        "contradictions_detected": 6,
+        "contradictions_expected": 6,
+        "corpus": {
+          "code_files": 414,
+          "doc_files": 20,
+          "ingested": {
+            "chunks": 885,
+            "claims": 20,
+            "documents": 434,
+            "skipped": 0
+          },
+          "naive_tokens_single_pass": 83816,
+          "root": "tests/code/corpus/large",
+          "total_files": 434
+        },
+        "pair_count": 6,
+        "per_pair": [
+          {
+            "doc_a": "runbook_0.md",
+            "doc_b": "architecture_0.md",
+            "graph": {
+              "characters": 308,
+              "contradicting_claims": [
+                "is@runbook_0.md#0",
+                "uses@architecture_0.md#0"
+              ],
+              "contradiction_detected": true,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_0.md#0",
+                "runbook_0.md#0"
+              ],
+              "route": "graph",
+              "scanner_reason": "different time values: 300 vs 30 (300.0 vs 30.0 in base units)",
+              "scanner_score": 0.7,
+              "tokens": 82
+            },
+            "graph_evidence_oracle": {
+              "characters": 308,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_0.md#0",
+                "runbook_0.md#0"
+              ],
+              "route": "graph_evidence_oracle",
+              "tokens": 82
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the cache TTL for service 0?",
+            "required": [
+              "30 seconds",
+              "300 seconds",
+              "architecture_0.md",
+              "runbook_0.md"
+            ],
+            "strong": {
+              "characters": 1733,
+              "correctness": 1.0,
+              "cost_usd": 0.001368,
+              "file_budget": 12,
+              "files_read": [
+                "architecture_0.md",
+                "architecture_1.md",
+                "architecture_2.md",
+                "architecture_3.md",
+                "architecture_4.md",
+                "architecture_5.md",
+                "runbook_0.md",
+                "runbook_1.md",
+                "runbook_2.md",
+                "runbook_3.md",
+                "runbook_4.md",
+                "runbook_5.md"
+              ],
+              "retrieved_both_sides": true,
+              "route": "strong",
+              "tokens": 456
+            },
+            "subject": "cache-ttl-service-0",
+            "value_a": 30,
+            "value_b": 300
+          },
+          {
+            "doc_a": "runbook_1.md",
+            "doc_b": "architecture_1.md",
+            "graph": {
+              "characters": 308,
+              "contradicting_claims": [
+                "is@runbook_1.md#0",
+                "uses@architecture_1.md#0"
+              ],
+              "contradiction_detected": true,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_1.md#0",
+                "runbook_1.md#0"
+              ],
+              "route": "graph",
+              "scanner_reason": "different time values: 301 vs 31 (301.0 vs 31.0 in base units)",
+              "scanner_score": 0.7,
+              "tokens": 82
+            },
+            "graph_evidence_oracle": {
+              "characters": 308,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_1.md#0",
+                "runbook_1.md#0"
+              ],
+              "route": "graph_evidence_oracle",
+              "tokens": 82
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the cache TTL for service 1?",
+            "required": [
+              "301 seconds",
+              "31 seconds",
+              "architecture_1.md",
+              "runbook_1.md"
+            ],
+            "strong": {
+              "characters": 1733,
+              "correctness": 1.0,
+              "cost_usd": 0.001368,
+              "file_budget": 12,
+              "files_read": [
+                "architecture_0.md",
+                "architecture_1.md",
+                "architecture_2.md",
+                "architecture_3.md",
+                "architecture_4.md",
+                "architecture_5.md",
+                "runbook_0.md",
+                "runbook_1.md",
+                "runbook_2.md",
+                "runbook_3.md",
+                "runbook_4.md",
+                "runbook_5.md"
+              ],
+              "retrieved_both_sides": true,
+              "route": "strong",
+              "tokens": 456
+            },
+            "subject": "cache-ttl-service-1",
+            "value_a": 31,
+            "value_b": 301
+          },
+          {
+            "doc_a": "runbook_2.md",
+            "doc_b": "architecture_2.md",
+            "graph": {
+              "characters": 308,
+              "contradicting_claims": [
+                "is@runbook_2.md#0",
+                "uses@architecture_2.md#0"
+              ],
+              "contradiction_detected": true,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_2.md#0",
+                "runbook_2.md#0"
+              ],
+              "route": "graph",
+              "scanner_reason": "different time values: 302 vs 32 (302.0 vs 32.0 in base units)",
+              "scanner_score": 0.7,
+              "tokens": 82
+            },
+            "graph_evidence_oracle": {
+              "characters": 308,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_2.md#0",
+                "runbook_2.md#0"
+              ],
+              "route": "graph_evidence_oracle",
+              "tokens": 82
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the cache TTL for service 2?",
+            "required": [
+              "302 seconds",
+              "32 seconds",
+              "architecture_2.md",
+              "runbook_2.md"
+            ],
+            "strong": {
+              "characters": 1733,
+              "correctness": 1.0,
+              "cost_usd": 0.001368,
+              "file_budget": 12,
+              "files_read": [
+                "architecture_0.md",
+                "architecture_1.md",
+                "architecture_2.md",
+                "architecture_3.md",
+                "architecture_4.md",
+                "architecture_5.md",
+                "runbook_0.md",
+                "runbook_1.md",
+                "runbook_2.md",
+                "runbook_3.md",
+                "runbook_4.md",
+                "runbook_5.md"
+              ],
+              "retrieved_both_sides": true,
+              "route": "strong",
+              "tokens": 456
+            },
+            "subject": "cache-ttl-service-2",
+            "value_a": 32,
+            "value_b": 302
+          },
+          {
+            "doc_a": "runbook_3.md",
+            "doc_b": "architecture_3.md",
+            "graph": {
+              "characters": 308,
+              "contradicting_claims": [
+                "is@runbook_3.md#0",
+                "uses@architecture_3.md#0"
+              ],
+              "contradiction_detected": true,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_3.md#0",
+                "runbook_3.md#0"
+              ],
+              "route": "graph",
+              "scanner_reason": "different time values: 303 vs 33 (303.0 vs 33.0 in base units)",
+              "scanner_score": 0.7,
+              "tokens": 82
+            },
+            "graph_evidence_oracle": {
+              "characters": 308,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_3.md#0",
+                "runbook_3.md#0"
+              ],
+              "route": "graph_evidence_oracle",
+              "tokens": 82
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the cache TTL for service 3?",
+            "required": [
+              "303 seconds",
+              "33 seconds",
+              "architecture_3.md",
+              "runbook_3.md"
+            ],
+            "strong": {
+              "characters": 1733,
+              "correctness": 1.0,
+              "cost_usd": 0.001368,
+              "file_budget": 12,
+              "files_read": [
+                "architecture_0.md",
+                "architecture_1.md",
+                "architecture_2.md",
+                "architecture_3.md",
+                "architecture_4.md",
+                "architecture_5.md",
+                "runbook_0.md",
+                "runbook_1.md",
+                "runbook_2.md",
+                "runbook_3.md",
+                "runbook_4.md",
+                "runbook_5.md"
+              ],
+              "retrieved_both_sides": true,
+              "route": "strong",
+              "tokens": 456
+            },
+            "subject": "cache-ttl-service-3",
+            "value_a": 33,
+            "value_b": 303
+          },
+          {
+            "doc_a": "runbook_4.md",
+            "doc_b": "architecture_4.md",
+            "graph": {
+              "characters": 308,
+              "contradicting_claims": [
+                "is@runbook_4.md#0",
+                "uses@architecture_4.md#0"
+              ],
+              "contradiction_detected": true,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_4.md#0",
+                "runbook_4.md#0"
+              ],
+              "route": "graph",
+              "scanner_reason": "different time values: 304 vs 34 (304.0 vs 34.0 in base units)",
+              "scanner_score": 0.7,
+              "tokens": 82
+            },
+            "graph_evidence_oracle": {
+              "characters": 308,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_4.md#0",
+                "runbook_4.md#0"
+              ],
+              "route": "graph_evidence_oracle",
+              "tokens": 82
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the cache TTL for service 4?",
+            "required": [
+              "304 seconds",
+              "34 seconds",
+              "architecture_4.md",
+              "runbook_4.md"
+            ],
+            "strong": {
+              "characters": 1733,
+              "correctness": 1.0,
+              "cost_usd": 0.001368,
+              "file_budget": 12,
+              "files_read": [
+                "architecture_0.md",
+                "architecture_1.md",
+                "architecture_2.md",
+                "architecture_3.md",
+                "architecture_4.md",
+                "architecture_5.md",
+                "runbook_0.md",
+                "runbook_1.md",
+                "runbook_2.md",
+                "runbook_3.md",
+                "runbook_4.md",
+                "runbook_5.md"
+              ],
+              "retrieved_both_sides": true,
+              "route": "strong",
+              "tokens": 456
+            },
+            "subject": "cache-ttl-service-4",
+            "value_a": 34,
+            "value_b": 304
+          },
+          {
+            "doc_a": "runbook_5.md",
+            "doc_b": "architecture_5.md",
+            "graph": {
+              "characters": 308,
+              "contradicting_claims": [
+                "is@runbook_5.md#0",
+                "uses@architecture_5.md#0"
+              ],
+              "contradiction_detected": true,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_5.md#0",
+                "runbook_5.md#0"
+              ],
+              "route": "graph",
+              "scanner_reason": "different time values: 305 vs 35 (305.0 vs 35.0 in base units)",
+              "scanner_score": 0.7,
+              "tokens": 82
+            },
+            "graph_evidence_oracle": {
+              "characters": 308,
+              "correctness": 1.0,
+              "cost_usd": 0.000246,
+              "evidence_chunks": [
+                "architecture_5.md#0",
+                "runbook_5.md#0"
+              ],
+              "route": "graph_evidence_oracle",
+              "tokens": 82
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the cache TTL for service 5?",
+            "required": [
+              "305 seconds",
+              "35 seconds",
+              "architecture_5.md",
+              "runbook_5.md"
+            ],
+            "strong": {
+              "characters": 1733,
+              "correctness": 1.0,
+              "cost_usd": 0.001368,
+              "file_budget": 12,
+              "files_read": [
+                "architecture_0.md",
+                "architecture_1.md",
+                "architecture_2.md",
+                "architecture_3.md",
+                "architecture_4.md",
+                "architecture_5.md",
+                "runbook_0.md",
+                "runbook_1.md",
+                "runbook_2.md",
+                "runbook_3.md",
+                "runbook_4.md",
+                "runbook_5.md"
+              ],
+              "retrieved_both_sides": true,
+              "route": "strong",
+              "tokens": 456
+            },
+            "subject": "cache-ttl-service-5",
+            "value_a": 35,
+            "value_b": 305
+          }
+        ],
+        "task": "evidence_contradiction",
+        "verdict": "The contradiction machinery worked: it surfaced all 6 planted pairs and the evidence route matched the strong baseline's correctness at 492 tokens against 2736.",
+        "why": {
+          "baseline_definition": "strong = the query terms are grepped across all 434 corpus files, files are ranked by total match count, and the top 12 are read whole. This is what a competent agent without a graph does. It is given the same question the graph gets.",
+          "contradiction_machinery_diagnosis": {
+            "claims_extracted_on_planted_documents": 12,
+            "claims_extracted_total": 20,
+            "comparator_on_the_two_values": {
+              "input_a": "30 seconds",
+              "input_b": "300 seconds",
+              "reason": "different time values: 30 vs 300 (30.0 vs 300.0 in base units)",
+              "score": 0.7
+            },
+            "pairs_judged_comparable": 6,
+            "pairs_with_claims_on_both_sides": 6,
+            "per_pair": [
+              {
+                "claims_from_doc_a": 1,
+                "claims_from_doc_b": 1,
+                "comparable": true,
+                "doc_a_predicate": "is",
+                "doc_a_subject": "The cache TTL for service 0",
+                "doc_b_predicate": "uses",
+                "doc_b_subject": "Service 0",
+                "predicates_agree": false,
+                "subject": "cache-ttl-service-0",
+                "subject_identifiers_agree": true,
+                "subjects_agree": false,
+                "topics_nest": true
+              },
+              {
+                "claims_from_doc_a": 1,
+                "claims_from_doc_b": 1,
+                "comparable": true,
+                "doc_a_predicate": "is",
+                "doc_a_subject": "The cache TTL for service 1",
+                "doc_b_predicate": "uses",
+                "doc_b_subject": "Service 1",
+                "predicates_agree": false,
+                "subject": "cache-ttl-service-1",
+                "subject_identifiers_agree": true,
+                "subjects_agree": false,
+                "topics_nest": true
+              },
+              {
+                "claims_from_doc_a": 1,
+                "claims_from_doc_b": 1,
+                "comparable": true,
+                "doc_a_predicate": "is",
+                "doc_a_subject": "The cache TTL for service 2",
+                "doc_b_predicate": "uses",
+                "doc_b_subject": "Service 2",
+                "predicates_agree": false,
+                "subject": "cache-ttl-service-2",
+                "subject_identifiers_agree": true,
+                "subjects_agree": false,
+                "topics_nest": true
+              },
+              {
+                "claims_from_doc_a": 1,
+                "claims_from_doc_b": 1,
+                "comparable": true,
+                "doc_a_predicate": "is",
+                "doc_a_subject": "The cache TTL for service 3",
+                "doc_b_predicate": "uses",
+                "doc_b_subject": "Service 3",
+                "predicates_agree": false,
+                "subject": "cache-ttl-service-3",
+                "subject_identifiers_agree": true,
+                "subjects_agree": false,
+                "topics_nest": true
+              },
+              {
+                "claims_from_doc_a": 1,
+                "claims_from_doc_b": 1,
+                "comparable": true,
+                "doc_a_predicate": "is",
+                "doc_a_subject": "The cache TTL for service 4",
+                "doc_b_predicate": "uses",
+                "doc_b_subject": "Service 4",
+                "predicates_agree": false,
+                "subject": "cache-ttl-service-4",
+                "subject_identifiers_agree": true,
+                "subjects_agree": false,
+                "topics_nest": true
+              },
+              {
+                "claims_from_doc_a": 1,
+                "claims_from_doc_b": 1,
+                "comparable": true,
+                "doc_a_predicate": "is",
+                "doc_a_subject": "The cache TTL for service 5",
+                "doc_b_predicate": "uses",
+                "doc_b_subject": "Service 5",
+                "predicates_agree": false,
+                "subject": "cache-ttl-service-5",
+                "subject_identifiers_agree": true,
+                "subjects_agree": false,
+                "topics_nest": true
+              }
+            ],
+            "stage_1_extraction": "Every planted document opens with a markdown heading. Claim extraction segments markdown blocks before splitting sentences, so the heading is its own block and the sentence beneath it is read. 6 of 6 pairs yield a claim on both sides. Before that segmentation existed the count here was zero.",
+            "stage_2_comparability": "The two sides are phrased differently: the runbook says 'the cache TTL for service N is ...' and the architecture note says 'service N uses ...', so neither the subject nor the predicate matches literally. They are grouped by the paraphrase route instead, which requires the subject identifiers to be equal and one claim's topic to contain the other's. 6 of 6 pairs are judged comparable. Under the original exact (subject_id, predicate) rule the count was zero."
+          },
+          "correctness_rule": "Per pair, a route is correct only if both document names and both values (with their unit) appear in what it retrieved. Deterministic substring containment, aggregated with contains_all. No model judges anything. Document names in the graph route come from the graph's own source records, so a route cannot get credit for a document its evidence did not come from.",
+          "graph_definition": "graph = ingest the corpus, extract claims, run dkg.evidence.contradiction.find_contradictions, and return exactly the chunks dkg.context.provenance.claim_evidence_bounded records as supporting the two contradicting claims. Nothing is hand-coded and no answer is supplied from the ground truth.",
+          "limitations": [
+            "The planted contradictions sit in twelve very small markdown files whose text is dominated by the query terms, so grep ranking puts all twelve at the top and the strong baseline sees both sides of every pair for a few hundred tokens. This corpus is close to the best case for a grep baseline and the worst case for arguing that retrieval cost matters; a larger document corpus with many near-miss files would be a harder and more informative test.",
+            "graph_evidence_oracle is a diagnostic, not a route. Its chunks are selected by an oracle that already knows which two documents disagree, so it shows only what the evidence path would have cost had detection worked. It is excluded from every savings figure.",
+            "The naive and strong aggregates charge one retrieval per question. single_pass_tokens reports the batched alternative for all routes.",
+            "Only the document plane is exercised. The 414 code files are ingested with format code:python, for which the document claim extractor is deliberately skipped, so they contribute no claims."
+          ],
+          "naive_definition": "naive = every file in the corpus, concatenated. It is the labelled upper bound and not a serious opponent: to find a contradiction this way you must read everything.",
+          "pricing": {
+            "input_usd_per_mtok": 3.0,
+            "model_class": "mid-class",
+            "note": "Costs are input-token costs at these rates on this date. The price table is configuration, not a measurement: rates change and vary by tier and provider. The measurement is the token count; substitute your own rate and redo the multiplication.",
+            "output_usd_per_mtok": 15.0,
+            "rates_recorded_on": "2026-08-05",
+            "tier": "mid"
+          },
+          "scanner_output": {
+            "scanner_signals_matching_planted_pairs": 6,
+            "scanner_signals_total": 6,
+            "scanner_signals_unmatched": 0
+          },
+          "tokenizer": {
+            "note": "Both sides of every comparison are counted by the same function, so a ratio never mixes a tokenizer count with an estimate. When the real tokenizer is absent the fallback estimator is used and this field says so.",
+            "real_tokenizer": true,
+            "tokenizer": "cl100k_base"
+          }
+        }
+      },
+      "status": "ran",
+      "title": "Evidence-backed answering with contradictions"
+    },
+    "impact_analysis": {
+      "module": "tokentasks/task_impact.py",
+      "result": {
+        "aggregate": {
+          "graph": {
+            "characters": 134488,
+            "correctness": 1.0,
+            "cost_usd": 0.157962,
+            "route": "graph",
+            "seeds": 8,
+            "tokens": 52654,
+            "tokens_mean": 6581.75
+          },
+          "graph_without_exact_answers": {
+            "characters": 324567,
+            "correctness": 1.0,
+            "cost_usd": 0.330555,
+            "route": "graph_without_exact_answers",
+            "seeds": 8,
+            "tokens": 110185,
+            "tokens_mean": 13773.12
+          },
+          "naive": {
+            "characters": 2086816,
+            "correctness": 1.0,
+            "cost_usd": 2.011584,
+            "route": "naive",
+            "seeds": 8,
+            "tokens": 670528,
+            "tokens_mean": 83816.0
+          },
+          "savings_vs_naive": {
+            "correctness_baseline": 1.0,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": 1.853622,
+            "ratio": 12.7346,
+            "tokens_saved": 617874,
+            "tokens_saved_pct": 92.15
+          },
+          "savings_vs_strong": {
+            "correctness_baseline": 0.24,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": -0.099714,
+            "ratio": 0.3687,
+            "tokens_saved": -33238,
+            "tokens_saved_pct": -171.19
+          },
+          "savings_vs_strong_at_parity": {
+            "correctness_baseline": 1.0,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": 0.084678,
+            "ratio": 1.5361,
+            "tokens_saved": 28226,
+            "tokens_saved_pct": 34.9
+          },
+          "strong": {
+            "characters": 60058,
+            "correctness": 0.24,
+            "cost_usd": 0.058248,
+            "route": "strong",
+            "seeds": 8,
+            "tokens": 19416,
+            "tokens_mean": 2427.0
+          },
+          "strong_at_parity": {
+            "characters": 250192,
+            "correctness": 1.0,
+            "cost_usd": 0.24264,
+            "route": "strong_at_parity",
+            "seeds": 8,
+            "tokens": 80880,
+            "tokens_mean": 10110.0
+          },
+          "tokens_per_recovered_required_symbol": {
+            "graph": 21.94,
+            "naive": 279.39,
+            "strong": 33.71,
+            "strong_at_parity": 33.7
+          }
+        },
+        "corpus": {
+          "code_bytes": 248560,
+          "code_files": 414,
+          "deterministic": true,
+          "doc_bytes": 3497,
+          "doc_files": 20,
+          "generator": "tests/code/corpus/large/generate_corpus.py",
+          "graph_edges": 7431,
+          "graph_nodes": 2927,
+          "naive_tokens": 83816,
+          "path": "tests/code/corpus/large"
+        },
+        "correctness_held": true,
+        "graph_beats_naive_tokens": true,
+        "graph_beats_strong_tokens": false,
+        "headline": "The graph route beats the naive upper bound and loses the raw-token comparison against the strong baseline, because the strong baseline is cheap by being incomplete. At equal correctness the graph route is the cheaper of the two.",
+        "lever_contribution": {
+          "correctness_held": true,
+          "cost_saved_usd": 0.172593,
+          "lever": "exact_answers",
+          "off": {
+            "characters": 324567,
+            "correctness": 1.0,
+            "cost_usd": 0.330555,
+            "tokens": 110185
+          },
+          "on": {
+            "characters": 134488,
+            "correctness": 1.0,
+            "cost_usd": 0.157962,
+            "tokens": 52654
+          },
+          "tokens_saved_by_lever": 57531,
+          "tokens_saved_pct": 52.21,
+          "why": "With the lever off the impacted set has to be enumerated from the packed units, so every impacted unit is structurally required and pack_units cannot drop any of it to fit the 2000-token budget. With the lever on the enumeration is a set lookup costing zero model tokens, and the same budget then applies to supporting excerpts only. Both variants reach the same correctness, so the difference is attributable to the lever and not to one variant answering less."
+        },
+        "per_seed": [
+          {
+            "graph": {
+              "characters": 16835,
+              "correctness": 1.0,
+              "cost_usd": 0.01977,
+              "exact_answer_count": 353,
+              "exact_answer_tokens": 4554,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 298,
+              "precision_vs_ground_truth": 0.8499,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6590
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40623,
+              "correctness": 1.0,
+              "cost_usd": 0.04137,
+              "pack_budget": 2000,
+              "required_count": 353,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13790
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_0.py::layer_0_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231678,
+              "ratio": 12.7187,
+              "tokens_saved": 77226,
+              "tokens_saved_pct": 92.14
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012426,
+              "ratio": 0.3715,
+              "tokens_saved": -4142,
+              "tokens_saved_pct": -169.2
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.01074,
+              "ratio": 1.5432,
+              "tokens_saved": 3580,
+              "tokens_saved_pct": 35.2
+            },
+            "seed": "layer_0.py::layer_0_gateway",
+            "strong": {
+              "characters": 7586,
+              "correctness": 0.24,
+              "cost_usd": 0.007344,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2448
+            },
+            "strong_at_parity": {
+              "characters": 31499,
+              "correctness": 1.0,
+              "cost_usd": 0.03051,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10170
+            }
+          },
+          {
+            "graph": {
+              "characters": 16835,
+              "correctness": 1.0,
+              "cost_usd": 0.01977,
+              "exact_answer_count": 353,
+              "exact_answer_tokens": 4554,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 298,
+              "precision_vs_ground_truth": 0.8499,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6590
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40623,
+              "correctness": 1.0,
+              "cost_usd": 0.04137,
+              "pack_budget": 2000,
+              "required_count": 353,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13790
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_1.py::layer_1_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231678,
+              "ratio": 12.7187,
+              "tokens_saved": 77226,
+              "tokens_saved_pct": 92.14
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012534,
+              "ratio": 0.366,
+              "tokens_saved": -4178,
+              "tokens_saved_pct": -173.22
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.01038,
+              "ratio": 1.525,
+              "tokens_saved": 3460,
+              "tokens_saved_pct": 34.43
+            },
+            "seed": "layer_1.py::layer_1_gateway",
+            "strong": {
+              "characters": 7451,
+              "correctness": 0.24,
+              "cost_usd": 0.007236,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2412
+            },
+            "strong_at_parity": {
+              "characters": 31049,
+              "correctness": 1.0,
+              "cost_usd": 0.03015,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10050
+            }
+          },
+          {
+            "graph": {
+              "characters": 16835,
+              "correctness": 1.0,
+              "cost_usd": 0.01977,
+              "exact_answer_count": 353,
+              "exact_answer_tokens": 4554,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 298,
+              "precision_vs_ground_truth": 0.8499,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6590
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40623,
+              "correctness": 1.0,
+              "cost_usd": 0.04137,
+              "pack_budget": 2000,
+              "required_count": 353,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13790
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_2.py::layer_2_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231678,
+              "ratio": 12.7187,
+              "tokens_saved": 77226,
+              "tokens_saved_pct": 92.14
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012426,
+              "ratio": 0.3715,
+              "tokens_saved": -4142,
+              "tokens_saved_pct": -169.2
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.01074,
+              "ratio": 1.5432,
+              "tokens_saved": 3580,
+              "tokens_saved_pct": 35.2
+            },
+            "seed": "layer_2.py::layer_2_gateway",
+            "strong": {
+              "characters": 7586,
+              "correctness": 0.24,
+              "cost_usd": 0.007344,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2448
+            },
+            "strong_at_parity": {
+              "characters": 31499,
+              "correctness": 1.0,
+              "cost_usd": 0.03051,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10170
+            }
+          },
+          {
+            "graph": {
+              "characters": 16835,
+              "correctness": 1.0,
+              "cost_usd": 0.01977,
+              "exact_answer_count": 353,
+              "exact_answer_tokens": 4554,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 298,
+              "precision_vs_ground_truth": 0.8499,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6590
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40623,
+              "correctness": 1.0,
+              "cost_usd": 0.04137,
+              "pack_budget": 2000,
+              "required_count": 353,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13790
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_3.py::layer_3_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231678,
+              "ratio": 12.7187,
+              "tokens_saved": 77226,
+              "tokens_saved_pct": 92.14
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012534,
+              "ratio": 0.366,
+              "tokens_saved": -4178,
+              "tokens_saved_pct": -173.22
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.01038,
+              "ratio": 1.525,
+              "tokens_saved": 3460,
+              "tokens_saved_pct": 34.43
+            },
+            "seed": "layer_3.py::layer_3_gateway",
+            "strong": {
+              "characters": 7451,
+              "correctness": 0.24,
+              "cost_usd": 0.007236,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2412
+            },
+            "strong_at_parity": {
+              "characters": 31049,
+              "correctness": 1.0,
+              "cost_usd": 0.03015,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10050
+            }
+          },
+          {
+            "graph": {
+              "characters": 16835,
+              "correctness": 1.0,
+              "cost_usd": 0.01977,
+              "exact_answer_count": 353,
+              "exact_answer_tokens": 4554,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 298,
+              "precision_vs_ground_truth": 0.8499,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6590
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40623,
+              "correctness": 1.0,
+              "cost_usd": 0.04137,
+              "pack_budget": 2000,
+              "required_count": 353,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13790
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_4.py::layer_4_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231678,
+              "ratio": 12.7187,
+              "tokens_saved": 77226,
+              "tokens_saved_pct": 92.14
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012462,
+              "ratio": 0.3697,
+              "tokens_saved": -4154,
+              "tokens_saved_pct": -170.53
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.01074,
+              "ratio": 1.5432,
+              "tokens_saved": 3580,
+              "tokens_saved_pct": 35.2
+            },
+            "seed": "layer_4.py::layer_4_gateway",
+            "strong": {
+              "characters": 7541,
+              "correctness": 0.24,
+              "cost_usd": 0.007308,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2436
+            },
+            "strong_at_parity": {
+              "characters": 31499,
+              "correctness": 1.0,
+              "cost_usd": 0.03051,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10170
+            }
+          },
+          {
+            "graph": {
+              "characters": 16771,
+              "correctness": 1.0,
+              "cost_usd": 0.019704,
+              "exact_answer_count": 351,
+              "exact_answer_tokens": 4532,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 296,
+              "precision_vs_ground_truth": 0.8547,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6568
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40484,
+              "correctness": 1.0,
+              "cost_usd": 0.041235,
+              "pack_budget": 2000,
+              "required_count": 351,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13745
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_5.py::layer_5_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231744,
+              "ratio": 12.7613,
+              "tokens_saved": 77248,
+              "tokens_saved_pct": 92.16
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012468,
+              "ratio": 0.3672,
+              "tokens_saved": -4156,
+              "tokens_saved_pct": -172.31
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.010446,
+              "ratio": 1.5301,
+              "tokens_saved": 3482,
+              "tokens_saved_pct": 34.65
+            },
+            "seed": "layer_5.py::layer_5_gateway",
+            "strong": {
+              "characters": 7451,
+              "correctness": 0.24,
+              "cost_usd": 0.007236,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2412
+            },
+            "strong_at_parity": {
+              "characters": 31049,
+              "correctness": 1.0,
+              "cost_usd": 0.03015,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10050
+            }
+          },
+          {
+            "graph": {
+              "characters": 16771,
+              "correctness": 1.0,
+              "cost_usd": 0.019704,
+              "exact_answer_count": 351,
+              "exact_answer_tokens": 4532,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 296,
+              "precision_vs_ground_truth": 0.8547,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6568
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40484,
+              "correctness": 1.0,
+              "cost_usd": 0.041235,
+              "pack_budget": 2000,
+              "required_count": 351,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13745
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_6.py::layer_6_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231744,
+              "ratio": 12.7613,
+              "tokens_saved": 77248,
+              "tokens_saved_pct": 92.16
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012396,
+              "ratio": 0.3709,
+              "tokens_saved": -4132,
+              "tokens_saved_pct": -169.62
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.010806,
+              "ratio": 1.5484,
+              "tokens_saved": 3602,
+              "tokens_saved_pct": 35.42
+            },
+            "seed": "layer_6.py::layer_6_gateway",
+            "strong": {
+              "characters": 7541,
+              "correctness": 0.24,
+              "cost_usd": 0.007308,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2436
+            },
+            "strong_at_parity": {
+              "characters": 31499,
+              "correctness": 1.0,
+              "cost_usd": 0.03051,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10170
+            }
+          },
+          {
+            "graph": {
+              "characters": 16771,
+              "correctness": 1.0,
+              "cost_usd": 0.019704,
+              "exact_answer_count": 351,
+              "exact_answer_tokens": 4532,
+              "exact_model_tokens": 0,
+              "pack_budget": 2000,
+              "pack_tokens": 1993,
+              "pack_units_included": 55,
+              "pack_units_omitted": 296,
+              "precision_vs_ground_truth": 0.8547,
+              "route": "graph",
+              "scored_on": "canonical key in the exact answer list",
+              "tokens": 6568
+            },
+            "graph_without_exact_answers": {
+              "budget_exceeded": true,
+              "characters": 40484,
+              "correctness": 1.0,
+              "cost_usd": 0.041235,
+              "pack_budget": 2000,
+              "required_count": 351,
+              "route": "graph_without_exact_answers",
+              "scored_on": "canonical key in the pack unit headers",
+              "tokens": 13745
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "files_read": 434,
+              "route": "naive",
+              "scored_on": "bare symbol name",
+              "tokens": 83816
+            },
+            "question": "What is the blast radius of layer_7.py::layer_7_gateway?",
+            "required_count": 300,
+            "required_name_count": 300,
+            "savings_vs_naive": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.231744,
+              "ratio": 12.7613,
+              "tokens_saved": 77248,
+              "tokens_saved_pct": 92.16
+            },
+            "savings_vs_strong": {
+              "correctness_baseline": 0.24,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": -0.012468,
+              "ratio": 0.3672,
+              "tokens_saved": -4156,
+              "tokens_saved_pct": -172.31
+            },
+            "savings_vs_strong_at_parity": {
+              "correctness_baseline": 1.0,
+              "correctness_candidate": 1.0,
+              "correctness_held": true,
+              "cost_saved_usd": 0.010446,
+              "ratio": 1.5301,
+              "tokens_saved": 3482,
+              "tokens_saved_pct": 34.65
+            },
+            "seed": "layer_7.py::layer_7_gateway",
+            "strong": {
+              "characters": 7451,
+              "correctness": 0.24,
+              "cost_usd": 0.007236,
+              "file_budget": 12,
+              "files_read": 12,
+              "route": "strong",
+              "scored_on": "bare symbol name",
+              "tokens": 2412
+            },
+            "strong_at_parity": {
+              "characters": 31049,
+              "correctness": 1.0,
+              "cost_usd": 0.03015,
+              "files_read": 50,
+              "full_recall_reached": true,
+              "note": "supplementary, not the primary baseline: the grep-ranked prefix needed for full recall",
+              "route": "strong_at_parity",
+              "scored_on": "bare symbol name",
+              "tokens": 10050
+            }
+          }
+        ],
+        "question_count": 8,
+        "task": "impact_analysis",
+        "why": {
+          "baseline_definition": "strong = grep-ranked top files read whole, at the shared STRONG_BASELINE_FILE_BUDGET of 12 files from common.py, using the same question text the graph route gets. The budget was taken as given and was not adjusted in this task, in either direction. strong_at_parity is a separate supplementary figure: the smallest prefix of the same grep ranking that reaches full recall. It is reported so the equal-correctness cost is visible, and it is not substituted for the primary baseline.",
+          "corpus_size": "414 code files and 20 doc files (248560 plus 3497 bytes), generated deterministically by tests/code/corpus/large/generate_corpus.py. Ground truth is known by construction: 8 layer gateways with 300 impacted symbols each.",
+          "impact_depth": 3,
+          "limitations": [
+            "The graph route costs more raw tokens than the strong baseline on this corpus. The strong baseline reaches roughly a quarter of the required set within its file budget, so it is cheap because it is incomplete, not because it is efficient. Compare it to strong_at_parity before concluding anything about efficiency.",
+            "The exact answer is over-approximate. It returns more symbols than ground truth names, because the structural code graph resolves references by name and also carries module nodes and the class method on the call path. Recall is complete; precision is reported per seed as precision_vs_ground_truth and is below 1.0.",
+            "The corpus is synthetic and regularly layered, so grep ranking behaves unusually cleanly on it: the top-ranked files are all genuinely relevant. On real code the strong baseline would waste more of its budget, which means this comparison flatters the baseline rather than the graph.",
+            "Only the input-token cost of the context is measured. Neither route is executed against a model, so nothing here measures answer quality beyond required-set recall, and no output tokens are counted.",
+            "The naive route's token count is identical for every seed by construction, since it is the whole corpus; only its correctness varies."
+          ],
+          "pricing": {
+            "input_usd_per_mtok": 3.0,
+            "model_class": "mid-class",
+            "note": "Costs are input-token costs at these rates on this date. The price table is configuration, not a measurement: rates change and vary by tier and provider. The measurement is the token count; substitute your own rate and redo the multiplication.",
+            "output_usd_per_mtok": 15.0,
+            "rates_recorded_on": "2026-08-05",
+            "tier": "mid"
+          },
+          "scoring": "Correctness is recall against the ground-truth required set, never a model judgement. The text routes are scored on the bare symbol name, because the canonical form never appears in source and scoring them on it would score them zero for text they genuinely read; that choice favours the baseline. The graph route is scored on the canonical keys in its exact answer list. The required set was not shrunk for any route.",
+          "token_budget": "The graph route's supporting pack is held to 2000 tokens for every seed. The value was fixed before measuring and is not tuned per seed or against the baseline.",
+          "tokenizer": {
+            "note": "Both sides of every comparison are counted by the same function, so a ratio never mixes a tokenizer count with an estimate. When the real tokenizer is absent the fallback estimator is used and this field says so.",
+            "real_tokenizer": true,
+            "tokenizer": "cl100k_base"
+          }
+        }
+      },
+      "status": "ran",
+      "title": "Impact analysis before a change"
+    },
+    "knowledge_base_qa": {
+      "module": "tokentasks/task_qa.py",
+      "result": {
+        "aggregate": {
+          "graph": {
+            "characters": 16072,
+            "correctness": 1.0,
+            "cost_usd": 0.012264,
+            "evidence_correctness": 1.0,
+            "questions_with_required_doc": 8,
+            "route": "graph",
+            "tokens": 4088,
+            "tokens_per_question": 511.0
+          },
+          "naive": {
+            "characters": 2086816,
+            "correctness": 1.0,
+            "cost_usd": 2.011584,
+            "evidence_correctness": 1.0,
+            "questions_with_required_doc": 8,
+            "route": "naive",
+            "tokens": 670528,
+            "tokens_per_question": 83816.0
+          },
+          "savings_vs_naive": {
+            "correctness_baseline": 1.0,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": 1.99932,
+            "evidence_correctness_baseline": 1.0,
+            "evidence_correctness_candidate": 1.0,
+            "ratio": 164.0235,
+            "tokens_saved": 666440,
+            "tokens_saved_pct": 99.39
+          },
+          "savings_vs_strong": {
+            "correctness_baseline": 1.0,
+            "correctness_candidate": 1.0,
+            "correctness_held": true,
+            "cost_saved_usd": 0.018168,
+            "evidence_correctness_baseline": 1.0,
+            "evidence_correctness_candidate": 1.0,
+            "ratio": 2.4814,
+            "tokens_saved": 6056,
+            "tokens_saved_pct": 59.7
+          },
+          "strong": {
+            "characters": 37824,
+            "correctness": 1.0,
+            "cost_usd": 0.030432,
+            "evidence_correctness": 1.0,
+            "questions_with_required_doc": 8,
+            "route": "strong",
+            "tokens": 10144,
+            "tokens_per_question": 1268.0
+          }
+        },
+        "corpus": {
+          "code_bytes": 248560,
+          "code_files": 414,
+          "deterministic": true,
+          "doc_bytes": 3497,
+          "doc_files": 20,
+          "generator": "tests/code/corpus/large/generate_corpus.py",
+          "ingested": {
+            "chunks_total": 885,
+            "code_chunks": 865,
+            "code_documents": 414,
+            "doc_chunks": 20,
+            "doc_documents": 20,
+            "skipped": []
+          },
+          "total_files": 434
+        },
+        "per_question": [
+          {
+            "answer_contains": "3",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_0_note.md",
+                "layer_1_note.md",
+                "layer_2_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_0_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 0?",
+            "required_docs": [
+              "layer_0_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "4",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_0_note.md",
+                "layer_1_note.md",
+                "layer_2_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_1_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 1?",
+            "required_docs": [
+              "layer_1_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "5",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_0_note.md",
+                "layer_1_note.md",
+                "layer_2_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_2_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 2?",
+            "required_docs": [
+              "layer_2_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "6",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_0_note.md",
+                "layer_1_note.md",
+                "layer_2_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_3_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 3?",
+            "required_docs": [
+              "layer_3_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "7",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_1_note.md",
+                "layer_2_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_4_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 4?",
+            "required_docs": [
+              "layer_4_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "8",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_1_note.md",
+                "layer_2_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_5_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 5?",
+            "required_docs": [
+              "layer_5_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "9",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_0_note.md",
+                "layer_1_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_6_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 6?",
+            "required_docs": [
+              "layer_6_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          },
+          {
+            "answer_contains": "10",
+            "graph": {
+              "budget": 512,
+              "budget_exceeded": false,
+              "characters": 2009,
+              "chunks_dropped_for_budget": 1,
+              "chunks_kept": 7,
+              "chunks_retrieved": 8,
+              "correctness": 1.0,
+              "cost_usd": 0.001533,
+              "documents": [
+                "layer_0_note.md",
+                "layer_1_note.md",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "evidence_correctness": 1.0,
+              "required_doc_retrieved": true,
+              "route": "graph",
+              "tokens": 511,
+              "top_document": "layer_7_note.md"
+            },
+            "naive": {
+              "characters": 260852,
+              "correctness": 1.0,
+              "cost_usd": 0.251448,
+              "evidence_correctness": 1.0,
+              "files": 434,
+              "required_doc_retrieved": true,
+              "route": "naive",
+              "tokens": 83816
+            },
+            "question": "What is the retry budget for layer 7?",
+            "required_docs": [
+              "layer_7_note.md"
+            ],
+            "strong": {
+              "characters": 4728,
+              "correctness": 1.0,
+              "cost_usd": 0.003804,
+              "evidence_correctness": 1.0,
+              "file_names": [
+                "layer_0.py",
+                "layer_0_note.md",
+                "layer_1.py",
+                "layer_1_note.md",
+                "layer_2.py",
+                "layer_2_note.md",
+                "layer_3.py",
+                "layer_3_note.md",
+                "layer_4_note.md",
+                "layer_5_note.md",
+                "layer_6_note.md",
+                "layer_7_note.md"
+              ],
+              "files": 12,
+              "query_terms": [
+                "retry",
+                "budget",
+                "layer"
+              ],
+              "required_doc_retrieved": true,
+              "route": "strong",
+              "tokens": 1268
+            }
+          }
+        ],
+        "question_count": 8,
+        "task": "knowledge_base_qa",
+        "verdict": "Yes: the graph route beat the strong baseline, using 4088 tokens against the baseline's 10144 (2.48x cheaper) while scoring 1.0 on the specified correctness check against the baseline's 1.0, and 1.0 against 1.0 on the strict evidence check. Read the strict check, not the loose one: the baseline passed the loose check on 0 of 8 questions purely because a bare digit turned up in unrelated numbered source code, having never retrieved the note that holds the answer. Grep-ranking 'retry budget layer' over this corpus returns the layer source files, whose many occurrences of 'layer' outrank the one prose note that says what the retry budget is.",
+        "why": {
+          "baseline_definition": "The strong baseline is what a competent agent without a graph does: grep the corpus for the question's terms, rank all 434 files by match count, and read the top 12 in full. It gets the same corpus and the same question the graph route gets, and the shared file budget from common.py, unchanged. Nothing was tuned to make it lose.",
+          "capabilities": {
+            "embedding_adapter": "model2vec",
+            "embedding_available": true,
+            "embedding_note": "model2vec /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/models/embeddings/potion-base-8M (dim 256)",
+            "note": "Both optional arms are capability-detected. With neither present, hybrid search degrades to keyword-plus-FTS RRF, which on this corpus still returns the answer-bearing note inside the retrieval limit but in file order rather than by relevance. Measured in that degraded configuration the graph route scores 0.875 strict rather than 1.0: neither lexical arm can tell 'layer 7' from 'layer 3', because both tokenizers drop single characters, so the last-ranked note is the one the budget drops. That is the honest floor.",
+            "reranker_available": true
+          },
+          "corpus_size": {
+            "chunks_indexed": 885,
+            "code_bytes": 248560,
+            "code_files": 414,
+            "doc_bytes": 3497,
+            "doc_files": 20,
+            "files": 434
+          },
+          "correctness": "Two checks, both from ground truth. The primary 'correctness' is the specified one: contains_all over answer_contains against the text the route retrieved. 'evidence_correctness' is strict: the route must have actually retrieved the document ground truth names as holding the answer, and the answer string must be present in what it returned.",
+          "determinism": "Questions are sorted, retrieved documents are sorted, and packing is ordered by (required, score, key). No randomness anywhere in the task.",
+          "graph_route": "The whole corpus is ingested into one throwaway graph (docs as markdown, code forced through the plain-text reader), retrieved with hybrid search at limit 8, and packed by pack_units into a 512-token budget. Unit scores come from the search rank, so the pack reproduces the retrieval order. No unit is marked structurally required: marking the ground-truth document required would be handing the graph the answer.",
+          "limitations": [
+            "The specified correctness check is much weaker than it looks. answer_contains is a bare digit ('3' through '10'), and a corpus of four hundred numbered modules contains the low digits many times over, so a route can pass it on text that has nothing to do with the question. That is exactly what the strong baseline does on the low-numbered layers. The strict evidence check is reported for that reason. Neither check was weakened, and the loose one is still the headline 'correctness' field.",
+            "The graph route's perfect strict score depends on the optional embedding and reranker arms being pre-staged. They are capability-detected, and the run records which were active under why.capabilities. Measured with both arms switched off, the graph route scores 0.875 strict instead of 1.0, because neither lexical arm can distinguish 'layer 7' from 'layer 3' and the last-ranked note is the one the budget drops. The published 1.0 is the with-models figure, not a universal one.",
+            "Code files are ingested through the plain-text reader, so the code plane's symbol graph plays no part in this task. That is honest for prose question answering and means this result says nothing about code questions.",
+            "Eight questions of one shape (a numeric fact stated in one note) is a narrow sample. The absolute ratio should not be read as a general figure.",
+            "The naive route is an upper bound, not a competitor. Beating it proves nothing."
+          ],
+          "pricing": {
+            "input_usd_per_mtok": 3.0,
+            "model_class": "mid-class",
+            "note": "Costs are input-token costs at these rates on this date. The price table is configuration, not a measurement: rates change and vary by tier and provider. The measurement is the token count; substitute your own rate and redo the multiplication.",
+            "output_usd_per_mtok": 15.0,
+            "rates_recorded_on": "2026-08-05",
+            "tier": "mid"
+          },
+          "same_haystack": "Both routes search the same 434 files. The graph route indexes 885 chunks, of which only 20 come from the 20 prose documents, so the code files are real noise in the retrieval task rather than excluded to flatter the result.",
+          "task": "Eight ground-truth questions, each answerable from exactly one prose note in the corpus. Ground truth is known by construction from the corpus generator, not labelled by hand and not judged by a model.",
+          "tokenizer": {
+            "note": "Both sides of every comparison are counted by the same function, so a ratio never mixes a tokenizer count with an estimate. When the real tokenizer is absent the fallback estimator is used and this field says so.",
+            "real_tokenizer": true,
+            "tokenizer": "cl100k_base"
+          }
+        }
+      },
+      "status": "ran",
+      "title": "Question answering over documents and code"
+    }
+  },
+  "tokenizer": {
+    "note": "Both sides of every comparison are counted by the same function, so a ratio never mixes a tokenizer count with an estimate. When the real tokenizer is absent the fallback estimator is used and this field says so.",
+    "real_tokenizer": true,
+    "tokenizer": "cl100k_base"
+  },
+  "why": {
+    "correctness": "recall against a required set known by construction. Never an LLM judge. A route that saves tokens by answering less scores lower and the saving is not reported as a win.",
+    "limitation": "The corpus is generated and regular, which flatters grep: its files are small and saturated with the query terms, so the strong baseline ranks near-optimally. Real code with indirect dispatch, re-exports, and renamed imports would be harder for it.",
+    "naive_baseline": "the whole corpus, an upper bound only; nobody competent works this way",
+    "strong_baseline": "a competent agent without a graph: grep the corpus for the query terms, rank files by match count, read the top files whole. This is the baseline that matters."
+  }
+}

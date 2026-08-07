@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: V-06
+# area: Framework and configuration awareness
+# requirement: Extend the code edge vocabulary beyond containment, calls, imports, inheritance, and test coverage to cover interface implementation, value-level references, dependency injection, event publication and handling, produced and consumed resources, and configuration binding, each with its own documented confidence
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/graph/test_analysis_capabilities.py -q -k 'framework or predicate'
+# generated_at: 2026-08-06T09:23:06.999452+00:00
+# action_kind: executed
+# exit_code: 0
+
+..                                                                       [100%]
+2 passed, 21 deselected in 0.04s

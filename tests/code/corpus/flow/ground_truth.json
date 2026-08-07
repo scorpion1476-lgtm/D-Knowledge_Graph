@@ -1,0 +1,65 @@
+{
+  "note": "Independent ground-truth call edges for the flow corpus. Hand-specified from the source, not derived from the parser. Each entry lists the true (caller, callee) call edges as qualified names. unrelated_helper is a distractor with no calls. Used to measure per-language execution-flow (call-edge) precision and recall.",
+  "languages": {
+    "python": {
+      "path": "app.py",
+      "language": "python",
+      "edges": [
+        ["app.py::handle_request", "app.py::validate_input"],
+        ["app.py::handle_request", "app.py::compute"],
+        ["app.py::handle_request", "app.py::write_response"],
+        ["app.py::validate_input", "app.py::check_schema"],
+        ["app.py::validate_input", "app.py::check_limits"],
+        ["app.py::check_schema", "app.py::normalize"],
+        ["app.py::check_limits", "app.py::normalize"],
+        ["app.py::compute", "app.py::aggregate"],
+        ["app.py::compute", "app.py::finalize"],
+        ["app.py::aggregate", "app.py::load_rows"],
+        ["app.py::aggregate", "app.py::reduce_rows"],
+        ["app.py::load_rows", "app.py::normalize"],
+        ["app.py::finalize", "app.py::write_log"],
+        ["app.py::write_response", "app.py::write_log"]
+      ]
+    },
+    "javascript": {
+      "path": "app.js",
+      "language": "javascript",
+      "edges": [
+        ["app.js::handleRequest", "app.js::validateInput"],
+        ["app.js::handleRequest", "app.js::compute"],
+        ["app.js::handleRequest", "app.js::writeResponse"],
+        ["app.js::validateInput", "app.js::checkSchema"],
+        ["app.js::validateInput", "app.js::checkLimits"],
+        ["app.js::checkSchema", "app.js::normalize"],
+        ["app.js::checkLimits", "app.js::normalize"],
+        ["app.js::compute", "app.js::aggregate"],
+        ["app.js::compute", "app.js::finalize"],
+        ["app.js::aggregate", "app.js::loadRows"],
+        ["app.js::aggregate", "app.js::reduceRows"],
+        ["app.js::loadRows", "app.js::normalize"],
+        ["app.js::finalize", "app.js::writeLog"],
+        ["app.js::writeResponse", "app.js::writeLog"]
+      ]
+    },
+    "go": {
+      "path": "app.go",
+      "language": "go",
+      "edges": [
+        ["app.go::HandleRequest", "app.go::ValidateInput"],
+        ["app.go::HandleRequest", "app.go::Compute"],
+        ["app.go::HandleRequest", "app.go::WriteResponse"],
+        ["app.go::ValidateInput", "app.go::CheckSchema"],
+        ["app.go::ValidateInput", "app.go::CheckLimits"],
+        ["app.go::CheckSchema", "app.go::Normalize"],
+        ["app.go::CheckLimits", "app.go::Normalize"],
+        ["app.go::Compute", "app.go::Aggregate"],
+        ["app.go::Compute", "app.go::Finalize"],
+        ["app.go::Aggregate", "app.go::LoadRows"],
+        ["app.go::Aggregate", "app.go::ReduceRows"],
+        ["app.go::LoadRows", "app.go::Normalize"],
+        ["app.go::Finalize", "app.go::WriteLog"],
+        ["app.go::WriteResponse", "app.go::WriteLog"]
+      ]
+    }
+  }
+}

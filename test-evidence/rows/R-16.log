@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-16
+# area: Delivery and distribution
+# requirement: Render the pull-request comment from the analysis with an overall risk level, a table of changed symbols ordered by risk with file and line locations and test-coverage status, the affected execution flows ordered by criticality, the test gaps, and the estimated token saving, escaping every symbol and path so a hostile identifier cannot inject markup
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_comment_render.py -q
+# generated_at: 2026-08-06T21:31:10.466602+00:00
+# action_kind: executed
+# exit_code: 0
+
+..............                                                           [100%]
+14 passed in 0.03s

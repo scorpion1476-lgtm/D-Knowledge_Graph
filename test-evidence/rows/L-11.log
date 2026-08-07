@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-11
+# area: Cross platform
+# requirement: Production deployment guide (TLS, backups, monitoring, log retention, recovery)
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_deployment_guide.py -q
+# generated_at: 2026-08-07T01:09:07.357288+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+21 passed in 0.08s

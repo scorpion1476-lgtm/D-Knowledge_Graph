@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-04
+# area: Graph analysis and review
+# requirement: Knowledge-gap analysis: isolated symbols, untested hotspots ranked by inbound call pressure with no test edge, and thin communities, with every cut derived from the observed distribution
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_gaps.py -q
+# generated_at: 2026-08-05T03:45:56.005566+00:00
+# action_kind: pytest
+.........                                                                [100%]
+9 passed in 0.24s

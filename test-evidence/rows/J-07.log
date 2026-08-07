@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-07
+# area: UX and docs
+# requirement: Publish a frequently-asked-questions document that compares the platform honestly with language servers, similarity retrieval, and plain search, names the adjacent tools it does not replace, states plainly when not to use it, and describes how to verify a working install
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_faq.py -q
+# generated_at: 2026-08-06T21:31:19.641511+00:00
+# action_kind: executed
+# exit_code: 0
+
+.....................                                                    [100%]
+21 passed in 0.08s

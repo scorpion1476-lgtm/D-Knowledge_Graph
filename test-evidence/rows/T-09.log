@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-09
+# area: Graph analysis and review
+# requirement: Split an oversized community (one holding more than a documented share of the graph) by re-running detection on its induced subgraph until every community is under the threshold or the split stops improving modularity, reporting the threshold, the split depth, and the resulting sizes
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/graph/test_analysis_capabilities.py -q -k split
+# generated_at: 2026-08-06T09:23:05.685116+00:00
+# action_kind: executed
+# exit_code: 0
+
+..                                                                       [100%]
+2 passed, 21 deselected in 0.04s

@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: B-01
+# area: Ingestion
+# requirement: Local file ingestion for md/txt/html/json/csv/pdf/docx/structured
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_ingest.py -q
+# generated_at: 2026-08-04T03:42:17.865088+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.27s

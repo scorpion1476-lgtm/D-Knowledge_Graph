@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: H-08
+# area: Orchestration
+# requirement: Security review agent
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_orchestration.py -q
+# generated_at: 2026-08-04T03:43:52.049517+00:00
+# action_kind: pytest
+.......                                                                  [100%]
+7 passed in 1.03s

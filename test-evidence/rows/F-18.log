@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-18
+# area: MCP
+# requirement: Reach at least 30 read-only MCP tools covering build status, context, impact, review, query, traversal, search, flows, communities, architecture, analysis, generated documentation, and multi-repository operations, with the registry remaining query-and-read only
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k 'thirty or distinct or listed'
+# generated_at: 2026-08-06T09:22:56.565731+00:00
+# action_kind: executed
+# exit_code: 0
+
+....                                                                     [100%]
+4 passed, 25 deselected in 0.26s

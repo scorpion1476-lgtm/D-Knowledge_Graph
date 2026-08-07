@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: V-07
+# area: Framework and configuration awareness
+# requirement: Represent a server-rendered template file as a first-class graph node addressed by the name application code calls it by, so a template participates in search and impact instead of being invisible to the code plane
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_frameworks.py -q
+# generated_at: 2026-08-05T19:23:02.782312+00:00
+# action_kind: pytest
+..............                                                           [100%]
+14 passed in 0.06s

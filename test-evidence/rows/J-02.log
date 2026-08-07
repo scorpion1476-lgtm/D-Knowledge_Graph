@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-02
+# area: UX and docs
+# requirement: No em or en dash in public docs
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_dash_gate.py -q
+# generated_at: 2026-08-07T00:17:35.033552+00:00
+# action_kind: executed
+# exit_code: 0
+
+..........                                                               [100%]
+10 passed in 0.82s

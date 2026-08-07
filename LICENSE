@@ -1,0 +1,156 @@
+D-Knowledge Graph Source-Available Non-Commercial Licence
+
+Copyright 2026 D-Knowledge Graph maintainers. All rights reserved.
+
+This licence is based on PolyForm Noncommercial License 1.0.0, reproduced below
+with modifications, plus one additional term stated first. Where the additional
+term and the PolyForm text differ, the additional term controls.
+
+Modifications from the canonical PolyForm Noncommercial License 1.0.0, stated so
+this document does not misdescribe itself. There are two, and they are the only
+two; every other section below is the canonical wording unaltered.
+
+1. Three sections are removed: the Distribution License, the Changes and
+   New Works License, and the Notices section, because the additional term
+   below withdraws exactly those permissions. The permission to distribute
+   verbatim unmodified copies is granted by the additional term instead.
+
+2. The Copyright License section carries an added carve-out. The canonical
+   section ends "for any permitted purpose."; this one continues ", other than
+   distributing the software or making changes or new works based on the
+   software." That clause is not in the canonical text and is stated here so
+   the removal in point 1 is not silently reintroduced by the grant above it.
+
+This is therefore a MODIFIED PolyForm text, not the canonical one; read the
+canonical licence at the URL below if you need to compare.
+
+This licence covers the ENTIRE repository, including the Ariadne module.
+
+===============================================================================
+ADDITIONAL TERM: NO MODIFICATION, NO DISTRIBUTION OF MODIFIED VERSIONS
+===============================================================================
+
+Notwithstanding any permission granted below, you may NOT modify this software,
+and you may NOT distribute any modified version of it. The permission granted
+below to make "new works based on the software" is withdrawn.
+
+You may read the source, run it, and use its output for permitted noncommercial
+purposes. You may distribute verbatim, unmodified copies of the software
+provided you include this licence in full together with the NOTICE file.
+
+This is a source-available licence. It is NOT an open-source licence and NOT a
+free-software licence, because it restricts both commercial use and
+modification.
+
+===============================================================================
+PolyForm Noncommercial License 1.0.0, as modified above
+===============================================================================
+
+<https://polyformproject.org/licenses/noncommercial/1.0.0>
+
+## Acceptance
+
+In order to get any license under these terms, you must agree to them as both
+strict obligations and conditions to all your licenses.
+
+## Copyright License
+
+The licensor grants you a copyright license for the software to do everything
+you might do with the software that would otherwise infringe the licensor's
+copyright in it for any permitted purpose, other than distributing the software
+or making changes or new works based on the software.
+
+## Patent License
+
+The licensor grants you a patent license for the software that covers patent
+claims the licensor can license, or becomes able to license, that you would
+infringe by using the software.
+
+## Noncommercial Purposes
+
+Any noncommercial purpose is a permitted purpose.
+
+## Personal Uses
+
+Personal use for research, experiment, and testing for the benefit of public
+knowledge, personal study, private entertainment, hobby projects, amateur
+pursuits, or religious observance, without any anticipated commercial
+application, is use for a permitted purpose.
+
+## Noncommercial Organizations
+
+Use by any charitable organization, educational institution, public research
+organization, public safety or health organization, environmental protection
+organization, or government institution is use for a permitted purpose
+regardless of the source of funding or obligations resulting from the funding.
+
+## Fair Use
+
+You may have "fair use" rights for the software under the law. These terms do
+not limit them.
+
+## No Other Rights
+
+These terms do not allow you to sublicense or transfer any of your licenses to
+anyone else, or prevent the licensor from granting licenses to anyone else.
+These terms do not imply any other licenses.
+
+## Patent Defense
+
+If you make any written claim that the software infringes or contributes to
+infringement of any patent, your patent license for the software granted under
+these terms ends immediately. If your company makes such a claim, your patent
+license ends immediately for work on behalf of your company.
+
+## Violations
+
+The first time you are notified in writing that you have violated any of these
+terms, or done anything with the software not covered by your licenses, your
+licenses can nonetheless continue if you come into full compliance with these
+terms, and take practical steps to correct past violations, within 32 days of
+receiving notice. Otherwise, all your licenses end immediately.
+
+## No Liability
+
+***As far as the law allows, the software comes as is, without any warranty or
+condition, and the licensor will not be liable to you for any damages arising
+out of these terms or the use or nature of the software, under any kind of
+legal claim.***
+
+## Definitions
+
+The **licensor** is the individual or entity offering these terms, and the
+**software** is the software the licensor makes available under these terms.
+
+**You** refers to the individual or entity agreeing to these terms.
+
+**Your company** is any legal entity, sole proprietorship, or other kind of
+organization that you work for, plus all organizations that have control over,
+are under the control of, or are under common control with that organization.
+**Control** means ownership of substantially all the assets of an entity, or
+the power to direct its management and policies by vote, contract, or
+otherwise. Control can be direct or indirect.
+
+**Your licenses** are all the licenses granted to you for the software under
+these terms.
+
+**Use** means anything you do with the software requiring one of your licenses.
+
+===============================================================================
+THIRD-PARTY SOFTWARE
+===============================================================================
+
+These terms cover this project's own source only. Optional third-party
+dependencies remain under their own permissive licences (Apache-2.0, MIT, BSD,
+ISC, HPND) and are unaffected by these terms. See THIRD_PARTY_NOTICES.md for
+the full inventory.
+
+===============================================================================
+EARLIER VERSIONS
+===============================================================================
+
+Versions of this software distributed before 2026-08-05 were released under the
+Apache License 2.0. That grant, for those versions, is not revoked by this
+licence and cannot be: anyone who received a copy under Apache-2.0 keeps
+Apache-2.0 rights to that copy. These terms govern this version and every
+version released after it.

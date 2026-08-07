@@ -1,0 +1,17 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-17
+# area: UX and docs
+# requirement: Gate documentation cross-reference integrity: every in-document anchor, relative document link, and cited repository path in a tracked document must resolve, so a navigation link can never point at a section that does not exist
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_links.py -q
+# generated_at: 2026-08-06T21:31:24.802136+00:00
+# action_kind: executed
+# exit_code: 0
+
+........................................................................ [ 19%]
+........................................................................ [ 39%]
+........................................................................ [ 59%]
+........................................................................ [ 79%]
+........................................................................ [ 99%]
+..                                                                       [100%]
+362 passed in 0.49s

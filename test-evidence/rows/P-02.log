@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: P-02
+# area: Perception and flow enrichment
+# requirement: On-screen text OCR on keyframes with timecodes
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/media/test_keyframes.py::test_keyframe_ocr_recovers_on_screen_text -q
+# generated_at: 2026-08-04T03:46:34.277105+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 0.61s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-09
+# area: Delivery and distribution
+# requirement: Inject graph-aware guidance into each supported tool's rules or instructions file inside clearly delimited managed markers, so the guidance can be updated or removed exactly and a user's own text is never altered
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_rules_injection.py -q
+# generated_at: 2026-08-06T21:31:06.692218+00:00
+# action_kind: executed
+# exit_code: 0
+
+..............                                                           [100%]
+14 passed in 1.57s

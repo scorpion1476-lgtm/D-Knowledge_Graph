@@ -1,0 +1,253 @@
+name: "D-Knowledge_Graph code review"
+description: "Run the D-Knowledge_Graph source-code analysis on a repository, render a risk-scored pull-request review, and optionally gate on a named risk level. Local-first, air-gapped, no telemetry."
+author: "D-Knowledge_Graph contributors"
+
+# Consumer composite action. It installs the tool at an explicitly pinned version
+# (never a floating branch) and runs the code analysis over a repository. The
+# analysed tool version is controlled by the dkg-ref input: pin it to an
+# immutable tag or commit SHA you trust. Pinning the action ref alone does not
+# pin the analysed tool version, so this action pins the tool install explicitly.
+#
+# EGRESS. The analysis makes no network call (DKG_ALLOW_OUTBOUND=0,
+# DKG_TELEMETRY=0). Posting the review comment is the one exception and it is
+# OFF unless the caller both sets `comment: "true"` and supplies a token, which
+# is why the publish step carries an explicit `if:` on both. It cannot happen as
+# a side effect of running the analysis.
+#
+# FORK SAFETY. On a pull request from a fork the analysed code is attacker
+# controlled, so this action should be run WITHOUT a token in the unprivileged
+# stage and its rendered comment published from a separate trusted workflow. See
+# .github/workflows/pr-review.yml and .github/workflows/pr-review-publish.yml.
+#
+# INTERPOLATION. Every input reaches a script through `env:` and is read as a
+# shell variable. Interpolating an input directly into a `run:` body would let a
+# caller-controlled value be parsed as shell.
+
+inputs:
+  repository-path:
+    description: "Path to the repository to analyse."
+    required: false
+    default: "."
+  dkg-ref:
+    description: "Immutable git tag or commit SHA of D-Knowledge_Graph to install. Pin this; do not point it at a branch."
+    required: false
+    default: "v0.1.0"
+  dkg-repo-url:
+    description: "Git URL to install D-Knowledge_Graph from. Set this to your fork or mirror."
+    required: false
+    default: "https://github.com/local/D-Knowledge_Graph.git"
+  base-ref:
+    description: "Optional git base ref (for example the pull-request base SHA) for changed-file impact. Empty skips impact analysis."
+    required: false
+    default: ""
+  report-format:
+    description: "Report format: markdown or json."
+    required: false
+    default: "markdown"
+  risk-gate:
+    description: "Gate on a NAMED risk level: off, low, moderate, elevated, or high. Off by default. The thresholds are derived from the analysed repository's own score distribution and are published in the report and the comment. The score is reported whether or not the gate is on."
+    required: false
+    default: "off"
+  fail-on-impact:
+    description: "DEPRECATED advisory gate: fail the step if the structural impacted-entity count exceeds this integer. Empty disables it. A raw count is not comparable across repositories; prefer risk-gate. Behaviour is unchanged."
+    required: false
+    default: ""
+  top:
+    description: "Rows per table in the rendered review."
+    required: false
+    default: "10"
+  marker:
+    description: "Hidden marker key identifying the sticky review comment. One marker owns one comment thread."
+    required: false
+    default: "dkg-code-review"
+  cache:
+    description: "Restore and save the built graph between runs. The key covers the runner platform, the database schema version, and the dependency lockfiles."
+    required: false
+    default: "true"
+  comment:
+    description: "Post the rendered review as a sticky pull-request comment. OFF by default and ignored unless github-token is also supplied. Do not enable this in a run that checks out pull-request code from a fork."
+    required: false
+    default: "false"
+  github-token:
+    description: "Token used ONLY to publish the comment. Leave empty to make the run air-gapped."
+    required: false
+    default: ""
+  pr-number:
+    description: "Pull-request number to comment on. Required when comment is true."
+    required: false
+    default: ""
+  api-base:
+    description: "API base URL for publication (https only)."
+    required: false
+    default: "https://api.github.com"
+
+outputs:
+  report-file:
+    description: "Path to the generated report file."
+    value: ${{ steps.analyze.outputs.report-file }}
+  comment-file:
+    description: "Path to the rendered pull-request review comment, for a trusted workflow to validate and post."
+    value: ${{ steps.analyze.outputs.comment-file }}
+  comment-body:
+    description: "The rendered pull-request review comment itself. It is derived from repository content, so consume it through an env: binding and NEVER interpolate it into a run: body, where it would be parsed as shell. The artifact is the safer route and the one the two-stage workflows use."
+    value: ${{ steps.analyze.outputs.comment-body }}
+  impacted-count:
+    description: "Structural, advisory, over-approximate impacted-entity count for the changed files (0 when no base ref is given)."
+    value: ${{ steps.analyze.outputs.impacted-count }}
+  risk-level:
+    description: "Named overall risk level for the change set. Reported whether or not the gate is enabled."
+    value: ${{ steps.analyze.outputs.risk-level }}
+  risk-score:
+    description: "Overall risk score in 0 to 1. Reported whether or not the gate is enabled."
+    value: ${{ steps.analyze.outputs.risk-score }}
+  gate-failed:
+    description: "true when either gate failed, false otherwise."
+    value: ${{ steps.analyze.outputs.gate-failed }}
+  cache-status:
+    description: "hit, miss, or unusable. 'unusable' means a restored database failed validation, was removed, and the graph was rebuilt in full."
+    value: ${{ steps.analyze.outputs.cache-status }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+      with:
+        python-version: "3.11"
+
+    - name: Install D-Knowledge_Graph (pinned tool version)
+      shell: bash
+      env:
+        DKG_REPO_URL: ${{ inputs.dkg-repo-url }}
+        DKG_REF: ${{ inputs.dkg-ref }}
+      run: |
+        set -euo pipefail
+        python -m pip install --upgrade pip
+        python -m pip install "d-knowledge-graph[code] @ git+${DKG_REPO_URL}@${DKG_REF}"
+
+    # The schema version has to come from the installed tool, so it is read
+    # after the install and before the cache key is built. A cache key that
+    # guessed the schema version would restore a database this build cannot use.
+    - name: Read the database schema version
+      id: schema
+      shell: bash
+      run: |
+        set -euo pipefail
+        VERSION="$(python -c 'from dkg.core.version import CURRENT_SCHEMA_MAJOR; print(CURRENT_SCHEMA_MAJOR)')"
+        case "$VERSION" in
+          ''|*[!0-9]*) echo "unexpected schema version: $VERSION" >&2; exit 1;;
+        esac
+        echo "schema-version=$VERSION" >> "$GITHUB_OUTPUT"
+
+    # Three components, all of them load bearing:
+    #   runner.os + runner.arch   a graph built on one platform is not portable
+    #   schema-version            a database from another schema cannot be used
+    #   hashFiles(lockfiles)      a dependency change changes what gets parsed
+    # restore-keys allows an older graph to be restored when only the lockfiles
+    # moved, which is what makes the restore incremental rather than all or
+    # nothing. It deliberately never crosses a platform or schema boundary.
+    - name: Restore the built graph
+      id: cache
+      if: inputs.cache == 'true'
+      uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+      with:
+        path: ${{ runner.temp }}/dkg-home
+        key: dkg-graph-${{ runner.os }}-${{ runner.arch }}-schema${{ steps.schema.outputs.schema-version }}-locks${{ hashFiles('**/requirements*.txt', '**/requirements/*.txt', '**/poetry.lock', '**/uv.lock', '**/Pipfile.lock', '**/pdm.lock', '**/pyproject.toml', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/go.sum', '**/Cargo.lock', '**/Gemfile.lock', '**/composer.lock') }}
+        restore-keys: |
+          dkg-graph-${{ runner.os }}-${{ runner.arch }}-schema${{ steps.schema.outputs.schema-version }}-
+
+    - name: Analyze
+      id: analyze
+      shell: bash
+      env:
+        DKG_ALLOW_OUTBOUND: "0"
+        DKG_TELEMETRY: "0"
+        REPOSITORY_PATH: ${{ inputs.repository-path }}
+        BASE_REF: ${{ inputs.base-ref }}
+        REPORT_FORMAT: ${{ inputs.report-format }}
+        RISK_GATE: ${{ inputs.risk-gate }}
+        FAIL_ON_IMPACT: ${{ inputs.fail-on-impact }}
+        TOP: ${{ inputs.top }}
+        MARKER: ${{ inputs.marker }}
+        USE_CACHE: ${{ inputs.cache }}
+        HOME_DIR: ${{ runner.temp }}/dkg-home
+      run: |
+        set -uo pipefail
+        REPORT="dkg-code-report.${REPORT_FORMAT}"
+        COMMENT="dkg-pr-comment.md"
+        SUMMARY="dkg-summary.json"
+        EXTRA=()
+        if [ -n "$BASE_REF" ]; then EXTRA+=(--base "$BASE_REF"); fi
+        if [ -n "$FAIL_ON_IMPACT" ]; then EXTRA+=(--fail-on-impact "$FAIL_ON_IMPACT"); fi
+        if [ "$USE_CACHE" = "true" ]; then EXTRA+=(--cache-check); fi
+        dkg --home "$HOME_DIR" --json code-report "$REPOSITORY_PATH" \
+          --format "$REPORT_FORMAT" --out "$REPORT" \
+          --review --comment-out "$COMMENT" --marker "$MARKER" --top "$TOP" \
+          --risk-gate "$RISK_GATE" "${EXTRA[@]+"${EXTRA[@]}"}" > "$SUMMARY"
+        RC=$?
+        # Outputs are emitted whether or not a gate failed, so a gated run still
+        # publishes the score that failed it.
+        python - "$GITHUB_OUTPUT" "$SUMMARY" "$REPORT" "$COMMENT" <<'PY'
+        import json, secrets, sys
+        out_path, summary_path, report, comment = sys.argv[1:5]
+        try:
+            with open(summary_path, encoding="utf-8") as fh:
+                summary = json.load(fh)
+        except (OSError, ValueError):
+            summary = {}
+        impact = summary.get("impact") or {}
+        gate = summary.get("gate") or {}
+        risk = (summary.get("review") or {}).get("risk") or {}
+        cache = summary.get("cache") or {}
+        rows = {
+            "report-file": report,
+            "comment-file": comment,
+            "impacted-count": impact.get("impacted_count", 0),
+            "risk-level": risk.get("level", "not-measured"),
+            "risk-score": risk.get("score", "not-measured"),
+            "gate-failed": "true" if gate.get("failed") else "false",
+            "cache-status": cache.get("status", "not-checked"),
+        }
+        try:
+            with open(comment, encoding="utf-8") as fh:
+                body = fh.read()
+        except OSError:
+            body = ""
+        # The rendered report is emitted as an output as well as an artifact.
+        # The heredoc delimiter is random per run, so no content can forge the
+        # terminator and smuggle a line into another output.
+        delimiter = "dkg-body-" + secrets.token_hex(16)
+        assert delimiter not in body
+        with open(out_path, "a", encoding="utf-8") as fh:
+            for key, value in sorted(rows.items()):
+                fh.write(f"{key}={value}\n")
+            fh.write(f"comment-body<<{delimiter}\n{body}\n{delimiter}\n")
+        PY
+        exit "$RC"
+
+    # Publication is the only outbound call and it is doubly gated: the caller
+    # must ask for it AND supply a token. Neither alone is enough.
+    - name: Publish the sticky review comment
+      if: ${{ inputs.comment == 'true' && inputs.github-token != '' }}
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        PR_NUMBER: ${{ inputs.pr-number }}
+        MARKER: ${{ inputs.marker }}
+        API_BASE: ${{ inputs.api-base }}
+        COMMENT_FILE: ${{ steps.analyze.outputs.comment-file }}
+      run: |
+        set -euo pipefail
+        SAFE_PR="$(printf '%s' "$PR_NUMBER" | tr -cd '0-9')"
+        if [ -z "$SAFE_PR" ]; then
+          echo "comment was requested but pr-number is not a number" >&2
+          exit 1
+        fi
+        dkg pr-publish \
+          --body-file "$COMMENT_FILE" \
+          --repo "$GITHUB_REPOSITORY" \
+          --pr "$SAFE_PR" \
+          --marker "$MARKER" \
+          --api-base "$API_BASE" \
+          --token-env GITHUB_TOKEN \
+          --allow-egress

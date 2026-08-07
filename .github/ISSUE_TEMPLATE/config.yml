@@ -1,0 +1,21 @@
+# Blank issues are disabled: a report without the version, the platform, the
+# extras present, a reproduction, and expected against observed behaviour cannot
+# be acted on, and asking for those afterwards costs a round trip every time.
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/scorpion1476-lgtm/D-Knowledge_Graph/security/advisories/new
+    about: >-
+      Do not open a public issue for a security problem. Use private
+      vulnerability reporting on this repository. See SECURITY.md.
+  - name: Code of conduct concern
+    url: https://github.com/scorpion1476-lgtm/D-Knowledge_Graph/blob/main/CODE_OF_CONDUCT.md
+    about: >-
+      Report privately rather than as an issue. CODE_OF_CONDUCT.md explains the
+      channel and what happens next.
+  - name: Read the troubleshooting guide first
+    url: https://github.com/scorpion1476-lgtm/D-Knowledge_Graph/blob/main/docs/TROUBLESHOOTING.md
+    about: >-
+      Install and path problems, server start-up failures, database lock and
+      staleness, missing optional components, and the platform-specific issues,
+      each with the symptom, the cause, and the fix.

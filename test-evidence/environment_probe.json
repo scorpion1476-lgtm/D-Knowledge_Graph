@@ -1,0 +1,596 @@
+{
+  "binaries": {
+    "code": {
+      "absent": [],
+      "detail": {
+        "node": {
+          "needed_for": "required by both language servers",
+          "path": "/usr/local/opt/node/bin/node"
+        },
+        "pyright-langserver": {
+          "needed_for": "type-aware resolution for Python",
+          "path": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/tools/lsp/node_modules/.bin/pyright-langserver"
+        },
+        "typescript-language-server": {
+          "needed_for": "type-aware resolution for JavaScript",
+          "path": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/tools/lsp/node_modules/.bin/typescript-language-server"
+        }
+      },
+      "found": [
+        "node",
+        "pyright-langserver",
+        "typescript-language-server"
+      ]
+    },
+    "development": {
+      "absent": [
+        "podman"
+      ],
+      "detail": {
+        "docker": {
+          "needed_for": "container validation (never invoked by this script)",
+          "path": "/Applications/Docker.app/Contents/Resources/bin/docker"
+        },
+        "gh": {
+          "needed_for": "the forge client used by the publish helper",
+          "path": "/usr/local/bin/gh"
+        },
+        "git": {
+          "needed_for": "incremental re-ingest, co-change, and churn signals",
+          "path": "/Users/bharatvishwakarma/pinokio/bin/miniconda/bin/git"
+        },
+        "pip-audit": {
+          "needed_for": "the dependency vulnerability audit run in CI",
+          "path": "/Users/bharatvishwakarma/.local/bin/pip-audit"
+        },
+        "podman": {
+          "needed_for": "container validation (never invoked by this script)",
+          "path": null
+        }
+      },
+      "found": [
+        "docker",
+        "gh",
+        "git",
+        "pip-audit"
+      ]
+    },
+    "media": {
+      "absent": [
+        "convert",
+        "heif-convert",
+        "heif-dec",
+        "magick",
+        "whisper-cli",
+        "whisper-cpp"
+      ],
+      "detail": {
+        "convert": {
+          "needed_for": "HEIC decode fallback, legacy ImageMagick",
+          "path": null
+        },
+        "ffmpeg": {
+          "needed_for": "keyframe and scene detection",
+          "path": "/Users/bharatvishwakarma/pinokio/bin/miniconda/bin/ffmpeg"
+        },
+        "ffprobe": {
+          "needed_for": "video metadata",
+          "path": "/Users/bharatvishwakarma/pinokio/bin/miniconda/bin/ffprobe"
+        },
+        "heif-convert": {
+          "needed_for": "HEIC decode",
+          "path": null
+        },
+        "heif-dec": {
+          "needed_for": "HEIC decode",
+          "path": null
+        },
+        "magick": {
+          "needed_for": "HEIC decode fallback",
+          "path": null
+        },
+        "tesseract": {
+          "needed_for": "image and keyframe OCR",
+          "path": "/usr/local/bin/tesseract"
+        },
+        "whisper-cli": {
+          "needed_for": "speech to text, whisper.cpp style CLI",
+          "path": null
+        },
+        "whisper-cpp": {
+          "needed_for": "speech to text, whisper.cpp style CLI",
+          "path": null
+        }
+      },
+      "found": [
+        "ffmpeg",
+        "ffprobe",
+        "tesseract"
+      ]
+    }
+  },
+  "disclosure": "The only outbound request this script can make is to https://pypi.org/pypi/pip/json. It is a disclosed diagnostic probe, never a product runtime path, and --offline skips it.",
+  "extras": {
+    "declared": [
+      "asr-faster-whisper",
+      "code",
+      "code-bundle",
+      "code-extended",
+      "code-full",
+      "dev",
+      "embeddings",
+      "html",
+      "mcp",
+      "media-detect",
+      "media-image",
+      "media-video",
+      "pdf",
+      "release",
+      "reranker",
+      "rss",
+      "watch",
+      "web"
+    ],
+    "detail": {
+      "asr-faster-whisper": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "faster-whisper": {
+            "installed_version": "1.2.1",
+            "requirement": "faster-whisper>=1.0"
+          }
+        }
+      },
+      "code": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "tree-sitter": {
+            "installed_version": "0.26.0",
+            "requirement": "tree-sitter>=0.21"
+          },
+          "tree-sitter-go": {
+            "installed_version": "0.25.0",
+            "requirement": "tree-sitter-go>=0.21"
+          },
+          "tree-sitter-javascript": {
+            "installed_version": "0.25.0",
+            "requirement": "tree-sitter-javascript>=0.21"
+          },
+          "tree-sitter-python": {
+            "installed_version": "0.25.0",
+            "requirement": "tree-sitter-python>=0.21"
+          }
+        }
+      },
+      "code-bundle": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "tree-sitter": {
+            "installed_version": "0.26.0",
+            "requirement": "tree-sitter>=0.21"
+          },
+          "tree-sitter-language-pack": {
+            "installed_version": "1.14.3",
+            "requirement": "tree-sitter-language-pack==1.14.3"
+          }
+        }
+      },
+      "code-extended": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "tree-sitter": {
+            "installed_version": "0.26.0",
+            "requirement": "tree-sitter>=0.21"
+          },
+          "tree-sitter-java": {
+            "installed_version": "0.23.5",
+            "requirement": "tree-sitter-java>=0.21"
+          },
+          "tree-sitter-ruby": {
+            "installed_version": "0.23.1",
+            "requirement": "tree-sitter-ruby>=0.21"
+          },
+          "tree-sitter-rust": {
+            "installed_version": "0.24.2",
+            "requirement": "tree-sitter-rust>=0.21"
+          },
+          "tree-sitter-typescript": {
+            "installed_version": "0.23.2",
+            "requirement": "tree-sitter-typescript>=0.21"
+          }
+        }
+      },
+      "code-full": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "tree-sitter": {
+            "installed_version": "0.26.0",
+            "requirement": "tree-sitter>=0.21"
+          },
+          "tree-sitter-bash": {
+            "installed_version": "0.25.1",
+            "requirement": "tree-sitter-bash>=0.21"
+          },
+          "tree-sitter-c": {
+            "installed_version": "0.24.2",
+            "requirement": "tree-sitter-c>=0.21"
+          },
+          "tree-sitter-c-sharp": {
+            "installed_version": "0.23.5",
+            "requirement": "tree-sitter-c-sharp>=0.21"
+          },
+          "tree-sitter-cpp": {
+            "installed_version": "0.23.4",
+            "requirement": "tree-sitter-cpp>=0.21"
+          },
+          "tree-sitter-dart": {
+            "installed_version": "0.1.0",
+            "requirement": "tree-sitter-dart>=0.1"
+          },
+          "tree-sitter-elixir": {
+            "installed_version": "0.3.5",
+            "requirement": "tree-sitter-elixir>=0.3"
+          },
+          "tree-sitter-go": {
+            "installed_version": "0.25.0",
+            "requirement": "tree-sitter-go>=0.21"
+          },
+          "tree-sitter-hcl": {
+            "installed_version": "1.2.0",
+            "requirement": "tree-sitter-hcl>=1.2"
+          },
+          "tree-sitter-java": {
+            "installed_version": "0.23.5",
+            "requirement": "tree-sitter-java>=0.21"
+          },
+          "tree-sitter-javascript": {
+            "installed_version": "0.25.0",
+            "requirement": "tree-sitter-javascript>=0.21"
+          },
+          "tree-sitter-julia": {
+            "installed_version": "0.23.1",
+            "requirement": "tree-sitter-julia>=0.22"
+          },
+          "tree-sitter-kotlin": {
+            "installed_version": "1.1.0",
+            "requirement": "tree-sitter-kotlin>=1.1"
+          },
+          "tree-sitter-lua": {
+            "installed_version": "0.5.0",
+            "requirement": "tree-sitter-lua>=0.2"
+          },
+          "tree-sitter-luau": {
+            "installed_version": "1.2.0",
+            "requirement": "tree-sitter-luau>=1.2"
+          },
+          "tree-sitter-nix": {
+            "installed_version": "0.1.0",
+            "requirement": "tree-sitter-nix>=0.1"
+          },
+          "tree-sitter-objc": {
+            "installed_version": "3.0.2",
+            "requirement": "tree-sitter-objc>=3.0"
+          },
+          "tree-sitter-php": {
+            "installed_version": "0.24.1",
+            "requirement": "tree-sitter-php>=0.22"
+          },
+          "tree-sitter-powershell": {
+            "installed_version": "0.26.4",
+            "requirement": "tree-sitter-powershell>=0.26"
+          },
+          "tree-sitter-python": {
+            "installed_version": "0.25.0",
+            "requirement": "tree-sitter-python>=0.21"
+          },
+          "tree-sitter-ruby": {
+            "installed_version": "0.23.1",
+            "requirement": "tree-sitter-ruby>=0.21"
+          },
+          "tree-sitter-rust": {
+            "installed_version": "0.24.2",
+            "requirement": "tree-sitter-rust>=0.21"
+          },
+          "tree-sitter-scala": {
+            "installed_version": "0.26.0",
+            "requirement": "tree-sitter-scala>=0.21"
+          },
+          "tree-sitter-solidity": {
+            "installed_version": "1.2.13",
+            "requirement": "tree-sitter-solidity>=1.2"
+          },
+          "tree-sitter-sql": {
+            "installed_version": "0.3.11",
+            "requirement": "tree-sitter-sql>=0.3"
+          },
+          "tree-sitter-swift": {
+            "installed_version": "0.7.3",
+            "requirement": "tree-sitter-swift>=0.7"
+          },
+          "tree-sitter-typescript": {
+            "installed_version": "0.23.2",
+            "requirement": "tree-sitter-typescript>=0.21"
+          },
+          "tree-sitter-verilog": {
+            "installed_version": "1.0.3",
+            "requirement": "tree-sitter-verilog>=1.0"
+          },
+          "tree-sitter-yaml": {
+            "installed_version": "0.7.2",
+            "requirement": "tree-sitter-yaml>=0.7"
+          },
+          "tree-sitter-zig": {
+            "installed_version": "1.1.2",
+            "requirement": "tree-sitter-zig>=1.1"
+          },
+          "tree-sitter-zsh": {
+            "installed_version": "0.63.4",
+            "requirement": "tree-sitter-zsh>=0.6"
+          }
+        }
+      },
+      "dev": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "mypy": {
+            "installed_version": "2.3.0",
+            "requirement": "mypy>=1.10"
+          },
+          "openpyxl": {
+            "installed_version": "3.1.5",
+            "requirement": "openpyxl>=3.1"
+          },
+          "pytest": {
+            "installed_version": "9.1.1",
+            "requirement": "pytest>=8.0"
+          },
+          "pytest-cov": {
+            "installed_version": "7.1.0",
+            "requirement": "pytest-cov>=5.0"
+          },
+          "ruff": {
+            "installed_version": "0.16.1",
+            "requirement": "ruff>=0.5"
+          },
+          "tiktoken": {
+            "installed_version": "0.13.0",
+            "requirement": "tiktoken>=0.7"
+          }
+        }
+      },
+      "embeddings": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "model2vec": {
+            "installed_version": "0.8.2",
+            "requirement": "model2vec>=0.3"
+          }
+        }
+      },
+      "html": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "beautifulsoup4": {
+            "installed_version": "4.15.0",
+            "requirement": "beautifulsoup4>=4.12"
+          },
+          "lxml": {
+            "installed_version": "6.1.1",
+            "requirement": "lxml>=4.9"
+          }
+        }
+      },
+      "mcp": {
+        "declares_no_python_requirement": true,
+        "installed": true,
+        "missing": [],
+        "requirements": {}
+      },
+      "media-detect": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "fastembed": {
+            "installed_version": "0.8.0",
+            "requirement": "fastembed>=0.3"
+          }
+        }
+      },
+      "media-image": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "Pillow": {
+            "installed_version": "12.3.0",
+            "requirement": "Pillow>=10.0"
+          }
+        }
+      },
+      "media-video": {
+        "declares_no_python_requirement": true,
+        "installed": true,
+        "missing": [],
+        "requirements": {}
+      },
+      "pdf": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "pypdf": {
+            "installed_version": "6.14.2",
+            "requirement": "pypdf>=4.0"
+          }
+        }
+      },
+      "release": {
+        "declares_no_python_requirement": false,
+        "installed": false,
+        "missing": [
+          "sigstore"
+        ],
+        "requirements": {
+          "build": {
+            "installed_version": "1.5.0",
+            "requirement": "build>=1.2"
+          },
+          "sigstore": {
+            "installed_version": null,
+            "requirement": "sigstore>=3.0"
+          }
+        }
+      },
+      "reranker": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "fastembed": {
+            "installed_version": "0.8.0",
+            "requirement": "fastembed>=0.3"
+          }
+        }
+      },
+      "rss": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "feedparser": {
+            "installed_version": "6.0.14",
+            "requirement": "feedparser>=6.0"
+          }
+        }
+      },
+      "watch": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "watchfiles": {
+            "installed_version": "1.2.0",
+            "requirement": "watchfiles>=0.21"
+          }
+        }
+      },
+      "web": {
+        "declares_no_python_requirement": false,
+        "installed": true,
+        "missing": [],
+        "requirements": {
+          "httpx": {
+            "installed_version": "0.28.1",
+            "requirement": "httpx>=0.27"
+          }
+        }
+      }
+    },
+    "installed": [
+      "asr-faster-whisper",
+      "code",
+      "code-bundle",
+      "code-extended",
+      "code-full",
+      "dev",
+      "embeddings",
+      "html",
+      "mcp",
+      "media-detect",
+      "media-image",
+      "media-video",
+      "pdf",
+      "reranker",
+      "rss",
+      "watch",
+      "web"
+    ],
+    "not_installed": [
+      "release"
+    ],
+    "source": "pyproject.toml (text fallback, no tomllib before Python 3.11)"
+  },
+  "generated_at": "2026-08-06T21:20:49.065011+00:00",
+  "interpreter": {
+    "executable": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/.venv/bin/python",
+    "implementation": "CPython",
+    "in_virtualenv": true,
+    "machine": "x86_64",
+    "platform": "macOS-15.7.7-x86_64-i386-64bit",
+    "prefix": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/.venv",
+    "version": "3.10.15"
+  },
+  "models": {
+    "asr": {
+      "env_var": "DKG_ASR_MODEL",
+      "files": 0,
+      "from_env": false,
+      "if_absent": "speech to text is unavailable and is reported not measured",
+      "path": null,
+      "staged": false
+    },
+    "embeddings": {
+      "env_var": "DKG_EMBEDDING_MODEL",
+      "files": 34,
+      "from_env": false,
+      "if_absent": "falls back to the built-in hashing adapter",
+      "path": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/models/embeddings/potion-base-8M",
+      "staged": true
+    },
+    "media-detect": {
+      "env_var": "DKG_DETECT_CACHE",
+      "files": 35,
+      "from_env": false,
+      "if_absent": "zero-shot image tagging is unavailable",
+      "path": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/models/media-detect",
+      "staged": true
+    },
+    "provenance_record": {
+      "path": "docs/model_provenance.json",
+      "present": true
+    },
+    "reranker": {
+      "env_var": "DKG_RERANKER_CACHE",
+      "files": 21,
+      "from_env": false,
+      "if_absent": "hybrid degrades to keyword plus FTS rank fusion",
+      "path": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/models/reranker",
+      "staged": true
+    }
+  },
+  "network_egress_pypi": {
+    "attempted": true,
+    "error": null,
+    "note": null,
+    "ok": true,
+    "status": 200,
+    "url": "https://pypi.org/pypi/pip/json"
+  },
+  "project": {
+    "installed_version": "0.1.0",
+    "root": "/Users/bharatvishwakarma/Desktop/D-Knowledge_Graph"
+  },
+  "python": "3.10.15",
+  "socket_bind_loopback": {
+    "error": null,
+    "ok": true,
+    "port": 64490
+  }
+}

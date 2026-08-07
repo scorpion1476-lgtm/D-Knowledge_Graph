@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-04
+# area: Supply chain
+# requirement: Secret scanning
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/security/test_secret_scanner.py -q
+# generated_at: 2026-08-07T00:17:40.065358+00:00
+# action_kind: executed
+# exit_code: 0
+
+.......                                                                  [100%]
+7 passed in 0.98s

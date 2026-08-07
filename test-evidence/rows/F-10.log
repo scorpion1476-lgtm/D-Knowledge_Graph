@@ -1,0 +1,85 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-10
+# area: MCP
+# requirement: Docker and Podman deployment options
+# status: IMPLEMENTED BUT NOT FULLY VERIFIED
+# acceptance_test: bash scripts/run_container_validate.sh docker
+# generated_at: 2026-08-04T03:43:12.264477+00:00
+# action_kind: shell
+# D-Knowledge_Graph container validation
+# runtime: docker
+# tag:     dkg-validate-20260804t034312z
+# started: 20260804t034312z
+
+[build] docker build -t dkg-validate-20260804t034312z -f docker/Dockerfile .
+[run] docker run --rm --network none dkg-validate-20260804t034312z status
+app_version        0.1.0
+schema_major       1
+home               /data
+documents          0
+chunks             0
+entities           0
+claims             0
+network_allowed    False
+telemetry_enabled  False
+[done] container validation complete
+wrote /Users/bharatvishwakarma/Desktop/D-Knowledge_Graph/test-evidence/container/dkg-validate-20260804t034312z.log
+[cleanup] removing image dkg-validate-20260804t034312z
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.02kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [builder 1/5] FROM docker.io/library/python:3.12-slim@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de
+#4 resolve docker.io/library/python:3.12-slim@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 16.70kB 0.0s done
+#5 DONE 0.0s
+
+#6 [stage-1 2/5] RUN useradd --system --uid 10001 --home-dir /data dkg  && mkdir -p /data  && chown -R dkg:dkg /data
+#6 CACHED
+
+#7 [builder 2/5] WORKDIR /build
+#7 CACHED
+
+#8 [builder 5/5] RUN pip install --no-cache-dir --upgrade pip build  && python -m build --wheel --outdir /wheels
+#8 CACHED
+
+#9 [builder 3/5] COPY pyproject.toml README.md ./
+#9 CACHED
+
+#10 [builder 4/5] COPY src ./src
+#10 CACHED
+
+#11 [stage-1 3/5] COPY --from=builder /wheels/*.whl /tmp/
+#11 CACHED
+
+#12 [stage-1 4/5] RUN pip install --no-cache-dir /tmp/*.whl  && rm -f /tmp/*.whl
+#12 CACHED
+
+#13 [stage-1 5/5] WORKDIR /data
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:35cdba76bb36f1099f7d15f446bb940ac7644a374c4ed5587a0af72867823630 done
+#14 exporting config sha256:ea8dcdd0455e25959fd89f1ba0a34dccbdd2099ef6005568e3e2f495eb665faa done
+#14 exporting attestation manifest sha256:81ced2b32316da201374fc9c735dc25d63794e0670261c10deb803e46fd0f297
+#14 exporting attestation manifest sha256:81ced2b32316da201374fc9c735dc25d63794e0670261c10deb803e46fd0f297 0.0s done
+#14 exporting manifest list sha256:6ca12369e169fe44647667dd898a740d110a5a37c8767062c99eb6c08e1e1d8f 0.0s done
+#14 naming to docker.io/library/dkg-validate-20260804t034312z:latest done
+#14 unpacking to docker.io/library/dkg-validate-20260804t034312z:latest
+#14 unpacking to docker.io/library/dkg-validate-20260804t034312z:latest 0.2s done
+#14 DONE 0.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/itfcbceweo8efz8v62mlz8s7r

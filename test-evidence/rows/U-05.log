@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-05
+# area: Token cost and context levers
+# requirement: Provenance-bounded context returning only nodes with a resolved path to the seeds, with the fixed-neighbourhood strategy retained for comparison
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_context_levers.py -q
+# generated_at: 2026-08-05T03:57:48.864495+00:00
+# action_kind: pytest
+....................................                                     [100%]
+36 passed in 0.35s

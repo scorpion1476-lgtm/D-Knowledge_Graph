@@ -1,0 +1,41 @@
+{
+  "date": "2026-08-02",
+  "note": "Both detectors optimize structural modularity, so they tie on the structural corpus. Ariadne's genuine gain is semantic: its embedding edge weighting recovers topics that structure alone cannot, plus a refinement step that guarantees internally connected communities and auto-tuned resolution.",
+  "semantic": {
+    "ariadne": {
+      "embeddings_used": true,
+      "modularity": 0.42,
+      "num_communities": 8,
+      "rand_index_vs_truth": 0.7641
+    },
+    "mnemosyne": {
+      "modularity": 0.5,
+      "num_communities": 4,
+      "rand_index_vs_truth": 0.641
+    },
+    "true_communities": 5
+  },
+  "structural": {
+    "ariadne": {
+      "coverage": 0.909091,
+      "latency_ms": 7.86,
+      "modularity": 0.846591,
+      "num_communities": 16,
+      "rand_index_vs_truth": 1.0,
+      "resolution": 0.75
+    },
+    "mnemosyne": {
+      "coverage": 0.909091,
+      "latency_ms": 1.196,
+      "modularity": 0.846591,
+      "num_communities": 16,
+      "rand_index_vs_truth": 1.0
+    },
+    "true_communities": 16
+  },
+  "verdict": {
+    "semantic": "ariadne better (rand 0.7641 vs 0.641)",
+    "structural": "tie (rand 1.0)"
+  },
+  "wave": "3a"
+}

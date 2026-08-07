@@ -1,0 +1,25 @@
+- name: Configure web servers
+  hosts: web
+  roles:
+    - common
+    - role: nginx
+  tasks:
+    - name: Install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: Start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+
+    - name: Include extra tasks
+      include_tasks: extras.yml
+
+- name: Configure database servers
+  hosts: db
+  tasks:
+    - name: Install postgres
+      ansible.builtin.package:
+        name: postgresql

@@ -1,0 +1,15 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-25
+# area: Delivery and distribution
+# requirement: Publish the signed, reproducibly built distribution to a public package index on a release event, so the tool can be installed by name rather than from a source checkout, with the index upload attested by the same provenance the release already produces
+# status: NOT IMPLEMENTED
+# acceptance_test: pytest tests/release/test_index_publication.py -q
+# generated_at: 2026-08-05T16:17:24.978712+00:00
+# action_kind: documentary
+
+This row records a parity gap found by comparing the platform against a
+public reference implementation of the same problem domain, and confirmed by
+independent adversarial review of that comparison. The row is not implemented
+yet, so this file is a documentary record and not an executed acceptance run.
+It can never promote the row: the validator rejects a documentary log as
+support for a production-ready status.

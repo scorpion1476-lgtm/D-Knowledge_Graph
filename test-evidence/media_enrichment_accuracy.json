@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-02",
+  "detect": {
+    "available": true,
+    "corpus_size": 32,
+    "correct": 30,
+    "label_space": 32,
+    "model": "zero-shot CLIP (Qdrant/clip-ViT-B-32, MIT weights) via fastembed",
+    "top1_accuracy": 0.9375
+  },
+  "note": "Synthetic corpora: rendered scenes/words and colored shapes. Natural photo and video accuracy is not represented; numbers are on this reproducible corpus only.",
+  "scene_and_ocr": {
+    "available": true,
+    "keyframes_detected": 7,
+    "ocr_word_recall": 1.0,
+    "ocr_words_evaluated": 7,
+    "scene_corpus_size": 8,
+    "scene_precision": 1.0,
+    "scene_recall": 0.875,
+    "tool": "ffmpeg (scene/keyframe) + tesseract (OCR), external binaries"
+  },
+  "wave": "3b"
+}

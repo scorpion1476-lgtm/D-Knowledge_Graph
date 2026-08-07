@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-16
+# area: Advanced code analysis
+# requirement: Return answer-shaped node-level slices for a structural question: one entry per symbol reduced to its declaration plus the minimal lines bearing on the query, ranked by a documented relevance score and packed into a caller-supplied token budget, with the seed never dropped to fit and anything omitted reported
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_answer_slices.py -q
+# generated_at: 2026-08-06T09:22:58.332079+00:00
+# action_kind: executed
+# exit_code: 0
+
+............                                                             [100%]
+12 passed in 0.61s

@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: M-04
+# area: Media plane
+# requirement: SVG text extraction as XML with DOCTYPE and ENTITY rejection
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/media/test_svg.py -q
+# generated_at: 2026-08-04T03:46:18.228751+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.03s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-04
+# area: UX and docs
+# requirement: Separate user, admin, developer, deployment, security, troubleshooting guides
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_guide_set.py -q
+# generated_at: 2026-08-07T00:17:35.810430+00:00
+# action_kind: executed
+# exit_code: 0
+
+......................                                                   [100%]
+22 passed in 0.05s

@@ -1,0 +1,8 @@
+{
+  "name": "dkg-read-only-demo",
+  "version": "0.1.0",
+  "description": "Example read-only plugin manifest bundled for validation tests.",
+  "capabilities": ["dkg.search", "dkg.graph.neighbourhood"],
+  "entrypoints": {"main": "dkg.plugins.example:main"},
+  "requires": {"network": false, "adapters": []}
+}

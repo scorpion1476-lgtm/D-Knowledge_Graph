@@ -1,0 +1,17 @@
+Set the GitHub repository social preview image (one manual web step)
+
+GitHub has no CLI or REST endpoint for setting a repository social
+preview image. The step below is the only supported path.
+
+1. Open the repository on github.com.
+2. Click Settings in the top navigation.
+3. In the left sidebar under General, scroll to Social preview.
+4. Click Edit and upload assets/brand/github_social_preview.png.
+5. Save.
+
+The file is 1280 by 640 pixels, centres the grayscale wordmark on a
+neutral light background with safe margins on all sides, and is
+generated from assets/brand/logo.png by scripts/build_brand_assets.py.
+
+This project makes no claim that the social preview has been set. The
+step above must be performed by an operator with repo write access.

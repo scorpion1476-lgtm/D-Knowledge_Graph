@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: B-03
+# area: Ingestion
+# requirement: Input hashing, source versioning, provenance envelope
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_source_versioning.py -q
+# generated_at: 2026-08-04T03:42:18.897801+00:00
+# action_kind: pytest
+....                                                                     [100%]
+4 passed in 0.11s

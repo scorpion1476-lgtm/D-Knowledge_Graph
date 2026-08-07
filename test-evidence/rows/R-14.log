@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-14
+# area: Delivery and distribution
+# requirement: Ship workflow commands for the three recurring tasks (build or update the graph, review the uncommitted delta, review a branch or pull-request diff) in the shipped skill package, each naming the tools it drives and the bounds it runs under
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_workflow_commands.py -q
+# generated_at: 2026-08-06T21:31:09.680916+00:00
+# action_kind: executed
+# exit_code: 0
+
+............                                                             [100%]
+12 passed in 0.34s

@@ -1,0 +1,73 @@
+name: pr-review-analysis
+
+# STAGE ONE OF TWO: the UNPRIVILEGED analysis.
+#
+# This job checks out and runs code the pull request controls, so it is given
+# nothing worth stealing. It triggers on `pull_request`, not on
+# `pull_request_target`, so a fork's run gets a read-only token scoped to the
+# fork's own context and no access to repository secrets. It has no write
+# permission of any kind and it never posts anything: it renders the review to a
+# file and uploads that file as an artifact.
+#
+# The publication happens in pr-review-publish.yml, which holds the write
+# permission and never checks out or executes any of this pull request's code.
+
+on:
+  pull_request:
+    branches: ["**"]
+
+# Least privilege at the workflow level as well as the job level, so a job added
+# later cannot inherit a wider default.
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-review-analysis-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    # Read only. No pull-requests, no issues, no packages, no id-token. This job
+    # is deliberately incapable of commenting even if something in it tried.
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the pull-request head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          # The full history is needed so the base ref can be diffed against.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Analyse and render the review
+        id: review
+        uses: ./
+        with:
+          repository-path: "."
+          base-ref: ${{ github.event.pull_request.base.sha }}
+          # No gate in this stage. A gate belongs in a required check the
+          # repository owner configures, not in the stage that renders a comment.
+          risk-gate: "off"
+          # This stage never comments. The input is spelled out rather than left
+          # to the default so the intent is visible in the file.
+          comment: "false"
+          cache: "true"
+
+      - name: Record the pull-request number for the trusted stage
+        shell: bash
+        env:
+          # Read through the environment rather than interpolated into the
+          # script, so nothing from the event can be parsed as shell.
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: printf '%s\n' "$PR_NUMBER" | tr -cd '0-9\n' > pr-number.txt
+
+      - name: Upload the rendered review
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dkg-pr-review
+          path: |
+            ${{ steps.review.outputs.comment-file }}
+            pr-number.txt
+          if-no-files-found: error
+          retention-days: 3

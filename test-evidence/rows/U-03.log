@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-03
+# area: Token cost and context levers
+# requirement: Delta-only session context that sends only what a session has not already been shown and re-sends a symbol whose content changed
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_context_levers.py -q
+# generated_at: 2026-08-05T03:57:47.411262+00:00
+# action_kind: pytest
+....................................                                     [100%]
+36 passed in 0.33s

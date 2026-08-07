@@ -1,0 +1,29 @@
+services:
+  dkg:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: d-knowledge-graph:local
+    container_name: dkg
+    environment:
+      DKG_HOME: /data
+      DKG_ALLOW_OUTBOUND: "0"
+      DKG_MCP_HTTP: "1"
+      DKG_MCP_HTTP_BIND: "0.0.0.0"
+      DKG_MCP_TOKEN: "${DKG_MCP_TOKEN:-CHANGE_ME}"
+    ports:
+      - "127.0.0.1:8765:8765"
+    volumes:
+      - ./data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8765/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    command: ["mcp-http", "--bind", "0.0.0.0", "--port", "8765"]

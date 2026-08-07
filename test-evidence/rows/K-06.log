@@ -1,0 +1,14 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-06
+# area: Supply chain
+# requirement: Dependency vulnerability audit
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/supply/test_dependency_audit.py -q
+# generated_at: 2026-08-07T01:09:05.723867+00:00
+# action_kind: executed
+# exit_code: 0
+
+.........s.                                                              [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/supply/test_dependency_audit.py:212: live advisory-database audit is opt-in; set DKG_LIVE_AUDIT=1 (needs network)
+10 passed, 1 skipped in 0.22s

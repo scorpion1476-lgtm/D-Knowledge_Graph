@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-08
+# area: UX and docs
+# requirement: Publish a troubleshooting document covering install and path problems, server start-up failures, database lock and staleness symptoms, missing optional components, and the platform-specific issues seen on Windows and its Linux subsystem, each with the symptom, the cause, and the fix
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_troubleshooting.py -q
+# generated_at: 2026-08-06T21:31:20.068840+00:00
+# action_kind: executed
+# exit_code: 0
+
+...............                                                          [100%]
+15 passed in 0.09s

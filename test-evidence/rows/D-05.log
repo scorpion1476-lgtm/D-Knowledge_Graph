@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: D-05
+# area: Local intelligence
+# requirement: Pluggable provider neutral interfaces
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_local_intelligence.py -q
+# generated_at: 2026-08-04T03:42:49.681589+00:00
+# action_kind: pytest
+............                                                             [100%]
+12 passed in 2.54s

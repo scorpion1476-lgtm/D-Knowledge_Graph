@@ -1,0 +1,15 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-20
+# area: Delivery and distribution
+# requirement: Ship an editor extension client that reads the local graph and surfaces impact, flows, and test coverage in the editor, built from permissively licensed tooling and making no network call
+# status: NOT IMPLEMENTED
+# acceptance_test: pytest tests/delivery/test_editor_extension.py -q
+# generated_at: 2026-08-05T15:20:14.251344+00:00
+# action_kind: documentary
+
+This row records a parity gap found by comparing the platform against a
+public reference implementation of the same problem domain. The row is not
+implemented yet, so this file is a documentary record and not an executed
+acceptance run. It exists so the row has the evidence file every row must
+have, and it can never promote the row: the validator rejects a documentary
+log as support for a production-ready status.

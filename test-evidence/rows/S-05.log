@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-05
+# area: Evidence and reproducibility
+# requirement: Token-efficiency measurement comparing full-corpus tokens against graph-query tokens for five review-style questions on a retained generated corpus, publishing the ratio with corpus size, charging the graph route for reading the files its answer names, and measuring the size dependence rather than asserting it
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/benchmark/test_token_efficiency.py -q
+# generated_at: 2026-08-05T03:46:06.309208+00:00
+# action_kind: pytest
+..........                                                               [100%]
+10 passed in 6.17s

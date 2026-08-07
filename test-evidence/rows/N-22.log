@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-22
+# area: Source-code plane
+# requirement: Separate parsing from post-processing so flow detection, community detection, and index rebuilding run as a named stage that can be re-run on its own, skipped, or reduced, with the level actually applied reported in the ingest result
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_postprocess_stage.py -q
+# generated_at: 2026-08-06T16:25:01.987485+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_postprocess_stage.py
+# exit_code: 0
+................                                                         [100%]
+16 passed in 0.90s

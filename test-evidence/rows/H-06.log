@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: H-06
+# area: Orchestration
+# requirement: Evidence validation agent
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_orchestration.py -q
+# generated_at: 2026-08-04T03:43:48.849821+00:00
+# action_kind: pytest
+.......                                                                  [100%]
+7 passed in 1.04s

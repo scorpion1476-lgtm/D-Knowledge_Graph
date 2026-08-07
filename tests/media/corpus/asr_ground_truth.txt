@@ -1,0 +1,4 @@
+the knowledge graph stores sources documents and claims
+the quick brown fox jumps over the lazy dog
+local first and air gapped by default
+review the confidence formula and the evidence ledger

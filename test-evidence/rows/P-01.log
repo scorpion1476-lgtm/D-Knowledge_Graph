@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: P-01
+# area: Perception and flow enrichment
+# requirement: Video keyframe and scene detection with timecodes
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/media/test_keyframes.py::test_scene_detection_finds_multiple_keyframes -q
+# generated_at: 2026-08-04T03:46:33.560653+00:00
+# action_kind: pytest
+.                                                                        [100%]
+1 passed in 0.35s

@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-07-31T08:05:00Z",
+  "attempts": [
+    {
+      "category": "HTTP MCP validation",
+      "action": "pytest tests/integration/test_mcp_http.py",
+      "outcome": "passed",
+      "detail": "Loopback socket bind succeeded (sandbox disabled). All 5 HTTP MCP tests ran: health endpoint, tools/list via loopback, size limit rejection, unauthorized denied when token required, invalid JSON returns 400.",
+      "affected_rows": ["F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09"]
+    },
+    {
+      "category": "Container validation",
+      "action": "bash scripts/run_container_validate.sh docker",
+      "outcome": "passed",
+      "detail": "Container built with unique tag dkg-validate-20260731t073801z under isolated project, ran with --network none, invoked dkg status successfully, and cleaned up only the image this run created. No other Docker project state touched.",
+      "evidence": "test-evidence/container/dkg-validate-20260731t073801z.log",
+      "affected_rows": ["F-10", "L-02", "L-05"]
+    },
+    {
+      "category": "Dependency vulnerability audit",
+      "action": "bash scripts/run_pip_audit.sh",
+      "outcome": "passed",
+      "detail": "pip-audit 2.10.1 audited the D-Knowledge_Graph project venv against PyPA advisory DB. No known vulnerabilities found in any of the 16 packages installed for the project (dev tools plus one editable install).",
+      "evidence": "test-evidence/pip_audit.txt",
+      "affected_rows": ["K-06"]
+    },
+    {
+      "category": "GitHub Actions CI",
+      "action": "push to feature/production-foundation triggers .github/workflows/ci.yml",
+      "outcome": "matrix run on record",
+      "detail": "Workflow runs across Ubuntu, macOS, Windows for Python 3.10/3.11/3.12. Runs and status visible under gh run list --repo scorpion1476-lgtm/D-Knowledge_Graph.",
+      "affected_rows": ["K-09"]
+    },
+    {
+      "category": "Signed release",
+      "action": "signature production",
+      "outcome": "blocked",
+      "exact_error": "no signing key present in this environment",
+      "affected_rows": ["K-12"]
+    },
+    {
+      "category": "Remote MCP client validation",
+      "action": "third-party MCP client handshake",
+      "outcome": "blocked",
+      "exact_error": "no independent third-party MCP-capable client available in this environment",
+      "affected_rows": ["F-12"]
+    },
+    {
+      "category": "Windows host exercise",
+      "action": "native Windows run outside a container",
+      "outcome": "partial",
+      "detail": "The CI matrix does run on windows-latest and exercises the Windows code path. A bare Windows workstation was not available to us here.",
+      "affected_rows": ["L-03"]
+    },
+    {
+      "category": "Git init and GitHub publication",
+      "action": "bash scripts/publish_github.sh",
+      "outcome": "passed",
+      "detail": "Initialised git, created branch feature/production-foundation, committed all files, and pushed to a new PRIVATE repository under the authenticated GitHub account. Repo did not previously exist; guard confirmed. No force-push.",
+      "repo_url": "https://github.com/scorpion1476-lgtm/D-Knowledge_Graph",
+      "branch": "feature/production-foundation"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: C-06
+# area: Search
+# requirement: Graph neighbourhood search
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/integration/test_graph.py -q
+# generated_at: 2026-08-04T03:42:31.726156+00:00
+# action_kind: pytest
+..                                                                       [100%]
+2 passed in 0.08s

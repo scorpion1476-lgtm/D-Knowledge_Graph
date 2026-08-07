@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-21
+# area: Delivery and distribution
+# requirement: Give the offline viewer an in-page search that filters and focuses nodes, a community legend whose entries toggle their community, and node sizes scaled by degree, while keeping the file self-contained with no external script, style, font, or image
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_viz_interaction.py -q
+# generated_at: 2026-08-06T21:31:14.495554+00:00
+# action_kind: executed
+# exit_code: 0
+
+................                                                         [100%]
+16 passed in 1.79s

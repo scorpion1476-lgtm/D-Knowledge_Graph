@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-20
+# area: MCP
+# requirement: Accept a verbosity parameter on every analysis and query tool that selects between a compact and a full response shape, with the compact shape the default where a full one would carry large member or edge lists, and the shape chosen reported in the result
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k verbosity
+# generated_at: 2026-08-06T09:23:03.080549+00:00
+# action_kind: executed
+# exit_code: 0
+
+..                                                                       [100%]
+2 passed, 27 deselected in 0.10s

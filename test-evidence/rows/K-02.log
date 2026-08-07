@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-02
+# area: Supply chain
+# requirement: Locked or constrained dependency strategy
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/supply/test_dev_environment.py -q
+# generated_at: 2026-08-07T00:17:37.787124+00:00
+# action_kind: executed
+# exit_code: 0
+
+.................                                                        [100%]
+17 passed in 0.20s

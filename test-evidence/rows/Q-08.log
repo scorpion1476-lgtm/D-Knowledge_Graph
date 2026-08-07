@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-08
+# area: Advanced code analysis
+# requirement: Offer an opt-in change-frequency signal derived from local git history that raises the reported risk of symbols in files that change often, clearly separated from the structural signal and never enabled by default
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_churn_signal.py -q
+# generated_at: 2026-08-06T16:24:51.070003+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_churn_signal.py
+# exit_code: 0
+.......                                                                  [100%]
+7 passed in 2.51s

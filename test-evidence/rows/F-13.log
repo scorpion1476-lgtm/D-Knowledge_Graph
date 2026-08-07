@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: F-13
+# area: MCP
+# requirement: Expose reusable MCP prompt templates for the recurring review workflows (change review, architecture map, guided debugging, developer onboarding, and pre-merge check), each parameterised and each naming the read-only tools it drives
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k prompt
+# generated_at: 2026-08-06T09:22:57.345854+00:00
+# action_kind: executed
+# exit_code: 0
+
+..                                                                       [100%]
+2 passed, 27 deselected in 0.44s

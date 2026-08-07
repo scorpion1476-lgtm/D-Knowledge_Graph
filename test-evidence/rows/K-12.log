@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: K-12
+# area: Supply chain
+# requirement: No signed release claim until real signing runs
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_honest_claims.py -q
+# generated_at: 2026-08-07T01:09:06.554269+00:00
+# action_kind: executed
+# exit_code: 0
+
+...................                                                      [100%]
+19 passed in 0.08s

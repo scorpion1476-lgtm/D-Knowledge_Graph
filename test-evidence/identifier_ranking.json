@@ -1,0 +1,108 @@
+{
+  "after": "identifier boost on, identifier-enriched embedding recipe",
+  "before": "identifier boost off, raw-text embedding recipe",
+  "corpora": {
+    "identifier_corpus": {
+      "core_only": {
+        "after": {
+          "mean_latency_ms": 0.81,
+          "mrr": 1.0,
+          "ndcg@10": 1.0,
+          "recall@10": 1.0
+        },
+        "before": {
+          "mean_latency_ms": 0.31,
+          "mrr": 0.6,
+          "ndcg@10": 0.6,
+          "recall@10": 0.6
+        },
+        "delta": {
+          "mrr": 0.4,
+          "ndcg@10": 0.4,
+          "recall@10": 0.4
+        }
+      },
+      "documents": 12,
+      "full_stack": {
+        "after": {
+          "mean_latency_ms": 92.53,
+          "mrr": 0.975,
+          "ndcg@10": 0.9815,
+          "recall@10": 1.0
+        },
+        "before": {
+          "mean_latency_ms": 85.73,
+          "mrr": 0.975,
+          "ndcg@10": 0.9815,
+          "recall@10": 1.0
+        },
+        "delta": {
+          "mrr": 0.0,
+          "ndcg@10": 0.0,
+          "recall@10": 0.0
+        }
+      },
+      "note": "A code-shaped corpus authored alongside this feature, with ground truth known by construction. Weaker evidence than the retained corpus for exactly that reason; it is reported because the retained corpus cannot exercise identifier matching at all. Each file's text spells its own symbol names, as real code does, so the lexical baseline is not handicapped.",
+      "queries": 20
+    },
+    "retained_corpus": {
+      "core_only": {
+        "after": {
+          "mean_latency_ms": 0.82,
+          "mrr": 0.9375,
+          "ndcg@10": 0.9473,
+          "recall@10": 0.975
+        },
+        "before": {
+          "mean_latency_ms": 0.82,
+          "mrr": 0.9375,
+          "ndcg@10": 0.9473,
+          "recall@10": 0.975
+        },
+        "delta": {
+          "mrr": 0.0,
+          "ndcg@10": 0.0,
+          "recall@10": 0.0
+        }
+      },
+      "documents": 30,
+      "full_stack": {
+        "after": {
+          "mean_latency_ms": 305.42,
+          "mrr": 1.0,
+          "ndcg@10": 1.0,
+          "recall@10": 1.0
+        },
+        "before": {
+          "mean_latency_ms": 243.28,
+          "mrr": 1.0,
+          "ndcg@10": 1.0,
+          "recall@10": 1.0
+        },
+        "delta": {
+          "mrr": 0.0,
+          "ndcg@10": 0.0,
+          "recall@10": 0.0
+        }
+      },
+      "note": "The retained corpus, unchanged. It is prose with no qualified names and no file paths, so the identifier work has nothing to act on. A zero delta here is the expected and correct result, not a failure.",
+      "queries": 40
+    }
+  },
+  "date": "2026-08-06",
+  "embedding_model": "minishlab/potion-base-8M (MIT) via model2vec",
+  "embedding_note": null,
+  "improved_on_identifier_corpus": true,
+  "improved_on_retained_corpus": false,
+  "k": 10,
+  "metrics": [
+    "mrr",
+    "ndcg@10",
+    "recall@10"
+  ],
+  "regressed_anywhere": false,
+  "requirement": "O-09",
+  "reranker_model": "Xenova/ms-marco-MiniLM-L-6-v2 (Apache-2.0) via fastembed",
+  "reranker_note": null,
+  "seed": 0
+}

@@ -1,0 +1,102 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.DS_Store
+node_modules/
+*.log
+*.tmp
+.tox/
+site/
+
+# D-Knowledge_Graph runtime data
+.dkg/
+data/
+*.db
+*.db-wal
+*.db-shm
+tmp/
+
+# Pre-staged local model weights (never committed; staged by
+# scripts/prestage_models.py, referenced by DKG_EMBEDDING_MODEL and
+# DKG_RERANKER_CACHE, loaded local-files-only at runtime).
+models/
+
+# Test evidence is deliberately checked in as text summaries
+!test-evidence/
+test-evidence/*.raw
+# Per-row acceptance logs are tracked evidence (they would otherwise match *.log)
+!test-evidence/rows/*.log
+
+# Credentials and secrets (defense in depth; none of these should ever
+# be committed, so exclude the common shapes before an accidental add).
+credentials.json
+*.key
+*.pem
+id_rsa
+id_rsa.*
+.aws/credentials
+secrets.yaml
+secrets.yml
+*.p12
+*.pfx
+
+# Internal planning documents: local-only, never tracked
+.internal-planning/
+
+# Pre-staged external language servers (npm-staged; external processes over stdio,
+# never Python-linked). Not committed.
+tools/lsp/
+
+# Internal process documents: local-only, never tracked (same rule as
+# .internal-planning/). They record internal narrative and carry identifiers
+# that must not reach the public surface.
+PUBLIC_READINESS_REPORT.md
+FINAL_AUTOMATION_PLAN.md
+FINAL_AUTOMATION_REPORT.md
+
+# The end-to-end report is internal process narrative, same rule as the others.
+FINAL_END_TO_END_REPORT.md
+
+# Internal build-journey reports: wave, step, part, fix, gap, and verification
+# narratives of how the project was built. They are working notes, not product
+# documentation, so they stay local. The patterns are deliberately broad enough
+# that a new one cannot arrive tracked by accident. What a reader needs instead
+# lives in CHANGELOG.md, docs/, and the requirements matrix.
+FINAL_FIX_REPORT.md
+/PARITY_*.md
+/WAVE_*.md
+/*_FIX_REPORT.md
+/*_GAP_REPORT.md
+/*_VERIFICATION_REPORT.md
+/*_STEP*_REPORT.md
+
+# The final polish report is a local record of one run's decisions, in the same
+# class as the others: internal process narrative, not part of the product's
+# public surface.
+FINAL_POLISH_REPORT.md
+
+# The republish report is a local record for the maintainer of the history
+# rewrite that produced the published commit. It is process narrative about the
+# repository rather than product documentation, so it follows the same rule.
+REPUBLISH_REPORT.md
+
+# Assistant tooling configuration: local-only, never tracked. These configure an
+# editor on this machine and say nothing about the product. Not to be confused
+# with src/dkg/mcp/, which supports Claude Code, Claude Desktop, Cursor, and
+# Windsurf as target tools; that is a shipped feature and stays tracked.
+/CLAUDE.md
+.claude/

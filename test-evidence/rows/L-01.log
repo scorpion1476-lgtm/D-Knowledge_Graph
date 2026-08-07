@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-01
+# area: Cross platform
+# requirement: macOS support
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/e2e -q
+# generated_at: 2026-08-04T03:45:21.122721+00:00
+# action_kind: pytest
+..........                                                               [100%]
+10 passed in 2.86s

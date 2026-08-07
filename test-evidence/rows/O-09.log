@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: O-09
+# area: Retrieval and graph enrichment
+# requirement: Boost ranking with identifiers extracted from the query (dotted, snake-case, and camel-case tokens matched against qualified names) and enrich the text an entity is embedded from with its dotted qualified form, its word-split identifier, and its enclosing directory, with the measured before-and-after retrieval scores published
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/retrieval/test_identifier_ranking.py -q
+# generated_at: 2026-08-06T21:31:27.957168+00:00
+# action_kind: executed
+# exit_code: 0
+
+...............................                                          [100%]
+31 passed in 0.22s

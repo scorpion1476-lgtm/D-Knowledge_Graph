@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-12
+# area: UX and docs
+# requirement: Publish a contributor guide covering development in a clone, the test and gate commands, the coding conventions, and the standing licence and dependency rules a change must satisfy
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_contributing.py -q
+# generated_at: 2026-08-06T21:31:22.286198+00:00
+# action_kind: executed
+# exit_code: 0
+
+......................                                                   [100%]
+22 passed in 0.04s

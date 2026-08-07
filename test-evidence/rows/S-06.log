@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-06
+# area: Evidence and reproducibility
+# requirement: Blocking forbidden-identifier scan over the tracked tree, untracked non-ignored files, zip-container document parts, and the full history of every local ref, storing only one-way digests so the deny-list is safe to commit and a report can name a file without printing the term
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_scrub_scan.py -q
+# generated_at: 2026-08-05T08:07:32.986345+00:00
+# action_kind: pytest
+............                                                             [100%]
+12 passed in 21.50s

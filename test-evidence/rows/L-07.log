@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: L-07
+# area: Cross platform
+# requirement: Offline mode test
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/e2e/test_offline_mode.py -q
+# generated_at: 2026-08-04T03:46:05.094971+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 1.31s

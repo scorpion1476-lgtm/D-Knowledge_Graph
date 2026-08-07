@@ -1,0 +1,12 @@
+- name: Create directory
+  ansible.builtin.file:
+    path: /opt/app
+    state: directory
+
+- name: Copy config
+  ansible.builtin.copy:
+    src: app.conf
+    dest: /opt/app/app.conf
+
+- name: Import handlers
+  import_tasks: handlers.yml

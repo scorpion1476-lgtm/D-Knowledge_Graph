@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: S-09
+# area: Evidence and reproducibility
+# requirement: Pre-publish forbidden-identifier gate that runs over every local ref before any git or gh command and refuses to publish on a hit, with the same every-ref scan enforced by the project-local completion gate
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/security/test_scrub_gate_is_all_refs.py -q
+# generated_at: 2026-08-05T08:57:38.191884+00:00
+# action_kind: pytest
+.....                                                                    [100%]
+5 passed in 22.45s

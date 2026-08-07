@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-24
+# area: Delivery and distribution
+# requirement: Run the multi-repository watcher as a managed background service: start, stop, restart, status, and log subcommands, one supervised worker per repository, a process-identity file so a second start cannot double-run, per-repository log files, reconciliation when the registry changes, and a health check that restarts a dead worker
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_daemon_lifecycle.py -q
+# generated_at: 2026-08-07T07:47:46.262275+00:00
+# action_kind: executed
+# exit_code: 0
+
+............................                                             [100%]
+28 passed in 4.77s

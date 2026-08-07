@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-01
+# area: Source-code plane
+# requirement: Code parsing via Tree-sitter for a starter language set (Python, JavaScript, Go)
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_parser.py -q
+# generated_at: 2026-08-04T03:46:22.469109+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.03s

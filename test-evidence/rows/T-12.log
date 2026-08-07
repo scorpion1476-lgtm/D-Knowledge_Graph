@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-12
+# area: Graph analysis and review
+# requirement: Answer named directed relationship queries over the code graph, each naming the edge direction it follows: callers of a symbol, callees of a symbol, references to a symbol, modules a file imports, modules that import a file, children of a container, tests covering a symbol, inheritors of a type, and a whole-file summary, with the pattern, the predicate, and the direction reported in the result
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k 'directions or directed or inheritance'
+# generated_at: 2026-08-06T09:23:02.664189+00:00
+# action_kind: executed
+# exit_code: 0
+
+....                                                                     [100%]
+4 passed, 25 deselected in 0.34s

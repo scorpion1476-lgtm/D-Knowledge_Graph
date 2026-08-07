@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: Q-04
+# area: Advanced code analysis
+# requirement: Rank blast-radius results by a weighted impact score derived from per-edge-kind weights and a documented depth decay, relaxing a best-path score per node rather than returning an unordered reachable set, with the weight table and the derivation reported in the result
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_mcp_surface.py -q -k impact_radius
+# generated_at: 2026-08-06T09:23:05.337395+00:00
+# action_kind: executed
+# exit_code: 0
+
+.                                                                        [100%]
+1 passed, 28 deselected in 0.21s

@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: N-18
+# area: Source-code plane
+# requirement: Honour a project-owned indexing ignore file so tracked paths can be excluded from the code graph, with the effective exclusion set reported in the ingest result
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/code/test_ignore_file.py -q
+# generated_at: 2026-08-06T16:24:34.696758+00:00
+# action_kind: pytest
+# command: python -m pytest -q --no-header tests/code/test_ignore_file.py
+# exit_code: 0
+..............                                                           [100%]
+14 passed in 1.00s

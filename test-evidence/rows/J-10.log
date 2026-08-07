@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: J-10
+# area: UX and docs
+# requirement: Publish a complete commands reference covering every command-line subcommand and every MCP tool with its parameters and defaults, checked by a test that fails when a registered subcommand or tool is missing from the document
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/unit/test_docs_commands_complete.py -q
+# generated_at: 2026-08-06T21:31:20.969286+00:00
+# action_kind: executed
+# exit_code: 0
+
+............                                                             [100%]
+12 passed in 0.14s

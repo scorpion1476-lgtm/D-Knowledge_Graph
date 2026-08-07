@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: R-03
+# area: Delivery and distribution
+# requirement: Bundled offline graph visualization with no CDN and no network call
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/delivery/test_viz.py -q
+# generated_at: 2026-08-04T03:46:50.372224+00:00
+# action_kind: pytest
+..                                                                       [100%]
+2 passed in 0.07s

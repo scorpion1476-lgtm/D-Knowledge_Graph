@@ -1,0 +1,10 @@
+# D-Knowledge_Graph row evidence
+# row_id: M-03
+# area: Media plane
+# requirement: Image EXIF and embedded metadata extraction via Pillow
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/media/test_images.py -q
+# generated_at: 2026-08-04T03:46:17.506593+00:00
+# action_kind: pytest
+...                                                                      [100%]
+3 passed in 0.26s

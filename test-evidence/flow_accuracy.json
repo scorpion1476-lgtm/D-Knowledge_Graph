@@ -1,0 +1,46 @@
+{
+  "corpus": "tests/code/corpus/flow",
+  "date": "2026-08-02",
+  "mean_edge_precision": 1.0,
+  "mean_edge_recall": 1.0,
+  "note": "Structural, over-approximate flow tracing (name-based resolution). Type-aware, dataflow, and taint refinements deferred to Wave 4. Corpus is small and deliberately unambiguous; real-world dynamic dispatch is not represented.",
+  "per_language": {
+    "go": {
+      "corpus_functions": 14,
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "entry": "app.go::HandleRequest",
+      "flow_chains": 6,
+      "flow_reached_recall": 1.0,
+      "ground_truth_edges": 14,
+      "language": "go",
+      "traced_edges": 14
+    },
+    "javascript": {
+      "corpus_functions": 14,
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "entry": "app.js::handleRequest",
+      "flow_chains": 6,
+      "flow_reached_recall": 1.0,
+      "ground_truth_edges": 14,
+      "language": "javascript",
+      "traced_edges": 14
+    },
+    "python": {
+      "corpus_functions": 14,
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "entry": "app.py::handle_request",
+      "flow_chains": 6,
+      "flow_reached_recall": 1.0,
+      "ground_truth_edges": 14,
+      "language": "python",
+      "traced_edges": 14
+    }
+  },
+  "wave": "3b"
+}

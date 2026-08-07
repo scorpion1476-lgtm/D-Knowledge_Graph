@@ -1,0 +1,444 @@
+{
+  "cases_total": 18,
+  "claims_extracted": 37,
+  "claims_scanned": 37,
+  "corpus": "contradiction-heldout-v1",
+  "corpus_path": "tests/evidence/corpus/contradiction_heldout.json",
+  "false_positive_signals": 2,
+  "independence_caveat": "Honest limits on how held-out this is. The first nine cases were written by the same author as the fix and, for the three paraphrase positives, follow the same 'The X for Y is N' against 'Y uses M X' shape as the planted pair with different nouns; the three original negatives are the three guards the implementation's own docstring names. That makes them a regression suite more than an independent sample. The six adversarial cases (N4 through N6, P7 through P9) were written by a reviewer working from the code with the opposite incentive, and four of the six still fail. N7, N8 and N9 came from a SECOND adversarial review and are the most valuable cases here, because they cover the shape the corpus had been missing altogether: two different subjects distinguished by a WORD rather than a numeral. Without them, a relaxation of topic matching measured as free. With them it measures as precision 0.5294, and it was reverted. One change has been made to the comparator in response to this corpus, unit-aware numeric comparison prompted by N4 and P7, and four stative verbs were added to the claim extractor; the rest of what this corpus prompted was measured and rejected.",
+  "known_false_positives": [
+    "N5-qualified-exception",
+    "N6-incidental-negation"
+  ],
+  "missed_real_disagreements": [
+    "P6-retention-verb-outside-pattern-set",
+    "P8-adjective-drift",
+    "P9-attribute-noun-dropped"
+  ],
+  "must_stay_silent": 9,
+  "pair_comparisons": 25,
+  "per_case": [
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_queue_11.md",
+        "heldout_queue_12.md"
+      ],
+      "expect_detected": false,
+      "id": "N1-different-subjects",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "Two different queues holding different values. The wording is nearly identical to a true contradiction, so this fails if subject identifiers are not required to match."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_node_cache.md",
+        "heldout_node_errors.md"
+      ],
+      "expect_detected": false,
+      "id": "N2-same-subject-different-attribute",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "One subject, two unrelated numeric attributes. This fails if grouping is done on the subject alone without requiring the attribute to match."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_billing_design.md",
+        "heldout_billing_runbook.md"
+      ],
+      "expect_detected": false,
+      "id": "N3-agreement-not-contradiction",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "The same value stated two different ways. Grouping should pair these, and the comparator should then say nothing, so this checks that the wider grouping did not turn agreement into a false alarm."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_gateway_deadline_a.md",
+        "heldout_gateway_deadline_b.md"
+      ],
+      "expect_detected": false,
+      "id": "N4-same-quantity-different-units",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "The same deadline stated in two units. Before the comparator understood units this was reported as a numeric disagreement of 5 against 5000, which is a false alarm on completely ordinary documentation."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_retry_batch.md",
+        "heldout_retry_general.md"
+      ],
+      "expect_detected": true,
+      "id": "N5-qualified-exception",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "different numeric values: 3.0 vs 5.0",
+      "route": "same-subject-entity",
+      "score": 0.7,
+      "why": "A KNOWN FALSE POSITIVE, kept in the corpus so the published precision counts it. The two statements agree: one states the general budget and the other states the budget on a named path. The comparator sees 5 against 3 and reports a conflict. Detecting that a qualifier scopes a claim needs more than lexical comparison and is not implemented."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_billing_status_a.md",
+        "heldout_billing_status_b.md"
+      ],
+      "expect_detected": true,
+      "id": "N6-incidental-negation",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "negation asymmetry",
+      "route": "same-subject-entity",
+      "score": 0.5,
+      "why": "A KNOWN FALSE POSITIVE. Both documents say the API is available. One of them happens to contain the word 'no' in an unrelated clause, and the negation signal fires on the asymmetry. The negation test does not check what the negation attaches to."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_gateway_cache.md",
+        "heldout_router_cache.md"
+      ],
+      "expect_detected": false,
+      "id": "N7-different-subjects-distinguished-by-a-word",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "Contributed by a second adversarial review, and it is the case the corpus was missing entirely. N1 distinguishes its two subjects by a NUMERAL, which the subject-identifier gate rejects before topic matching is ever reached, so until now nothing here tested what happens when two different subjects are distinguished by a WORD. A gateway is not a router and these two statements do not disagree."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_transfer_down.md",
+        "heldout_transfer_up.md"
+      ],
+      "expect_detected": false,
+      "id": "N8-opposite-directions-are-not-a-disagreement",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "Also from the second adversarial review. Upload and download are different limits, not two claims about one limit. One differing word again, and again the two statements are both true."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_retry_api.md",
+        "heldout_retry_worker.md"
+      ],
+      "expect_detected": false,
+      "id": "N9-same-attribute-different-component",
+      "missed_real_disagreement": false,
+      "real_disagreement": false,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "Also from the second adversarial review. The same attribute on two named components. This is the shape a relaxed topic rule gets wrong most easily, because everything matches except the one word that decides the whole meaning."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_gateway_design.md",
+        "heldout_gateway_runbook.md"
+      ],
+      "expect_detected": true,
+      "id": "P1-gateway-timeout",
+      "missed_real_disagreement": false,
+      "real_disagreement": true,
+      "reason": "different time values: 30 vs 5 (30.0 vs 5.0 in base units)",
+      "route": "paraphrase",
+      "score": 0.7,
+      "why": "Same attribute of the same subject, stated with a different predicate and a different subject phrasing. This is the paraphrase shape the fix targets, in an unrelated domain."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_upload_limits.md",
+        "heldout_upload_service.md"
+      ],
+      "expect_detected": true,
+      "id": "P2-upload-size",
+      "missed_real_disagreement": false,
+      "real_disagreement": true,
+      "reason": "different size values: 10 vs 25 (10000000.0 vs 25000000.0 in base units)",
+      "route": "paraphrase",
+      "score": 0.7,
+      "why": "Paraphrase where the disagreeing statement sits inside a markdown list item rather than a paragraph, so the block segmentation is exercised as well as the grouping."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_shard_runbook.md",
+        "heldout_shard_topology.md"
+      ],
+      "expect_detected": true,
+      "id": "P3-shard-replicas",
+      "missed_real_disagreement": false,
+      "real_disagreement": true,
+      "reason": "different numeric values: 5.0 vs 3.0",
+      "route": "paraphrase",
+      "score": 0.7,
+      "why": "Containment runs the other way here: the shorter subject belongs to the claim with the longer topic, so the pair is only found if candidate seeding scans from both ends."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_admin_endpoint.md",
+        "heldout_admin_review.md"
+      ],
+      "expect_detected": true,
+      "id": "P4-admin-negation",
+      "missed_real_disagreement": false,
+      "real_disagreement": true,
+      "reason": "negation asymmetry",
+      "route": "same-subject-entity",
+      "score": 0.5,
+      "why": "Negation across two documents with an identical subject. Covered by the original same-subject-entity route, kept so the fix cannot be shown to have broken it."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_cluster_audit.md",
+        "heldout_cluster_state.md"
+      ],
+      "expect_detected": true,
+      "id": "P5-cluster-antonym",
+      "missed_real_disagreement": false,
+      "real_disagreement": true,
+      "reason": "antonym pair: 'enabled' vs 'disabled'",
+      "route": "same-subject-entity",
+      "score": 0.8,
+      "why": "Antonym pair across two documents, both of which start with a heading. Before the fix the heading alone was enough to stop any claim being extracted."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_audit_design.md",
+        "heldout_audit_policy.md"
+      ],
+      "expect_detected": false,
+      "id": "P6-retention-verb-outside-pattern-set",
+      "missed_real_disagreement": true,
+      "real_disagreement": true,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "A real disagreement the scanner does not see, and the corpus records an attempt to make it see one. The second document uses the verb 'retains'. That verb was added to the claim extractor and is still there, so a claim IS now produced; what still fails is the pairing, because 'retention' and 'records' leave each topic with one token the other lacks. Catching it needed one token of slack in topic matching, which was tried, measured, and reverted: see N7, N8 and N9 for what the slack cost."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": true,
+      "documents": [
+        "heldout_deadline_design.md",
+        "heldout_deadline_runbook.md"
+      ],
+      "expect_detected": true,
+      "id": "P7-unit-scale-disagreement",
+      "missed_real_disagreement": false,
+      "real_disagreement": true,
+      "reason": "different time values: 30 vs 5 (30.0 vs 300.0 in base units)",
+      "route": "same-subject-entity",
+      "score": 0.7,
+      "why": "A real disagreement written in two different units of the same dimension. Comparing bare numbers reads 30 against 5 and gets the direction of the disagreement wrong; the values have to be converted before they are compared."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_shard9_runbook.md",
+        "heldout_shard9_topology.md"
+      ],
+      "expect_detected": false,
+      "id": "P8-adjective-drift",
+      "missed_real_disagreement": true,
+      "real_disagreement": true,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "Contributed by an adversarial review trying to break the matcher, and it does. One word differs between the two topics ('replica' against 'replicated'), so neither topic contains the other and the paraphrase route never pairs them. Topic containment is lexical; this is what that costs. One token of slack catches it, and was reverted because the same slack reports N7, N8 and N9 as contradictions."
+    },
+    {
+      "agrees_with_expectation": true,
+      "detected": false,
+      "documents": [
+        "heldout_pool_limits.md",
+        "heldout_pool_service.md"
+      ],
+      "expect_detected": false,
+      "id": "P9-attribute-noun-dropped",
+      "missed_real_disagreement": true,
+      "real_disagreement": true,
+      "reason": "no signal",
+      "route": null,
+      "score": null,
+      "why": "Also from the adversarial review, and the case that settles the argument. The second document says 'a pool of 50 connections' and drops the word 'size' the first document's subject carries. Lexically this is the SAME SHAPE as N7, where a gateway and a router are different subjects: matching tokens everywhere except one word that decides the meaning. No threshold separates P9 from N7, so no relaxation catches this without also inventing that one. It stays a miss, in the denominator."
+    }
+  ],
+  "precision": 0.75,
+  "real_disagreements": 9,
+  "recall": 0.6667,
+  "recall_note": "Recall is 6 of 9 real disagreements, and precision is 6 of 8 signals returned. The secondary figure restricts the denominator to the 6 cases whose verbs the claim extractor recognises at all, and exists only so a failure of extraction stays distinguishable from a failure of matching. The headline figures are the unrestricted ones. Nothing is excluded to improve either number: every miss and every false positive is in the corpus, labelled, and counted. Recall reaching 1.0 does not mean the scanner is complete; it means this corpus no longer contains a disagreement it misses, and three of those cases stopped being misses because the scanner was changed in response to them. See independence_caveat.",
+  "recall_within_extractor_pattern_set": 1.0,
+  "scan_truncated": false,
+  "signals": [
+    {
+      "cases": [
+        "P4-admin-negation"
+      ],
+      "documents": [
+        "heldout_admin_endpoint.md",
+        "heldout_admin_review.md"
+      ],
+      "left_object": "not public",
+      "reason": "negation asymmetry",
+      "right_object": "public",
+      "route": "same-subject-entity",
+      "score": 0.5
+    },
+    {
+      "cases": [
+        "N6-incidental-negation"
+      ],
+      "documents": [
+        "heldout_billing_status_a.md",
+        "heldout_billing_status_b.md"
+      ],
+      "left_object": "available in every region",
+      "reason": "negation asymmetry",
+      "right_object": "available in every region with no scheduled downtime",
+      "route": "same-subject-entity",
+      "score": 0.5
+    },
+    {
+      "cases": [
+        "P5-cluster-antonym"
+      ],
+      "documents": [
+        "heldout_cluster_audit.md",
+        "heldout_cluster_state.md"
+      ],
+      "left_object": "disabled",
+      "reason": "antonym pair: 'enabled' vs 'disabled'",
+      "right_object": "enabled",
+      "route": "same-subject-entity",
+      "score": 0.8
+    },
+    {
+      "cases": [
+        "P7-unit-scale-disagreement"
+      ],
+      "documents": [
+        "heldout_deadline_design.md",
+        "heldout_deadline_runbook.md"
+      ],
+      "left_object": "30 seconds",
+      "reason": "different time values: 30 vs 5 (30.0 vs 300.0 in base units)",
+      "right_object": "5 minutes",
+      "route": "same-subject-entity",
+      "score": 0.7
+    },
+    {
+      "cases": [
+        "P1-gateway-timeout"
+      ],
+      "documents": [
+        "heldout_gateway_design.md",
+        "heldout_gateway_runbook.md"
+      ],
+      "left_object": "a request timeout of 30 seconds, which the upstream provider recommends",
+      "reason": "different time values: 30 vs 5 (30.0 vs 5.0 in base units)",
+      "right_object": "5 seconds",
+      "route": "paraphrase",
+      "score": 0.7
+    },
+    {
+      "cases": [
+        "N5-qualified-exception"
+      ],
+      "documents": [
+        "heldout_retry_batch.md",
+        "heldout_retry_general.md"
+      ],
+      "left_object": "3 attempts",
+      "reason": "different numeric values: 3.0 vs 5.0",
+      "right_object": "5 attempts on the nightly batch path",
+      "route": "same-subject-entity",
+      "score": 0.7
+    },
+    {
+      "cases": [
+        "P3-shard-replicas"
+      ],
+      "documents": [
+        "heldout_shard_runbook.md",
+        "heldout_shard_topology.md"
+      ],
+      "left_object": "5 replica nodes",
+      "reason": "different numeric values: 5.0 vs 3.0",
+      "right_object": "3 nodes",
+      "route": "paraphrase",
+      "score": 0.7
+    },
+    {
+      "cases": [
+        "P2-upload-size"
+      ],
+      "documents": [
+        "heldout_upload_limits.md",
+        "heldout_upload_service.md"
+      ],
+      "left_object": "10 megabytes",
+      "reason": "different size values: 10 vs 25 (10000000.0 vs 25000000.0 in base units)",
+      "right_object": "a maximum upload size of 25 megabytes",
+      "route": "paraphrase",
+      "score": 0.7
+    }
+  ],
+  "signals_returned": 8,
+  "silent_cases_held": 7,
+  "true_positives": 6,
+  "why": {
+    "advisory": "The scanner is lexical and over-approximate. It groups claims whose topics nest and whose subject identifiers match, then applies a numeric, negation, or antonym test. It is not an entailment model, and its output is a prompt for a human, not a finding.",
+    "held_out": "Every case is in a domain absent from the planted token-cost corpus. One change HAS been made to the comparator in response to these cases, unit-aware numeric comparison prompted by N4 and P7, and four stative verbs were added to the claim extractor after P6; those are general rules rather than patches shaped around one sentence, but the corpus prompted them and saying it did not would be untrue. Everything else this corpus prompted was measured and REJECTED. One token of slack in topic matching takes recall from 6 of 9 to 9 of 9 and was reverted, because with N7, N8 and N9 present it takes precision from 0.75 to 0.5294. Those three cases were added by the review that found it.",
+    "known_limitations": [
+      "Claim extraction recognises fifteen shallow verb patterns. A disagreement stated with any other verb produces no claim and cannot be detected, whatever the grouping does. Widening the set is cheap and does not make the extractor any less shallow.",
+      "The original same-subject-entity route compares any two claims with the same subject entity and the same predicate. Two unrelated numeric facts stated that way (for example 'X has 3 replicas' and 'X has 5 workers') will still raise a signal. That route predates this work and is unchanged.",
+      "Topic matching is lexical. Two claims that share vocabulary without sharing meaning can be grouped, and two paraphrases with no shared vocabulary are never grouped. The one token of slack that catches a paraphrase differing by a single word necessarily also loosens the rule in the other direction; it did not cost precision on this corpus, which is one corpus and not a guarantee."
+    ],
+    "recall_denominator": "All cases labelled a real disagreement, including the three the scanner does not see. Nothing is excluded from the denominator to raise the number, and the two known false positives stay in the precision denominator for the same reason.",
+    "why_recall_is_not_higher": "It could be, and the cost was measured rather than guessed. P9 is 'the connection pool size' against 'a pool of 50 connections in the payment service'. N7 is 'the cache size for the gateway' against 'the cache size for the router'. Lexically those are the same shape: every token matches except one, and that one decides whether the two statements disagree. Any threshold that catches P9 reports N7, so the choice is not between a better and a worse matcher but between missing three real disagreements and inventing three that are not there. A scanner whose output is advisory has to be worth reading; at precision 0.5294 it is not. Separating them needs entailment, which this is not."
+  }
+}

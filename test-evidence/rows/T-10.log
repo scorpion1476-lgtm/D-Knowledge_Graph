@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: T-10
+# area: Graph analysis and review
+# requirement: Offer free-form graph traversal from any node in both breadth-first and depth-first order, bounded by a caller-supplied depth and a token budget, with the budget applied to the serialised result and truncation reported
+# status: PRODUCTION READY
+# acceptance_test: pytest tests/graph/test_analysis_capabilities.py -q -k traversal
+# generated_at: 2026-08-06T09:23:06.240707+00:00
+# action_kind: executed
+# exit_code: 0
+
+...                                                                      [100%]
+3 passed, 20 deselected in 0.23s

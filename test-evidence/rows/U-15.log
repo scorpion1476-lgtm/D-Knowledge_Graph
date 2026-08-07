@@ -1,0 +1,12 @@
+# D-Knowledge_Graph row evidence
+# row_id: U-15
+# area: Token cost and context levers
+# requirement: Measure per-question context reduction on large third-party repositories pinned to explicit commits, publishing the corpus token count, the mean graph answer size, and the reduction per repository, with the median reported as the headline and the best case named as an outlier
+# status: PARTIAL
+# acceptance_test: pytest tests/benchmark/test_token_slices.py -q
+# generated_at: 2026-08-06T08:47:19.467148+00:00
+# action_kind: executed
+# exit_code: 0
+
+..........                                                               [100%]
+10 passed in 0.02s
